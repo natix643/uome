@@ -126,21 +126,26 @@ public class NotificationScheduleReceiver extends BroadcastReceiver {
     }
 
     private void createNotification(Context context, List<Transaction> transactionsToNotify) {
-        NotificationManager notificationManager = (NotificationManager)
-                context.getSystemService(Context.NOTIFICATION_SERVICE);
-        Notification notification = new Notification(R.drawable.ic_stat_notification,
-                context.getString(R.string.notification_title), System.currentTimeMillis());
-        notification.flags |= Notification.FLAG_AUTO_CANCEL;
-        notification.defaults = Notification.DEFAULT_SOUND;
+        NotificationManager notificationManager =
+                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        Intent intent = new Intent(context, ListDebtorsActivity.class);
-        intent.putParcelableArrayListExtra(Constants.SELECTED_TRANSACTIONS,
-                Parcelables.fromTransactions(transactionsToNotify));
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-        String contentTitle = context.getString(R.string.notification_content_title);
-        String contentText = context.getString(R.string.notification_content_text);
-        notification.setLatestEventInfo(context, contentTitle, contentText, pendingIntent);
+        Intent intent = new Intent(context, ListDebtorsActivity.class)
+                .putParcelableArrayListExtra(
+                        Constants.SELECTED_TRANSACTIONS,
+                        Parcelables.fromTransactions(transactionsToNotify));
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Notification notification = new Notification.Builder(context)
+                .setSmallIcon(R.drawable.ic_stat_notification)
+                .setTicker(context.getString(R.string.notification_title))
+                .setContentTitle(context.getString(R.string.notification_content_title))
+                .setContentText(context.getString(R.string.notification_content_text))
+                .setContentIntent(pendingIntent)
+                .setWhen(System.currentTimeMillis())
+                .setAutoCancel(true)
+                .setDefaults(Notification.DEFAULT_SOUND)
+                .getNotification();
+
         notificationManager.notify(0, notification);
     }
 }
