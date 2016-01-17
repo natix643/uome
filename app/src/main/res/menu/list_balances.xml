@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:uome="http://schemas.android.com/apk/res-auto" >
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:uome="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/menu_add_person"
         android:icon="@drawable/ic_action_add_person"
         android:title="@string/menu_add_person"
         uome:showAsAction="always"/>
-    
+
     <item
         android:id="@+id/menu_add_transaction"
         android:icon="@drawable/ic_action_add_transaction"

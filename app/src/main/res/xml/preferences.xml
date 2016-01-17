@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/pref_category_notifications" >
+    <PreferenceCategory android:title="@string/pref_category_notifications">
         <SwitchPreference
             android:defaultValue="false"
             android:key="allow_notifications"
             android:summary="@string/pref_allow_notifications_note"
-            android:title="@string/pref_allow_notifications" />
+            android:title="@string/pref_allow_notifications"/>
 
         <ListPreference
             android:defaultValue="5"
@@ -15,26 +15,26 @@
             android:entryValues="@array/debtAgeValues"
             android:key="debt_age"
             android:summary="@string/pref_debt_age_note"
-            android:title="@string/pref_debt_age" />
+            android:title="@string/pref_debt_age"/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/pref_category_other" >
-        <PreferenceScreen android:title="@string/pref_backup" >
+    <PreferenceCategory android:title="@string/pref_category_other">
+        <PreferenceScreen android:title="@string/pref_backup">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:targetClass="cz.kns.uome.activity.BackupActivity"
-                android:targetPackage="cz.kns.uome" />
+                android:targetPackage="cz.kns.uome"/>
         </PreferenceScreen>
-        <PreferenceScreen android:title="@string/pref_export" >
+        <PreferenceScreen android:title="@string/pref_export">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:targetClass="cz.kns.uome.activity.ExportActivity"
-                android:targetPackage="cz.kns.uome" />
+                android:targetPackage="cz.kns.uome"/>
         </PreferenceScreen>
-        <PreferenceScreen android:title="@string/pref_about" >
+        <PreferenceScreen android:title="@string/pref_about">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:targetClass="cz.kns.uome.activity.AboutActivity"
-                android:targetPackage="cz.kns.uome" />
+                android:targetPackage="cz.kns.uome"/>
         </PreferenceScreen>
     </PreferenceCategory>
 

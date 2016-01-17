@@ -19,47 +19,47 @@ import cz.kns.uome.model.Person;
 
 public class AvatarView extends RelativeLayout {
 
-	private ImageView image;
-	private TextView text;
+    private ImageView image;
+    private TextView text;
 
-	public AvatarView(Context context, AttributeSet attrs) {
-		super(context, attrs);
+    public AvatarView(Context context, AttributeSet attrs) {
+        super(context, attrs);
 
-		LayoutInflater.from(context).inflate(R.layout.avatar_view, this);
+        LayoutInflater.from(context).inflate(R.layout.avatar_view, this);
 
-		image = Views.require(this, R.id.avatarImage);
-		text = Views.require(this, R.id.avatarText);
-	}
+        image = Views.require(this, R.id.avatarImage);
+        text = Views.require(this, R.id.avatarText);
+    }
 
-	public void setPerson(Person person) {
-		boolean hasImage = false;
+    public void setPerson(Person person) {
+        boolean hasImage = false;
 
-		if (!Strings.isNullOrEmpty(person.getImageUri())) {
-			Uri uri = Uri.parse(person.getImageUri());
-			image.setImageURI(uri);
-			hasImage = image.getDrawable() != null;
-		}
+        if (!Strings.isNullOrEmpty(person.getImageUri())) {
+            Uri uri = Uri.parse(person.getImageUri());
+            image.setImageURI(uri);
+            hasImage = image.getDrawable() != null;
+        }
 
-		if (hasImage) {
-			image.setVisibility(View.VISIBLE);
-			text.setVisibility(View.INVISIBLE);
-		} else {
-			text.setVisibility(View.VISIBLE);
-			text.setText(person.getName().substring(0, 1));
-			text.setBackgroundColor(getColor(person.getId()));
+        if (hasImage) {
+            image.setVisibility(View.VISIBLE);
+            text.setVisibility(View.INVISIBLE);
+        } else {
+            text.setVisibility(View.VISIBLE);
+            text.setText(person.getName().substring(0, 1));
+            text.setBackgroundColor(getColor(person.getId()));
 
-			image.setVisibility(View.INVISIBLE);
-		}
-	}
+            image.setVisibility(View.INVISIBLE);
+        }
+    }
 
-	private int getColor(long id) {
-		TypedArray colors = getResources().obtainTypedArray(R.array.material_colors_500);
-		try {
-			int index = Ints.saturatedCast(id) % colors.length();
-			return colors.getColor(index, 0);
-		} finally {
-			colors.recycle();
-		}
-	}
+    private int getColor(long id) {
+        TypedArray colors = getResources().obtainTypedArray(R.array.material_colors_500);
+        try {
+            int index = Ints.saturatedCast(id) % colors.length();
+            return colors.getColor(index, 0);
+        } finally {
+            colors.recycle();
+        }
+    }
 
 }

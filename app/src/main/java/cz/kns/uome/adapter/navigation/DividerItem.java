@@ -9,12 +9,12 @@ import cz.kns.uome.R;
 
 public class DividerItem extends NavigationItem {
 
-	public DividerItem() {
-		super(null);
-	}
+    public DividerItem() {
+        super(null);
+    }
 
-	@Override
-	public View getView(Context context, ViewGroup parent) {
-		return LayoutInflater.from(context).inflate(R.layout.item_drawer_divider, parent, false);
-	}
+    @Override
+    public View getView(Context context, ViewGroup parent) {
+        return LayoutInflater.from(context).inflate(R.layout.item_drawer_divider, parent, false);
+    }
 }

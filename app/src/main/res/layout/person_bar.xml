@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/lighter_gray" >
+        android:background="@color/lighter_gray">
 
         <!-- Avatar -->
 
@@ -15,7 +16,7 @@
             android:id="@+id/avatar"
             android:layout_width="56sp"
             android:layout_height="56sp"
-            android:layout_alignParentLeft="true" />
+            android:layout_alignParentLeft="true"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -24,7 +25,7 @@
             android:paddingBottom="8dp"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
-            android:paddingTop="4dp" >
+            android:paddingTop="4dp">
 
             <!-- Name -->
 
@@ -37,7 +38,7 @@
                 android:paddingRight="12dp"
                 android:singleLine="true"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="?android:attr/textColorPrimary" />
+                android:textColor="?android:attr/textColorPrimary"/>
 
             <!-- Balance -->
 
@@ -46,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <!-- Email -->
 
@@ -59,7 +60,7 @@
                 android:layout_toLeftOf="@+id/hintTextView"
                 android:paddingRight="12dp"
                 android:singleLine="true"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:textColor="?android:attr/textColorSecondary"/>
 
             <!-- Direction hint -->
 
@@ -69,13 +70,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true" />
+                android:layout_alignParentRight="true"/>
         </RelativeLayout>
     </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/light_gray" />
+        android:background="@color/light_gray"/>
 
 </LinearLayout>

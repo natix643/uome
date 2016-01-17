@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp" >
+        android:padding="16dp">
 
         <!-- Name -->
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="16dp" >
+            android:paddingBottom="16dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:contentDescription="@string/hint_group_name"
-                android:src="@drawable/ic_label_group" />
+                android:src="@drawable/ic_label_group"/>
 
             <EditText
                 android:id="@+id/nameEditText"
@@ -30,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="48dp"
                 android:hint="@string/hint_group_name"
-                android:inputType="textCapSentences" />
+                android:inputType="textCapSentences"/>
         </RelativeLayout>
 
         <!-- Description -->
@@ -38,14 +39,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="16dp" >
+            android:paddingBottom="16dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:contentDescription="@string/hint_description"
-                android:src="@drawable/ic_label_description" />
+                android:src="@drawable/ic_label_description"/>
 
             <EditText
                 android:id="@+id/descriptionEditText"
@@ -53,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="48dp"
                 android:hint="@string/hint_description"
-                android:inputType="textCapSentences" />
+                android:inputType="textCapSentences"/>
         </RelativeLayout>
     </LinearLayout>
 

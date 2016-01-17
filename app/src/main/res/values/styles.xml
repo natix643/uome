@@ -36,7 +36,7 @@
         <item name="android:fontFamily" tools:targetApi="16">sans-serif-medium</item>
     </style>
 
-    <style name="Spinner" parent="@android:style/Widget.Holo.Light.Spinner" />
+    <style name="Spinner" parent="@android:style/Widget.Holo.Light.Spinner"/>
 
     <style name="SpinnerClosed">
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>

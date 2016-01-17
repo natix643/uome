@@ -7,13 +7,13 @@
 
     <string name="delete">Smazat</string>
     <string name="edit">Upravit</string>
-    
+
     <string name="button_backup">Zálohovat</string>
     <string name="button_restore">Obnovit</string>
     <string name="button_export">Exportovat</string>
     <string name="button_select_all">Vybrat všechny</string>
     <string name="button_select_none">Zrušit výběr</string>
-        
+
     <string name="menu_add_transaction">Přidat transakci</string>
     <string name="menu_add_group">@string/title_add_group</string>
     <string name="menu_add_person">@string/title_add_person</string>
@@ -89,9 +89,9 @@
     <string name="title_select_directory">Vyberte složku</string>
     <string name="title_about">O aplikaci</string>
     <string name="title_backup">Zálohovat / obnovit</string>
-    
+
     <!-- Tabs -->
-    
+
     <string name="tab_people">Lidé</string>
     <string name="tab_transactions">Transakce</string>
 
@@ -143,7 +143,7 @@
     <string name="export_header_description">Popis</string>
     <string name="export_header_datetime">Datum a čas</string>
     <string name="export_header_balance">Stav konta</string>
-    
+
     <!-- Backup -->
     
     <string name="backup_description_backup"><![CDATA[
@@ -154,9 +154,9 @@
         Data mohou být obnovena ze souboru <b>{0}</b> vytvořeného předchozí zálohou.
         Proces obnovení smaže všechna současná data a nahradí je daty ze záložního souboru!
     ]]></string>
-    
+
     <!-- About -->
-    
+
     <string name="about_version">v. {0}</string>
     <string name="about_copyright">© Pikadorama</string>
     <string name="about_email"><a href="mailto:pikadorama@gmail.com">Kontaktujte nás</a></string>
@@ -173,7 +173,7 @@
     <string name="email_footer">Tento e-mail byl vygenerován aplikací U.O.me (https://play.google.com/store/apps/details?id=cz.kns.uome).</string>
 
     <!-- Toasts -->
-    
+
     <string name="toast_group_added">Skupina byla přidána</string>
     <string name="toast_group_updated">Skupina byla upravena</string>
     <string name="toast_group_deleted">Skupina byla smazána</string>
@@ -206,20 +206,20 @@
     <string name="dialog_overwrite_backup_title">Přepsat starší zálohu?</string>
     <string name="dialog_overwrite_backup_message">Tato složka již obsahuje starší záložní soubor. Chcete ho přepsat?</string>
     <string name="dialog_overwrite_backup_button">Přepsat</string>
-    
+
     <!-- Simple debts -->
-    
+
     <string name="simple_debts_name">Jednoduché dluhy</string>
-    
+
     <!-- Content descriptions -->
-    
+
     <string name="content_description_avatar">Avatar osoby</string>
     <string name="content_description_about_icon">Ikona U.O.me</string>
     <string name="content_description_open_drawer">Otevřít navigaci</string>
     <string name="content_description_close_drawer">Zavřít navigaci</string>
-    
+
     <!-- Amount direction labels -->
-    
+
     <string name="amount_you_owe">Dlužíte</string>
     <string name="amount_you_lent">Dluží vám</string>
     <string name="amount_no_debt">Žádný dluh</string>
@@ -227,7 +227,7 @@
     <string name="amount_gave">@string/button_gave</string>
 
     <!-- Misc -->
-    
+
     <string name="yes">Ano</string>
     <string name="no">Ne</string>
     <string name="close">Zavřít</string>

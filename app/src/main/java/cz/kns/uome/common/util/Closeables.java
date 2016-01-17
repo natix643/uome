@@ -8,17 +8,17 @@ import android.database.Cursor;
 @Deprecated
 public class Closeables {
 
-	private Closeables() {}
+    private Closeables() {}
 
-	/**
-	 * Closes the given {@link Cursor}. If it is null, this method does nothing.
-	 * 
-	 * @param cursor
-	 */
-	public static void close(Cursor cursor) {
-		if (cursor != null) {
-			cursor.close();
-		}
-	}
+    /**
+     * Closes the given {@link Cursor}. If it is null, this method does nothing.
+     *
+     * @param cursor
+     */
+    public static void close(Cursor cursor) {
+        if (cursor != null) {
+            cursor.close();
+        }
+    }
 
 }

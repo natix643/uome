@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/list_item_background"
@@ -7,11 +8,11 @@
     android:minHeight="64dp"
     android:orientation="vertical"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <!-- Person -->
 
@@ -25,7 +26,7 @@
             android:paddingRight="12dp"
             android:singleLine="true"
             android:textColor="?android:attr/textColorPrimary"
-            android:textSize="@dimen/text_size_list_primary" />
+            android:textSize="@dimen/text_size_list_primary"/>
 
         <!-- Amount -->
 
@@ -36,12 +37,12 @@
             android:layout_alignParentRight="true"
             android:gravity="right"
             android:singleLine="true"
-            android:textSize="@dimen/text_size_list_primary" />
+            android:textSize="@dimen/text_size_list_primary"/>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <!-- Description -->
 
@@ -54,7 +55,7 @@
             android:paddingRight="12dp"
             android:singleLine="true"
             android:textColor="?android:attr/textColorSecondary"
-            android:textSize="@dimen/text_size_list_secondary" />
+            android:textSize="@dimen/text_size_list_secondary"/>
 
         <!-- Date & time -->
 
@@ -64,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:textColor="?android:attr/textColorSecondary"
-            android:textSize="@dimen/text_size_list_secondary" />
+            android:textSize="@dimen/text_size_list_secondary"/>
     </RelativeLayout>
 
 </LinearLayout>

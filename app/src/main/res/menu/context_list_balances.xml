@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/menu_add_transaction"
         android:icon="@drawable/ic_action_add_transaction"
         android:title="@string/menu_add_transaction"/>
-    
+
     <item
         android:id="@+id/menu_settle_debt"
         android:icon="@drawable/ic_action_settle_debt"
         android:title="@string/menu_settle_debt"/>
-    
+
     <item
         android:id="@+id/menu_send_email_with_debt"
         android:icon="@drawable/ic_action_send_email"
         android:title="@string/menu_send_email_with_debt"/>
-    
+
     <item
         android:id="@+id/menu_edit"
         android:icon="@drawable/ic_action_edit"
         android:title="@string/menu_edit"/>
-    
+
     <item
         android:id="@+id/menu_delete"
         android:icon="@drawable/ic_action_delete"

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="48dp"
     android:background="@drawable/drawer_item_background"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp">
 
     <TextView
         android:id="@+id/titleTextView"
@@ -14,7 +15,7 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/valueTextView"
-        android:singleLine="true" />
+        android:singleLine="true"/>
 
     <TextView
         android:id="@+id/valueTextView"
@@ -24,6 +25,6 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
-        android:singleLine="true" />
+        android:singleLine="true"/>
 
 </RelativeLayout>

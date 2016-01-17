@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:uome="http://schemas.android.com/apk/res-auto" >
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:uome="http://schemas.android.com/apk/res-auto">
 
-    <group android:orderInCategory="50" >
+    <group android:orderInCategory="50">
         <item
             android:id="@+id/menu_edit_group"
             android:title="@string/menu_edit_group"

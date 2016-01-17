@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/list_item_background"
@@ -7,11 +8,11 @@
     android:minHeight="64dp"
     android:orientation="vertical"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <!-- Person -->
 
@@ -23,13 +24,13 @@
             android:layout_marginRight="8dp"
             android:singleLine="true"
             android:textColor="?android:attr/textColorPrimary"
-            android:textSize="@dimen/text_size_list_primary" />
+            android:textSize="@dimen/text_size_list_primary"/>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_toRightOf="@+id/titleTextView" >
+            android:layout_toRightOf="@+id/titleTextView">
 
             <!-- Direction -->
 
@@ -40,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/valueTextView"
                 android:layout_toLeftOf="@+id/valueTextView"
-                android:singleLine="true" />
+                android:singleLine="true"/>
 
             <!-- Amount / Item -->
 
@@ -51,13 +52,13 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="12dp"
                 android:singleLine="true"
-                android:textSize="@dimen/text_size_list_primary" />
+                android:textSize="@dimen/text_size_list_primary"/>
         </RelativeLayout>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <!-- Description -->
 
@@ -70,7 +71,7 @@
             android:layout_toLeftOf="@+id/dateTextView"
             android:singleLine="true"
             android:textColor="?android:attr/textColorSecondary"
-            android:textSize="@dimen/text_size_list_secondary" />
+            android:textSize="@dimen/text_size_list_secondary"/>
 
         <!-- Date & time -->
 
@@ -80,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:textColor="?android:attr/textColorSecondary"
-            android:textSize="@dimen/text_size_list_secondary" />
+            android:textSize="@dimen/text_size_list_secondary"/>
     </RelativeLayout>
 
 </LinearLayout>

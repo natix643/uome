@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="48dp" >
+        android:padding="48dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/content_description_about_icon"
             android:paddingBottom="24dp"
-            android:src="@drawable/ic_about_icon" />
+            android:src="@drawable/ic_about_icon"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,13 +28,13 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="?attr/colorPrimary"
             android:textStyle="bold"
-            tools:ignore="UnusedAttribute" />
+            tools:ignore="UnusedAttribute"/>
 
         <TextView
             android:id="@+id/aboutVersionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="24dp" />
+            android:paddingBottom="24dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,7 +42,7 @@
             android:paddingBottom="12dp"
             android:text="@string/about_copyright"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="?android:attr/textColorPrimary" />
+            android:textColor="?android:attr/textColorPrimary"/>
 
         <TextView
             android:id="@+id/aboutEmailLink"
@@ -49,14 +50,14 @@
             android:layout_height="wrap_content"
             android:paddingBottom="24dp"
             android:text="@string/about_email"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
 
         <Button
             android:id="@+id/aboutLibrariesButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/about_libraries" />
+            android:text="@string/about_libraries"/>
     </LinearLayout>
 
 </ScrollView>

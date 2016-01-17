@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="64sp"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp">
 
     <ImageView
         android:id="@+id/fileIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"/>
 
     <!-- Icon -->
 
@@ -19,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="56dp"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <!-- File name -->
 
@@ -28,11 +29,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="?android:attr/textColorPrimary"
-            android:textSize="@dimen/text_size_list_primary" />
+            android:textSize="@dimen/text_size_list_primary"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
             <!-- Last modified -->
 
@@ -41,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="?android:attr/textColorSecondary"
-                android:textSize="@dimen/text_size_list_secondary" />
+                android:textSize="@dimen/text_size_list_secondary"/>
 
             <!-- File size -->
 
@@ -52,7 +53,7 @@
                 android:layout_marginLeft="24dp"
                 android:layout_toRightOf="@+id/fileLastModified"
                 android:textColor="?android:attr/textColorSecondary"
-                android:textSize="@dimen/text_size_list_secondary" />
+                android:textSize="@dimen/text_size_list_secondary"/>
         </RelativeLayout>
     </LinearLayout>
 

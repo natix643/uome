@@ -35,7 +35,7 @@
         <item name="30">1 month</item>
         <item name="60">2 months</item>
     </string-array>
-    
+
     <string-array name="debtAgeValues">
         <item name="1">1</item>
         <item name="2">2</item>
