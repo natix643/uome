@@ -69,6 +69,7 @@ public abstract class OverviewActivity extends PagerActivity {
 
         Toolbar toolbar = requireView(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         initTabs();
 
