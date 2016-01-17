@@ -149,7 +149,7 @@
                 android:contentDescription="@string/label_datetime"
                 android:src="@drawable/ic_label_datetime"/>
 
-            <cz.kns.uome.common.view.DateTimePicker
+            <cz.pikadorama.uome.common.view.DateTimePicker
                 android:id="@+id/dateTimePicker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

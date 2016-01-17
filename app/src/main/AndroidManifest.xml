@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
+    package="cz.pikadorama.uome"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cz.kns.uome"
     android:installLocation="auto"
     android:versionCode="6"
     android:versionName="2.0.1">
@@ -83,8 +83,8 @@
             android:label="@string/title_about"/>
         <activity
             android:name=".activity.SimpleOverviewActivity"
-            android:theme="@style/Theme.Uome.NoActionBar"
-            android:label="@string/simple_debts_name"/>
+            android:label="@string/simple_debts_name"
+            android:theme="@style/Theme.Uome.NoActionBar"/>
         <activity
             android:name=".activity.GroupOverviewActivity"
             android:theme="@style/Theme.Uome.NoActionBar"/>

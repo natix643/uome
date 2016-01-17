@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <cz.kns.uome.common.view.AvatarView
+    <cz.pikadorama.uome.common.view.AvatarView
         android:id="@+id/avatar"
         android:layout_width="48dp"
         android:layout_height="48dp"/>

@@ -10,7 +10,7 @@
 
     <!-- Avatar -->
 
-    <cz.kns.uome.common.view.AvatarView
+    <cz.pikadorama.uome.common.view.AvatarView
         android:id="@+id/avatar"
         android:layout_width="40dp"
         android:layout_height="40dp"

@@ -21,19 +21,19 @@
         <PreferenceScreen android:title="@string/pref_backup">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:targetClass="cz.kns.uome.activity.BackupActivity"
+                android:targetClass="cz.pikadorama.uome.activity.BackupActivity"
                 android:targetPackage="cz.kns.uome"/>
         </PreferenceScreen>
         <PreferenceScreen android:title="@string/pref_export">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:targetClass="cz.kns.uome.activity.ExportActivity"
+                android:targetClass="cz.pikadorama.uome.activity.ExportActivity"
                 android:targetPackage="cz.kns.uome"/>
         </PreferenceScreen>
         <PreferenceScreen android:title="@string/pref_about">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:targetClass="cz.kns.uome.activity.AboutActivity"
+                android:targetClass="cz.pikadorama.uome.activity.AboutActivity"
                 android:targetPackage="cz.kns.uome"/>
         </PreferenceScreen>
     </PreferenceCategory>
