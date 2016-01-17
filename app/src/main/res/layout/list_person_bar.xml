@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <include
+        android:id="@+id/person_bar"
+        layout="@layout/person_bar" />
+
+    <ListView
+        android:id="@android:id/list"
+        style="@style/List"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/person_bar"
+        android:choiceMode="multipleChoiceModal" />
+
+    <TextView
+        android:id="@android:id/empty"
+        style="@style/EmptyListText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/empty_list_transactions" />
+
+</RelativeLayout>

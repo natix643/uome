@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">U.O.me</string>
+
+    <!-- Buttons, Menus etc. -->
+
+    <string name="delete">Smazat</string>
+    <string name="edit">Upravit</string>
+    
+    <string name="button_backup">Zálohovat</string>
+    <string name="button_restore">Obnovit</string>
+    <string name="button_export">Exportovat</string>
+    <string name="button_select_all">Vybrat všechny</string>
+    <string name="button_select_none">Zrušit výběr</string>
+        
+    <string name="menu_add_transaction">Přidat transakci</string>
+    <string name="menu_add_group">@string/title_add_group</string>
+    <string name="menu_add_person">@string/title_add_person</string>
+    <string name="menu_save">Uložit</string>
+    <string name="menu_done">Hotovo</string>
+    <string name="menu_edit">Upravit</string>
+    <string name="menu_edit_person">Upravit osobu</string>
+    <string name="menu_edit_group">Upravit skupinu</string>
+    <string name="menu_delete">Smazat</string>
+    <string name="menu_delete_person">Smazat osobu</string>
+    <string name="menu_delete_group">Smazat skupinu</string>
+    <string name="menu_select_all">Vybrat všechny</string>
+    <string name="menu_select_none">Zrušit výběr</string>
+    <string name="menu_import_contact">Importovat kontakt</string>
+    <string name="menu_settle_debt">Vyrovnat dluh</string>
+    <string name="menu_settle_transaction">Vyrovnat</string>
+    <string name="menu_send_email_with_debt">Poslat e-mail s dluhem</string>
+    <string name="menu_help">@string/title_help</string>
+    <string name="menu_create_directory">Vytvořit složku</string>
+    <string name="menu_settings">@string/title_settings</string>
+    <string name="menu_filter">Filtrovat</string>
+    <string name="menu_filter_all">Všechny</string>
+    <string name="menu_filter_financial">Finanční</string>
+    <string name="menu_filter_non_financial">Nefinanční</string>
+
+    <!-- Empty list views -->
+
+    <string name="empty_list_transactions">Žádné transakce</string>
+    <string name="empty_list_people">Žádní lidé</string>
+    <string name="empty_list_groups">Žádné skupiny</string>
+
+    <!-- Form hints, labels, buttons -->
+
+    <string name="hint_person_name">Jméno</string>
+    <string name="hint_email">E-mail (nepovinný)</string>
+    <string name="hint_group_name">Jméno</string>
+    <string name="hint_description">Popis (nepovinný)</string>
+    <string name="button_is_financial">Finanční</string>
+    <string name="label_amount">Částka</string>
+    <string name="hint_amount">Částka</string>
+    <string name="hint_total_amount">Celková částka</string>
+    <string name="label_borrowed_item">Předmět</string>
+    <string name="hint_borrowed_item">Půjčený předmět</string>
+    <string name="button_withdrawal">Výběr</string>
+    <string name="button_deposit">Vklad</string>
+    <string name="button_received">Dostal(a)</string>
+    <string name="button_gave">Dal(a)</string>
+    <string name="label_person">Osoba</string>
+    <string name="hint_select_person">Vyberte osobu</string>
+    <string name="label_people">Lidé</string>
+    <string name="hint_select_people">Vyberte lidi</string>
+    <string name="label_datetime">Kdy</string>
+    <string name="label_export_directory">Složka</string>
+    <string name="hint_select_directory">Vyberte složku</string>
+    <string name="label_groups">Skupiny</string>
+
+    <!-- ActionBar titles -->
+
+    <string name="title_app_name">@string/app_name</string>
+    <string name="title_add_person">Přidat osobu</string>
+    <string name="title_add_group">Přidat skupinu</string>
+    <string name="title_add_transaction">Přidat transakci</string>
+    <string name="title_list_groups">Skupiny</string>
+    <string name="title_list_transactions_for_person">Transakce</string>
+    <string name="title_edit_person">Upravit osobu</string>
+    <string name="title_edit_group">Upravit skupinu</string>
+    <string name="title_edit_transaction">Upravit transakci</string>
+    <string name="title_unsettled_debts">Nevyrovnané dluhy</string>
+    <string name="title_select_group">Vyberte skupinu</string>
+    <string name="title_help">Nápověda</string>
+    <string name="title_settings">Nastavení</string>
+    <string name="title_export">Exportovat do CSV</string>
+    <string name="title_select_directory">Vyberte složku</string>
+    <string name="title_about">O aplikaci</string>
+    <string name="title_backup">Zálohovat / obnovit</string>
+    
+    <!-- Tabs -->
+    
+    <string name="tab_people">Lidé</string>
+    <string name="tab_transactions">Transakce</string>
+
+    <!-- Error messages -->
+
+    <string name="error">Chyba</string>
+    <string name="error_no_person">Musíte vybrat osobu</string>
+    <string name="error_no_people">Musíte vybrat alespoň jednu osobu</string>
+    <string name="error_no_name">Musíte zadat jméno</string>
+    <string name="error_no_amount">Musíte zadat kladnou částku</string>
+    <string name="error_no_borrowed_item">Musíte zadat vypůjčený předmět</string>
+    <string name="error_person_exists_in_group">Osoba s tímto jménem již ve skupině existuje</string>
+    <string name="error_group_exists">Skupina s tímto jménem již existuje</string>
+    <string name="error_export">Export selhal. Ujistěte se, že máte správně připojenou SD kartu</string>
+    <string name="error_transaction_deleted">Upravovaná transakce byla smazána spolu s jejím vlastníkem</string>
+    <string name="error_cannot_write_directory">Do této složky nelze zapisovat</string>
+    <string name="error_directory_exists">Složka/soubor s tímto názvem již existuje</string>
+    <string name="error_create_directory">Chyba při vytváření složky</string>
+    <string name="error_backup_failed">Zálohování se nezdařilo</string>
+    <string name="error_missing_backup_file">Tato složka neobsahuje záložní soubor {0}</string>
+
+    <!-- Notifications -->
+
+    <string name="notification_title">U.O.me - notifikace dluhů</string>
+    <string name="notification_content_title">Máte nevyřízené dluhy.</string>
+    <string name="notification_content_text">Klikněte zde pro detaily.</string>
+
+    <!-- Preferences -->
+
+    <string name="pref_category_notifications">Notifikace</string>
+    <string name="pref_allow_notifications">Povolit notifikace</string>
+    <string name="pref_allow_notifications_note">Budete automaticky notifikováni o nevyrovaných dluzích</string>
+    <string name="pref_debt_age">Stáří dluhů</string>
+    <string name="pref_debt_age_note">Nastavte, jak staré mají být dluhy, než vám začnou chodit notifikace.</string>
+    <string name="pref_category_other">Ostatní</string>
+    <string name="pref_export">@string/title_export</string>
+    <string name="pref_backup">Zálohovat / obnovit</string>
+    <string name="pref_about">@string/title_about</string>
+
+    <!-- Export -->
+
+    <string name="export_select_groups">Vyberte skupiny k exportu</string>
+    <string name="export_success">Data úspěšně exportována</string>
+    <string name="export_summary_suffix">souhrn</string>
+    <string name="export_header_person">Osoba</string>
+    <string name="export_header_email">E-mail</string>
+    <string name="export_header_financial">Finanční</string>
+    <string name="export_header_value">Hodnota</string>
+    <string name="export_header_description">Popis</string>
+    <string name="export_header_datetime">Datum a čas</string>
+    <string name="export_header_balance">Stav konta</string>
+    
+    <!-- Backup -->
+    
+    <string name="backup_description_backup"><![CDATA[
+        Při záloze budou všechna vaše současná data uložena do souboru <b>{0}</b>,
+        který bude vytvořen ve vybrané složce.
+    ]]></string>
+    <string name="backup_description_restore"><![CDATA[
+        Data mohou být obnovena ze souboru <b>{0}</b> vytvořeného předchozí zálohou.
+        Proces obnovení smaže všechna současná data a nahradí je daty ze záložního souboru!
+    ]]></string>
+    
+    <!-- About -->
+    
+    <string name="about_version">v. {0}</string>
+    <string name="about_copyright">© Pikadorama</string>
+    <string name="about_email"><a href="mailto:pikadorama@gmail.com">Kontaktujte nás</a></string>
+    <string name="about_libraries">Open-source knihovny</string>
+
+    <!-- E-mail -->
+
+    <string name="email_subject">Seznam transakcí (dluh)</string>
+    <string name="email_amount">Částka: {0}</string>
+    <string name="email_item">Předmět: {0}</string>
+    <string name="email_description">Popis: {0}</string>
+    <string name="email_datetime">Čas: {0}</string>
+    <string name="email_total">Celkem: {0}</string>
+    <string name="email_footer">Tento e-mail byl vygenerován aplikací U.O.me (https://play.google.com/store/apps/details?id=cz.kns.uome).</string>
+
+    <!-- Toasts -->
+    
+    <string name="toast_group_added">Skupina byla přidána</string>
+    <string name="toast_group_updated">Skupina byla upravena</string>
+    <string name="toast_group_deleted">Skupina byla smazána</string>
+    <string name="toast_person_added">Osoba byla přidána</string>
+    <string name="toast_person_updated">Osoba byla upravena</string>
+    <string name="toast_person_deleted">Osoba byla smazána</string>
+    <string name="toast_persons_deleted">Lidé byli smazáni</string>
+    <string name="toast_transaction_added">Transakce byla přidána</string>
+    <string name="toast_transaction_updated">Transakce byla upravena</string>
+    <string name="toast_transactions_deleted">Transakce byly smazány</string>
+    <string name="toast_directory_created">Složka byla vytvořena</string>
+    <string name="toast_backup_successful">Data byla úspěšně zazálohována</string>
+    <string name="toast_restore_successful">Data byla úspěšně obnovena</string>
+
+    <!-- Dialogs -->
+
+    <string name="dialog_delete_group_title">Smazat skupinu?</string>
+    <string name="dialog_delete_group_message">Skupina bude smazána spolu se všemi lidmi a transakcemi.</string>
+    <string name="dialog_delete_person_title">Smazat osobu?</string>
+    <string name="dialog_delete_person_message">Osoba bude smazána se všemi jejími transakcemi.</string>
+    <string name="dialog_delete_persons_title">Smazat vybrané lidi?</string>
+    <string name="dialog_delete_persons_message">Lidé budou smazáni se všemi jejich transakcemi.</string>
+    <string name="dialog_delete_transactions_message">Smazat vybrané transakce?</string>
+    <string name="dialog_select_email_title">Vyberte e-mailovou adresu</string>
+    <string name="dialog_create_directory_title">Vytvořit složku</string>
+    <string name="dialog_create_directory_hint">Jméno</string>
+    <string name="dialog_restore_from_backup_title">Obnovit data?</string>
+    <string name="dialog_restore_from_backup_message">Všechna současná data budou nahrazena daty ze zálohy.</string>
+    <string name="dialog_restore_from_backup_button">Obnovit</string>
+    <string name="dialog_overwrite_backup_title">Přepsat starší zálohu?</string>
+    <string name="dialog_overwrite_backup_message">Tato složka již obsahuje starší záložní soubor. Chcete ho přepsat?</string>
+    <string name="dialog_overwrite_backup_button">Přepsat</string>
+    
+    <!-- Simple debts -->
+    
+    <string name="simple_debts_name">Jednoduché dluhy</string>
+    
+    <!-- Content descriptions -->
+    
+    <string name="content_description_avatar">Avatar osoby</string>
+    <string name="content_description_about_icon">Ikona U.O.me</string>
+    <string name="content_description_open_drawer">Otevřít navigaci</string>
+    <string name="content_description_close_drawer">Zavřít navigaci</string>
+    
+    <!-- Amount direction labels -->
+    
+    <string name="amount_you_owe">Dlužíte</string>
+    <string name="amount_you_lent">Dluží vám</string>
+    <string name="amount_no_debt">Žádný dluh</string>
+    <string name="amount_received">@string/button_received</string>
+    <string name="amount_gave">@string/button_gave</string>
+
+    <!-- Misc -->
+    
+    <string name="yes">Ano</string>
+    <string name="no">Ne</string>
+    <string name="close">Zavřít</string>
+    <string name="bottom_bar_total">Celkem</string>
+    <string name="withdrawal">Výběr</string>
+    <string name="deposit">Vklad</string>
+    <string name="debt_settlement">Vyrovnání dluhu</string>
+
+</resources>

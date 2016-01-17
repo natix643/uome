@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cz.kns.uome"
+    android:installLocation="auto"
+    android:versionCode="6"
+    android:versionName="2.0.1">
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Uome">
+        <activity android:name=".activity.StartupActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".service.NotificationScheduleReceiver"
+            android:process=":notificationScheduler" />
+        <receiver
+            android:name=".service.BootReceiver"
+            android:process=":bootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".activity.AddGroupActivity"
+            android:theme="@style/Theme.Uome.HomeAsCross" />
+        <activity
+            android:name=".activity.GroupListPersonTransactionsActivity"
+            android:label="@string/title_list_transactions_for_person" />
+        <activity
+            android:name=".activity.SimpleListPersonTransactionsActivity"
+            android:label="@string/title_list_transactions_for_person" />
+        <activity
+            android:name=".activity.SimpleAddTransactionActivity"
+            android:theme="@style/Theme.Uome.HomeAsCross" />
+        <activity
+            android:name=".activity.GroupAddTransactionActivity"
+            android:label="@string/title_add_transaction"
+            android:theme="@style/Theme.Uome.HomeAsCross" />
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:label="@string/title_settings" />
+        <activity
+            android:name=".activity.ListPersonsMultichoiceActivity"
+            android:theme="@style/Theme.Uome.HomeAsCross" />
+        <activity
+            android:name=".activity.ListDebtorsActivity"
+            android:label="@string/title_unsettled_debts" />
+        <activity
+            android:name=".activity.AddPersonActivity"
+            android:theme="@style/Theme.Uome.HomeAsCross" />
+        <activity
+            android:name=".activity.HelpActivity"
+            android:label="@string/title_help" />
+        <activity
+            android:name=".activity.ExportActivity"
+            android:label="@string/title_export" />
+        <activity
+            android:name=".activity.BackupActivity"
+            android:label="@string/title_backup" />
+        <activity
+            android:name=".activity.SelectDirectoryActivity"
+            android:label="@string/title_select_directory"
+            android:theme="@style/Theme.Uome.NoActionBarShadow" />
+        <activity
+            android:name=".activity.AboutActivity"
+            android:label="@string/title_about" />
+        <activity
+            android:name=".activity.SimpleOverviewActivity"
+            android:theme="@style/Theme.Uome.NoActionBar"
+            android:label="@string/simple_debts_name" />
+        <activity
+            android:name=".activity.GroupOverviewActivity"
+            android:theme="@style/Theme.Uome.NoActionBar" />
+    </application>
+
+</manifest>

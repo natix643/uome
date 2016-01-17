@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        android:padding="16dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp" >
+
+            <!-- Person -->
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/label_person"
+                android:src="@drawable/ic_label_person" />
+
+            <Spinner
+                android:id="@+id/personSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="48dp"
+                android:prompt="@string/hint_select_person" />
+
+            <!-- Direction -->
+
+            <RadioGroup
+                android:id="@+id/directionRadioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/personSpinner"
+                android:layout_marginLeft="48dp"
+                android:orientation="horizontal"
+                android:paddingTop="8dp" >
+
+                <RadioButton
+                    android:id="@+id/withdrawalRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:checked="true"
+                    android:text="@string/button_received"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <RadioButton
+                    android:id="@+id/depositRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_gave"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </RadioGroup>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp" >
+
+            <!-- Amount / Item label -->
+
+            <ImageView
+                android:id="@+id/amountOrItemLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/label_amount"
+                android:src="@drawable/ic_label_amount" />
+
+            <!-- Amount -->
+
+            <EditText
+                android:id="@+id/amountEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="48dp"
+                android:hint="@string/hint_amount"
+                android:inputType="numberDecimal" />
+
+            <!-- Item -->
+
+            <EditText
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="48dp"
+                android:hint="@string/hint_borrowed_item"
+                android:inputType="textCapSentences"
+                android:visibility="invisible" />
+
+            <!-- Is financial -->
+
+            <CheckBox
+                android:id="@+id/financialTransactionCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/amountEditText"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="8dp"
+                android:checked="true"
+                android:text="@string/button_is_financial"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </RelativeLayout>
+
+        <!-- Description -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/hint_description"
+                android:src="@drawable/ic_label_description" />
+
+            <EditText
+                android:id="@+id/descriptionEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="48dp"
+                android:hint="@string/hint_description"
+                android:inputType="textCapSentences" />
+        </RelativeLayout>
+
+        <!-- Date & time -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/label_datetime"
+                android:src="@drawable/ic_label_datetime" />
+
+            <cz.kns.uome.common.view.DateTimePicker
+                android:id="@+id/dateTimePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="48dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

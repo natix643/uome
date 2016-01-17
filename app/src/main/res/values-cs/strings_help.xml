@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="help_simple_debts_title">Jednoduché dluhy</string>
+    
+    <string name="help_simple_debts_text">
+        <![CDATA[
+        <p>
+        Jednoduché dluhy použijte, pokud chcete pouze evidovat, komu jste půjčili
+        peníze anebo komu je naopak dlužíte.
+        </p>
+        
+        <p>Kromě peněz můžete zaznamenávat i nepeněžní půjčky, například zapůjčení knihy.</p>
+        ]]>
+    </string>
+    
+    <string name="help_group_debts_title">Skupinové dluhy</string>
+    
+    <string name="help_group_debts_text">
+        <![CDATA[
+        <p>
+        Skupinové dluhy jsou vhodné pro jednorázové nebo opakující se hromadné akce,
+        jako jsou např. výlety, party nebo pravidleně hrané karetní hry.
+        </p>
+        
+        <p>
+        Jsou založeny na principu vkladů a výběrů (podobně jako v bance).
+        Každá osoba ve skupině má svůj vlastní virtuální účet, 
+        na který může vkládat nebo ze kterého může vybírat peníze.
+        Vy se tak stáváte jakýmsi správcem společného banku, nicméně do skupiny můžete
+        přidat i sami sebe, pokud se akce také aktivně účastníte.
+        </p>
+        
+        <p>Jednotlivé skupiny jsou vzájemně nezávislé, jejich členové nejsou mezi nimi sdíleni.</p>
+        
+        <p>
+        <b>Příklad:</b><br/>
+        
+        S partou pravidelně hrajete fotbal a platíte za hřiště. Vždy po konci ale musíte vybírat od lidí peníze.
+        S touto aplikací si to mohou stálí lidé předplatit (vloží na svůj účet peníze),
+        a vy pak po akci jen vyberete osoby, které se ten den zúčastnily, zadáte celkovou částku,
+        která je pak rovnoměrně rozdělena mezi všechny účastníky 
+        (z účtu každého účastníka je proveden výběr jeho podílu).
+        </p>
+        ]]>
+    </string>
+
+</resources>

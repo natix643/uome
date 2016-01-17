@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="primary">#AA0000</color>
+    <color name="primary_dark">#880000</color>
+    <!-- Material Red A700 -->
+    <color name="accent">#D50000</color>
+    
+    <color name="negative_amount">#FFFF0000</color>
+    <color name="zero_amount">#FF6B6B6B</color>
+    <color name="positive_amount">#FF27961B</color>
+
+    <color name="lighter_gray">#FFE4E4E4</color>
+    <color name="light_gray">#FFC9C9C9</color>
+    <color name="dark_gray">#FF6B6B6B</color>
+    
+    <color name="drawer_background">#FFF3F3F3</color>
+    
+    <color name="list_item_activated">#FFFFBBBB</color>
+    <color name="drawer_item_activated">#FFD8D8D8</color>
+    
+    <color name="tab_title_disabled">#99FFFFFF</color>
+    
+</resources>

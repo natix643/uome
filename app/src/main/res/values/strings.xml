@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">U.O.me</string>
+
+    <!-- Buttons, Menus etc. -->
+
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    
+    <string name="button_backup">Backup</string>
+    <string name="button_restore">Restore</string>
+    <string name="button_export">Export</string>
+    <string name="button_select_all">Select All</string>
+    <string name="button_select_none">Select None</string>
+    
+    <string name="menu_add_transaction">Add transaction</string>
+    <string name="menu_add_group">@string/title_add_group</string>
+    <string name="menu_add_person">@string/title_add_person</string>
+    <string name="menu_save">Save</string>
+    <string name="menu_done">Done</string>
+    <string name="menu_edit">Edit</string>
+    <string name="menu_edit_person">Edit person</string>
+    <string name="menu_edit_group">Edit group</string>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_delete_person">Delete person</string>
+    <string name="menu_delete_group">Delete group</string>
+    <string name="menu_select_all">Select All</string>
+    <string name="menu_select_none">Select None</string>
+    <string name="menu_import_contact">Import contact</string>
+    <string name="menu_settle_debt">Settle debt</string>
+    <string name="menu_settle_transaction">Settle</string>
+    <string name="menu_send_email_with_debt">Send e-mail with debt</string>
+    <string name="menu_help">@string/title_help</string>
+    <string name="menu_create_directory">Create folder</string>
+    <string name="menu_settings">@string/title_settings</string>
+    <string name="menu_filter">Filter</string>
+    <string name="menu_filter_all">All</string>
+    <string name="menu_filter_financial">Financial</string>
+    <string name="menu_filter_non_financial">Non-financial</string>
+
+    <!-- Empty list views -->
+
+    <string name="empty_list_transactions">No transactions</string>
+    <string name="empty_list_people">No people</string>
+    <string name="empty_list_groups">No groups</string>
+
+    <!-- Form hints, labels, buttons -->
+
+    <string name="hint_person_name">Name</string>
+    <string name="hint_email">E-mail (optional)</string>
+    <string name="hint_group_name">Name</string>
+    <string name="hint_description">Description (optional)</string>
+    <string name="button_is_financial">Financial</string>
+    <string name="label_amount">Amount</string>
+    <string name="hint_amount">Amount</string>
+    <string name="hint_total_amount">Total amount</string>
+    <string name="label_borrowed_item">Item</string>
+    <string name="hint_borrowed_item">Borrowed item</string>
+    <string name="button_withdrawal">Withdrawal</string>
+    <string name="button_deposit">Deposit</string>
+    <string name="button_received">Received</string>
+    <string name="button_gave">Gave</string>
+    <string name="label_person">Person</string>
+    <string name="hint_select_person">Select person</string>
+    <string name="label_people">People</string>
+    <string name="hint_select_people">Select people</string>
+    <string name="label_datetime">When</string>
+    <string name="label_export_directory">Folder</string>
+    <string name="hint_select_directory">Select folder</string>
+    <string name="label_groups">Groups</string>
+
+    <!-- ActionBar titles -->
+
+    <string name="title_app_name">@string/app_name</string>
+    <string name="title_add_person">Add person</string>
+    <string name="title_add_group">Add group</string>
+    <string name="title_add_transaction">Add transaction</string>
+    <string name="title_list_groups">Groups</string>
+    <string name="title_list_transactions_for_person">Transactions</string>
+    <string name="title_edit_person">Edit person</string>
+    <string name="title_edit_group">Edit group</string>
+    <string name="title_edit_transaction">Edit transaction</string>
+    <string name="title_unsettled_debts">Unsettled debts</string>
+    <string name="title_select_group">Select group</string>
+    <string name="title_help">Help</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_export">Export to CSV</string>
+    <string name="title_select_directory">Select folder</string>
+    <string name="title_about">About</string>
+    <string name="title_backup">Backup</string>
+        
+    <!-- Tabs -->
+    
+    <string name="tab_people">People</string>
+    <string name="tab_transactions">Transactions</string>
+
+    <!-- Error messages -->
+
+    <string name="error">Error</string>
+    <string name="error_no_person">You have to select a person</string>
+    <string name="error_no_people">You have to select at least one person</string>
+    <string name="error_no_name">You have to specify a name</string>
+    <string name="error_no_amount">You have to specify a positive amount</string>
+    <string name="error_no_borrowed_item">You have to specify a borrowed item</string>
+    <string name="error_person_exists_in_group">Person with this name already exists in this group</string>
+    <string name="error_group_exists">Group with this name already exists</string>
+    <string name="error_export">Export failed. Make sure that your SD card is connected</string>
+    <string name="error_transaction_deleted">The edited transaction has been deleted with its owner</string>
+    <string name="error_cannot_write_directory">Cannot write into this folder</string>
+    <string name="error_directory_exists">Folder/file with this name already exists</string>
+    <string name="error_create_directory">Error while creating folder</string>
+    <string name="error_backup_failed">Backup failed</string>
+    <string name="error_missing_backup_file">This folder doesn\'\'t contain the backup file {0}</string>
+
+    <!-- Notifications -->
+
+    <string name="notification_title">U.O.me - debts notification</string>
+    <string name="notification_content_title">You have unsettled debts.</string>
+    <string name="notification_content_text">Click here for more details.</string>
+
+    <!-- Preferences -->
+
+    <string name="pref_category_notifications">Notifications</string>
+    <string name="pref_allow_notifications">Allow notifications</string>
+    <string name="pref_allow_notifications_note">You will be periodically notified about unsettled debts</string>
+    <string name="pref_debt_age">Debt age</string>
+    <string name="pref_debt_age_note">Define how old debts should be for notifications (after the period, notifications will occur)</string>
+    <string name="pref_category_other">Other</string>
+    <string name="pref_export">@string/title_export</string>
+    <string name="pref_backup">Backup / Restore</string>
+    <string name="pref_about">@string/title_about</string>
+
+    <!-- Export -->
+
+    <string name="export_select_groups">Select groups to export</string>
+    <string name="export_success">Data successfully exported</string>
+    <string name="export_summary_suffix">summary</string>
+    <string name="export_header_person">Person</string>
+    <string name="export_header_email">E-mail</string>
+    <string name="export_header_financial">Financial</string>
+    <string name="export_header_value">Value</string>
+    <string name="export_header_description">Description</string>
+    <string name="export_header_datetime">Date and time</string>
+    <string name="export_header_balance">Balance</string>
+    
+    <!-- Backup -->
+    
+    <string name="backup_description_backup"><![CDATA[
+        During the backup, all of your current data will be saved into file <b>{0}</b>
+        that will be created in the selected directory. 
+    ]]></string>
+    <string name="backup_description_restore"><![CDATA[
+        Data can be restored from the file <b>{0}</b> that was created by a previous backup.
+        The restoration process deletes all the current data and replaces them with data from the backup file!  
+    ]]></string>
+    
+    <!-- About -->
+    
+    <string name="about_version">v. {0}</string>
+    <string name="about_copyright">© Pikadorama</string>
+    <string name="about_email"><a href="mailto:pikadorama@gmail.com">Contact us</a></string>
+    <string name="about_libraries">Open-source Libraries</string>
+
+    <!-- E-mail -->
+
+    <string name="email_subject">List of transactions (debt)</string>
+    <string name="email_amount">Amount: {0}</string>
+    <string name="email_item">Item: {0}</string>
+    <string name="email_description">Description: {0}</string>
+    <string name="email_datetime">Time: {0}</string>
+    <string name="email_total">Total: {0}</string>
+    <string name="email_footer">This e-mail was generated by U.O.me (https://play.google.com/store/apps/details?id=cz.kns.uome).</string>
+    
+    <!-- Toasts -->
+    
+    <string name="toast_group_added">Group was added</string>
+    <string name="toast_group_updated">Group was updated</string>
+    <string name="toast_group_deleted">Group was deleted</string>
+    <string name="toast_person_added">Person was added</string>
+    <string name="toast_person_updated">Person was updated</string>
+    <string name="toast_person_deleted">Person was deleted</string>
+    <string name="toast_persons_deleted">People were deleted</string>
+    <string name="toast_transaction_added">Transaction was added</string>
+    <string name="toast_transaction_updated">Transaction was updated</string>
+    <string name="toast_transactions_deleted">Transactions were deleted</string>
+    <string name="toast_directory_created">Folder was created</string>
+    <string name="toast_backup_successful">Backup was successful</string>
+    <string name="toast_restore_successful">Restore was successful</string>
+
+    <!-- Dialogs -->
+    
+    <string name="dialog_delete_group_title">Delete group?</string>
+    <string name="dialog_delete_group_message">Group will be deleted with all people and transactions.</string>
+    <string name="dialog_delete_person_title">Delete person?</string>
+    <string name="dialog_delete_person_message">Person will be deleted with all his/her transactions.</string>
+    <string name="dialog_delete_persons_title">Delete selected people?</string>
+    <string name="dialog_delete_persons_message">People will be deleted with all their transactions.</string>
+    <string name="dialog_delete_transactions_message">Delete selected transactions?</string>
+    <string name="dialog_select_email_title">Select e-mail address</string>
+    <string name="dialog_create_directory_title">Create folder</string>
+    <string name="dialog_create_directory_hint">Name</string>
+    <string name="dialog_restore_from_backup_title">Restore data?</string>
+    <string name="dialog_restore_from_backup_message">All current data will be replaced with data from the backup.</string>
+    <string name="dialog_restore_from_backup_button">Restore</string>
+    <string name="dialog_overwrite_backup_title">Overwrite older backup?</string>
+    <string name="dialog_overwrite_backup_message">This folder already contains an older backup file. Overwrite it?</string>
+    <string name="dialog_overwrite_backup_button">Overwrite</string>
+    
+    <!-- Simple debts -->
+    
+    <string name="simple_debts_name">Simple debts</string>
+
+    <!-- Content descriptions -->
+    
+    <string name="content_description_avatar">Person\'s avatar</string>
+    <string name="content_description_about_icon">U.O.me icon</string>
+    <string name="content_description_open_drawer">Open navigation</string>
+    <string name="content_description_close_drawer">Close navigation</string>
+    
+    <!-- Amount direction labels -->
+    
+    <string name="amount_you_owe">You owe</string>
+    <string name="amount_you_lent">You lent</string>
+    <string name="amount_no_debt">No debt</string>
+    <string name="amount_received">@string/button_received</string>
+    <string name="amount_gave">@string/button_gave</string>
+    
+    <!-- Misc -->
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="close">Close</string>
+    <string name="bottom_bar_total">Total</string>
+    <string name="withdrawal">Withdrawal</string>
+    <string name="deposit">Deposit</string>
+    <string name="debt_settlement">Debt settlement</string>
+    
+</resources>

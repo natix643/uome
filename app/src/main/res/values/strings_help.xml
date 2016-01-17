@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="help_simple_debts_title">Simple debts</string>
+    
+    <string name="help_simple_debts_text">
+        <![CDATA[
+        <p>
+        Use simple debts if you want only to record who you lend your money to
+        or vice versa, who you owe to.
+        </p>
+        
+        <p>Beyond money, you can also manage non-monetary loans, for example lending of a book.</p>
+        ]]>
+    </string>
+    
+    <string name="help_group_debts_title">Group debts</string>
+    
+    <string name="help_group_debts_text">
+        <![CDATA[
+        <p>
+        Group debts are suitable for one-time or periodic collective events,
+        such as trips, parties or regularly played card games.
+        </p>
+        
+        <p>
+        They are based on the principle of deposits and withdrawals (similar to a bank).
+        Each person in a group has his/hers own virtual account
+        where he/she can deposit to or withdraw money from.
+        You therefore become the group\'s banker, however you may also add youself
+        into the group, if you actively participate in the event.
+        </p>
+        
+        <p>Individual groups are independent on each other, their members are not shared among them.</p>
+        
+        <p>
+        <b>Example:</b><br/>
+        
+        Imagine playing football with your friends regularly and paying for a pitch. 
+        But you have to always collect money from them at the end.
+        With this application, permanent players can subscribe it (deposit money on their account).
+        After the event you just select people who attended that day and enter the total amount
+        which is then divided equally among all participants
+        (each participant withdraws money according to his/her share).
+        </p>
+        ]]>
+    </string>
+
+</resources>

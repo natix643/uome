@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:drawableLeft="@drawable/ic_launcher"
+    android:drawablePadding="24dp"
+    android:fontFamily="sans-serif-condensed"
+    android:gravity="center_vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:text="@string/app_name"
+    android:textColor="?attr/colorPrimary"
+    android:textSize="32sp"
+    android:textStyle="bold"
+    tools:ignore="UnusedAttribute" />

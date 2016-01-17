@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">U.O.me</string>
+
+    <!-- Buttons, Menus etc. -->
+
+    <string name="delete">Удалить</string>
+    <string name="edit">Редактировать</string>
+    
+    <string name="button_backup">Создать резервную копию</string>
+    <string name="button_restore">Восстановить</string>
+    <string name="button_export">Экспорт</string>
+    <string name="button_select_all">Удалить всё</string>
+    <string name="button_select_none">Отменить выделение</string>
+    
+    <string name="menu_add_transaction">Добавить сделку</string>
+    <string name="menu_add_group">@string/title_add_group</string>
+    <string name="menu_add_person">@string/title_add_person</string>
+    <string name="menu_save">Сохранить</string>
+    <string name="menu_done">Готово</string>
+    <string name="menu_edit">Редактировать</string>
+    <string name="menu_edit_person">Редактировать человека</string>
+    <string name="menu_edit_group">Редактировать группу</string>
+    <string name="menu_delete">Удалить</string>
+    <string name="menu_delete_person">Удалить человека</string>
+    <string name="menu_delete_group">Удалить группу</string>
+    <string name="menu_select_all">Удалить всё</string>
+    <string name="menu_select_none">Отменить выделение</string>
+    <string name="menu_import_contact">Импорт контакта</string>
+    <string name="menu_settle_debt">Оплатить долг</string>
+    <string name="menu_settle_transaction">Оплатить</string>
+    <string name="menu_send_email_with_debt">Отправить письмо с долгом</string>
+    <string name="menu_help">@string/title_help</string>
+    <string name="menu_create_directory">Создать папку</string>
+    <string name="menu_settings">@string/title_settings</string>
+    <string name="menu_filter">Фильтр</string>
+    <string name="menu_filter_all">Всё</string>
+    <string name="menu_filter_financial">Денежный</string>
+    <string name="menu_filter_non_financial">Не денежный</string>
+
+    <!-- Empty list views -->
+
+    <string name="empty_list_transactions">Нет сделок</string>
+    <string name="empty_list_people">Нет людей</string>
+    <string name="empty_list_groups">Нет групп</string>
+
+    <!-- Form hints, labels, buttons -->
+
+    <string name="hint_person_name">Имя</string>
+    <string name="hint_email">Электронная почта (необязательно)</string>
+    <string name="hint_group_name">Название</string>
+    <string name="hint_description">Описание (необязательно)</string>
+    <string name="button_is_financial">Денежный</string>
+    <string name="label_amount">Сумма</string>
+    <string name="hint_amount">Сумма</string>
+    <string name="hint_total_amount">Общая сумма</string>
+    <string name="label_borrowed_item">Предмет</string>
+    <string name="hint_borrowed_item">Одолженный предмет</string>
+    <string name="button_withdrawal">Снятие</string>
+    <string name="button_deposit">Вклад</string>
+    <string name="button_received">Получил</string>
+    <string name="button_gave">Дал</string>
+    <string name="label_person">Человек</string>
+    <string name="hint_select_person">Выбрать человека</string>
+    <string name="label_people">Люди</string>
+    <string name="hint_select_people">Выбрать людей</string>
+    <string name="label_datetime">Когда</string>
+    <string name="label_export_directory">Папка</string>
+    <string name="hint_select_directory">Выбрать папку</string>
+    <string name="label_groups">Группы</string>
+
+    <!-- ActionBar titles -->
+
+    <string name="title_app_name">@string/app_name</string>
+    <string name="title_add_person">Добавить человека</string>
+    <string name="title_add_group">Добавить группу</string>
+    <string name="title_add_transaction">Добавить сделку</string>
+    <string name="title_list_groups">Группы</string>
+    <string name="title_list_transactions_for_person">Сделки</string>
+    <string name="title_edit_person">Редактировать человека</string>
+    <string name="title_edit_group">Редактировать группу</string>
+    <string name="title_edit_transaction">Редактировать сделку</string>
+    <string name="title_unsettled_debts">Невыплаченные долги</string>
+    <string name="title_select_group">Выбрать группу</string>
+    <string name="title_help">Помощь</string>
+    <string name="title_settings">Настройки</string>
+    <string name="title_export">Экспорт в CSV</string>
+    <string name="title_select_directory">Выбрать папку</string>
+    <string name="title_about">О приложении</string>
+    <string name="title_backup">Создать резервную копию</string>
+        
+    <!-- Tabs -->
+    
+    <string name="tab_people">Люди</string>
+    <string name="tab_transactions">Сделки</string>
+
+    <!-- Error messages -->
+
+    <string name="error">Ошибка</string>
+    <string name="error_no_person">Нужно выбрать человека</string>
+    <string name="error_no_people">Нужно выбрать хотя бы одного человека</string>
+    <string name="error_no_name">Нужно уточнить имя</string>
+    <string name="error_no_amount">Нужно уточнить положительную сумму</string>
+    <string name="error_no_borrowed_item">Нужно уточнить одолженный предмет</string>
+    <string name="error_person_exists_in_group">В этой группе уже есть человек с таким именем</string>
+    <string name="error_group_exists">Гуппа с таким названием уже есть</string>
+    <string name="error_export">Не удалось экспортировать. Убедитесь, что карта SD вставлена</string>
+    <string name="error_transaction_deleted">Изменённая сделка удалена владельцем</string>
+    <string name="error_cannot_write_directory">Невозможно записать в эту папку</string>
+    <string name="error_directory_exists">Папка/файл с таким названием уже есть</string>
+    <string name="error_create_directory">Ошибка при создании папки</string>
+    <string name="error_backup_failed">Не удалось создать резервную копию</string>
+    <string name="error_missing_backup_file">В этой папке не содержится файл резервной копии {0}</string>
+
+    <!-- Notifications -->
+
+    <string name="notification_title">Ты мне должен – напоминание о долгах</string>
+    <string name="notification_content_title">У вас есть неоплаченные долги</string>
+    <string name="notification_content_text">Нажмите сюда, чтобы увидеть детали</string>
+
+    <!-- Preferences -->
+
+    <string name="pref_category_notifications">Уведомления</string>
+    <string name="pref_allow_notifications">Разрешить уведомления</string>
+    <string name="pref_allow_notifications_note">Вы будете периодически получать уведомления о неоплаченных долгах</string>
+    <string name="pref_debt_age">Срок долга</string>
+    <string name="pref_debt_age_note">Уточните, каким должен быть срок долга для уведомления (по прошествии срока появится уведомление)</string>
+    <string name="pref_category_other">Другое</string>
+    <string name="pref_export">@string/title_export</string>
+    <string name="pref_backup">Создать / восстановить резервную копию</string>
+    <string name="pref_about">@string/title_about</string>
+
+    <!-- Export -->
+
+    <string name="export_select_groups">Выбрать группы для экспорта</string>
+    <string name="export_success">Данные успешно экспортированы</string>
+    <string name="export_summary_suffix">сумма</string>
+    <string name="export_header_person">Человек</string>
+    <string name="export_header_email">Электронная почта</string>
+    <string name="export_header_financial">Денежный</string>
+    <string name="export_header_value">Величина</string>
+    <string name="export_header_description">Описание</string>
+    <string name="export_header_datetime">Дата и время</string>
+    <string name="export_header_balance">Баланс</string>
+    
+    <!-- Backup -->
+    
+    <string name="backup_description_backup"><![CDATA[
+При создании резервной копии все ваши текущие данные будут сохранены в файл <b>{0}</b>
+, который будет создан в выбранном месте
+]]></string>
+    <string name="backup_description_restore"><![CDATA[
+Данные можно восстановить из файла <b>{0}</b> , созданного в предыдущей резервной копии. 
+Процесс восстановления удаляет все текущие данные и заменяет их данными из резервной копии!   
+]]></string>
+    
+    <!-- About -->
+    
+    <string name="about_version">v. {0}</string>
+    <string name="about_copyright">© Pikadorama</string>
+    <string name="about_email"><a href="mailto:pikadorama@gmail.com">Связаться с нами</a></string>
+    <string name="about_libraries">Open-source библиотеки</string>
+
+    <!-- E-mail -->
+
+    <string name="email_subject">Список сделок (долг)</string>
+    <string name="email_amount">Сумма: {0}</string>
+    <string name="email_item">Предмет: {0}</string>
+    <string name="email_description">Описание: {0}</string>
+    <string name="email_datetime">Время: {0}</string>
+    <string name="email_total">Итого: {0}</string>
+    <string name="email_footer">Это письмо было сгенерировано U.O.me (https://play.google.com/store/apps/details?id=cz.kns.uome).</string>
+    
+    <!-- Toasts -->
+    
+    <string name="toast_group_added">Группа была добавлена</string>
+    <string name="toast_group_updated">Группа была обновлена</string>
+    <string name="toast_group_deleted">Группа была удалена</string>
+    <string name="toast_person_added">Человек был добавлен</string>
+    <string name="toast_person_updated">Человек был обновлён</string>
+    <string name="toast_person_deleted">Человек был удалён</string>
+    <string name="toast_persons_deleted">Люди были удалены</string>
+    <string name="toast_transaction_added">Сделка была добавлена</string>
+    <string name="toast_transaction_updated">Сделка была обновлена</string>
+    <string name="toast_transactions_deleted">Сделки были удалены</string>
+    <string name="toast_directory_created">Папка была создана</string>
+    <string name="toast_backup_successful">Создание резервной копии прошло успешно</string>
+    <string name="toast_restore_successful">Восстановление прошло успешно</string>
+
+    <!-- Dialogs -->
+    
+    <string name="dialog_delete_group_title">Удалить группу?</string>
+    <string name="dialog_delete_group_message">Группа будет удалена вместе со всеми людьми и сделками</string>
+    <string name="dialog_delete_person_title">Удалить человека?</string>
+    <string name="dialog_delete_person_message">Человек будет удалён вместе со всеми его сделками.</string>
+    <string name="dialog_delete_persons_title">Удалить выбранные лица?</string>
+    <string name="dialog_delete_persons_message">Люди будут удалены вместе со всеми их сделками.</string>
+    <string name="dialog_delete_transactions_message">Удалить выбранные сделки?</string>
+    <string name="dialog_select_email_title">Выбрать адрес электронной почты</string>
+    <string name="dialog_create_directory_title">Создать папку</string>
+    <string name="dialog_create_directory_hint">Название</string>
+    <string name="dialog_restore_from_backup_title">Восстановить данные?</string>
+    <string name="dialog_restore_from_backup_message">Все текущие данные будут заменены данными резервной копии.</string>
+    <string name="dialog_restore_from_backup_button">Восстановить</string>
+    <string name="dialog_overwrite_backup_title">Перезаписать более раннюю резервную копию?</string>
+    <string name="dialog_overwrite_backup_message">В этой папке уже содержится файл более ранней резервной копии. Перезаписать его?</string>
+    <string name="dialog_overwrite_backup_button">Перезаписать</string>
+    
+    <!-- Simple debts -->
+    
+    <string name="simple_debts_name">Простые долги</string>
+
+    <!-- Content descriptions -->
+    
+    <string name="content_description_avatar">Аватар человека</string>
+    <string name="content_description_about_icon">Иконка U.O.me</string>
+    <string name="content_description_open_drawer">Открыть навигацию</string>
+    <string name="content_description_close_drawer">Закрыть навигацию</string>
+    
+    <!-- Amount direction labels -->
+    
+    <string name="amount_you_owe">Вы должны</string>
+    <string name="amount_you_lent">Вам должны</string>
+    <string name="amount_no_debt">Нет долги</string>
+    <string name="amount_received">@string/button_received</string>
+    <string name="amount_gave">@string/button_gave</string>
+    
+    <!-- Misc -->
+
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="close">Закрыть</string>
+    <string name="bottom_bar_total">Итого</string>
+    <string name="withdrawal">Снятие</string>
+    <string name="deposit">Вклад</string>
+    <string name="debt_settlement">Выплата долга</string>
+    
+</resources>

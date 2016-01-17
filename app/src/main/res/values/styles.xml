@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="DirectionHint">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/dark_gray</item>
+    </style>
+
+    <style name="List">
+        <item name="android:clipToPadding">false</item>
+        <item name="android:drawSelectorOnTop">true</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+    </style>
+
+    <style name="List.Avatars" parent="@style/List">
+        <item name="android:divider">@drawable/list_divider_avatars</item>
+    </style>
+
+    <style name="DrawerList">
+        <item name="android:background">@color/drawer_background</item>
+        <item name="android:choiceMode">singleChoice</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:divider">@null</item>
+        <item name="android:drawSelectorOnTop">true</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+    </style>
+
+    <style name="DrawerItemText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/primary_text_default_material_light</item>
+        <item name="android:fontFamily" tools:targetApi="16">sans-serif-medium</item>
+    </style>
+
+    <style name="Spinner" parent="@android:style/Widget.Holo.Light.Spinner" />
+
+    <style name="SpinnerClosed">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Picker" parent="@android:style/Widget.Holo.Light.Spinner">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Subheader">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily" tools:targetApi="16">sans-serif-medium</item>
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:paddingTop">16dp</item>
+    </style>
+
+    <style name="EmptyListText">
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+</resources>

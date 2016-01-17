@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp" >
+
+        <TextView
+            style="@style/Subheader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_export_directory" />
+
+        <TextView
+            android:id="@+id/directoryPicker"
+            style="@style/Picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_select_directory" />
+
+        <TextView
+            android:id="@+id/backupDescriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="?android:attr/textColorPrimary" />
+
+        <TextView
+            android:id="@+id/restoreDescriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="?android:attr/textColorPrimary" />
+    </LinearLayout>
+
+    <!-- Button bar -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:divider="?android:attr/dividerHorizontal"
+        android:dividerPadding="0dp"
+        android:orientation="vertical"
+        android:showDividers="beginning" >
+
+        <LinearLayout
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerPadding="0dp"
+            android:orientation="horizontal"
+            android:showDividers="middle" >
+
+            <Button
+                android:id="@+id/backupButton"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:text="@string/button_backup" />
+
+            <Button
+                android:id="@+id/restoreButton"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:text="@string/button_restore" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

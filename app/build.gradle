@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "cz.kns.uome"
+        minSdkVersion 15
+        targetSdkVersion 21
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_7
+            targetCompatibility JavaVersion.VERSION_1_7
+        }
+
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+ext {
+    supportLibVersion = '21.0.3'
+}
+
+dependencies {
+    compile "com.android.support:appcompat-v7:$supportLibVersion"
+    compile "com.android.support:support-v13:$supportLibVersion"
+
+    compile 'com.google.guava:guava:18.0'
+    compile 'net.sourceforge.javacsv:javacsv:2.0'
+
+    compile files('libs/android-viewholder-listviews-0.8-SNAPSHOT.jar')
+}

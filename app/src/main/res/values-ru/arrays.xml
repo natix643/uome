@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="debtAge">
+        <item>1 день</item>
+        <item>2 дня</item>
+        <item>3 дня</item>
+        <item>4 дня</item>
+        <item>5 дней</item>
+        <item>6 дней</item>
+        <item>1 неделя</item>
+        <item>2 недели</item>
+        <item>3 недели</item>
+        <item>1 месяц</item>
+        <item>2 месяца</item>
+    </string-array>
+    
+    <string-array name="debtAgeValues">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>14</item>
+        <item>21</item>
+        <item>30</item>
+        <item>60</item>
+    </string-array>
+
+</resources>

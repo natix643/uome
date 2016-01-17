@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Theme.UomeBase" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        
+        <item name="actionModeBackground">@color/primary</item>
+        
+        <item name="android:textColorLink">@color/accent</item>
+        
+        <item name="android:spinnerStyle">@style/Spinner</item>
+    </style>
+
+    <style name="Theme.Uome" parent="@style/Theme.UomeBase" />
+
+    <style name="Theme.Uome.NoActionBar" parent="@style/Theme.Uome">
+        <item name="windowActionBar">false</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
+    <style name="Theme.Uome.NoActionBarShadow" parent="@style/Theme.Uome">
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Theme.Uome.HomeAsCross" parent="@style/Theme.Uome">
+        <item name="android:homeAsUpIndicator">@drawable/ic_action_navigation_close</item>
+        <item name="homeAsUpIndicator">@drawable/ic_action_navigation_close</item>
+    </style>
+
+</resources>

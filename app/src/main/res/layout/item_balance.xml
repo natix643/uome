@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_item_background"
+    android:minHeight="64dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <!-- Avatar -->
+
+    <cz.kns.uome.common.view.AvatarView
+        android:id="@+id/avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/amountWrapper"
+        android:layout_toRightOf="@+id/avatar"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <!-- Name -->
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/text_size_list_primary" />
+
+        <!-- Email -->
+
+        <TextView
+            android:id="@+id/emailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="@dimen/text_size_list_secondary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/amountWrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical|right"
+        android:orientation="vertical" >
+
+        <!-- Direction -->
+
+        <TextView
+            android:id="@+id/directionText"
+            style="@style/DirectionHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Amount -->
+
+        <TextView
+            android:id="@+id/amountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_list_primary" />
+    </LinearLayout>
+
+</RelativeLayout>
