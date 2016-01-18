@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/dialog_create_directory_hint"
-        android:minWidth="250dp"
         android:singleLine="true"/>
 
 </FrameLayout>

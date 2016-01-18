@@ -1,12 +1,12 @@
 package cz.pikadorama.uome.dialog;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;

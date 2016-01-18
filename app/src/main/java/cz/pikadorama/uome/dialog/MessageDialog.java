@@ -1,9 +1,9 @@
 package cz.pikadorama.uome.dialog;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.format.MessageFormatter;
