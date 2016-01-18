@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.TabLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -15,7 +16,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.android.common.view.SlidingTabLayout;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 
@@ -79,10 +79,8 @@ public abstract class OverviewActivity extends PagerActivity {
     }
 
     private void initTabs() {
-        SlidingTabLayout tabLayout = findView(R.id.sliding_tabs);
-        tabLayout.setViewPager(getPager());
-        tabLayout.setSelectedIndicatorColors(getResources().getColor(android.R.color.white));
-        tabLayout.setDividerColors(getResources().getColor(android.R.color.transparent));
+        TabLayout tabLayout = findView(R.id.tabs);
+        tabLayout.setupWithViewPager(getPager());
     }
 
     private void initNavigationDrawer() {

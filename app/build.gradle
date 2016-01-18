@@ -32,6 +32,7 @@ ext {
 dependencies {
     compile "com.android.support:appcompat-v7:$supportLibVersion"
     compile "com.android.support:support-v13:$supportLibVersion"
+    compile "com.android.support:design:$supportLibVersion"
 
     compile 'com.google.guava:guava:18.0'
     compile 'net.sourceforge.javacsv:javacsv:2.0'

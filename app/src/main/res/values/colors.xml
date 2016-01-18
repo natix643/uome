@@ -19,6 +19,4 @@
     <color name="list_item_activated">#FFFFBBBB</color>
     <color name="drawer_item_activated">#FFD8D8D8</color>
 
-    <color name="tab_title_disabled">#99FFFFFF</color>
-
 </resources>
