@@ -36,16 +36,21 @@
         <item name="android:fontFamily" tools:targetApi="16">sans-serif-medium</item>
     </style>
 
-    <style name="Spinner" parent="@android:style/Widget.Holo.Light.Spinner"/>
+    <style name="Spinner" parent="@style/Base.Widget.AppCompat.Spinner.Underlined">
+        <item name="android:paddingTop">10dp</item>
+    </style>
 
     <style name="SpinnerClosed">
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
-    <style name="Picker" parent="@android:style/Widget.Holo.Light.Spinner">
+    <style name="Picker" parent="@style/Base.Widget.AppCompat.Spinner.Underlined">
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">16dp</item>
     </style>
 
     <style name="Subheader">
