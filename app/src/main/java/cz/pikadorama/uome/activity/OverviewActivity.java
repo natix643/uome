@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
@@ -76,6 +78,14 @@ public abstract class OverviewActivity extends PagerActivity {
         initNavigationDrawer();
 
         totalTextView = findView(R.id.totalTextView);
+
+        FloatingActionButton addTransactionButton = requireView(R.id.floatingButton);
+        addTransactionButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(Intents.addTransaction(self, getGroupId()));
+            }
+        });
     }
 
     private void initTabs() {
