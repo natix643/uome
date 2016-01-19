@@ -1,10 +1,13 @@
 package cz.pikadorama.uome.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AbsListView.MultiChoiceModeListener;
 import android.widget.TextView;
 
@@ -68,6 +71,14 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
         adapter = createAdapter();
         setListAdapter(adapter);
         getListView().setMultiChoiceModeListener(multiChoiceModeListener);
+
+        FloatingActionButton addTransactionButton = requireView(R.id.floatingButton);
+        addTransactionButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(Intents.addTransaction(self, person));
+            }
+        });
     }
 
     @Override
@@ -121,9 +132,6 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
         switch (item.getItemId()) {
             case R.id.menu_settle_debt:
                 startActivity(Intents.settleDebt(this, getBalance()));
-                return true;
-            case R.id.menu_add_transaction:
-                startActivity(Intents.addTransaction(this, person));
                 return true;
             case R.id.menu_send_email_with_debt:
                 startActivity(Intents.shareViaEmail(getBalance(), this));

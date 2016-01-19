@@ -77,4 +77,13 @@
         <item name="android:background">?attr/colorPrimary</item>
     </style>
 
+    <style name="FloatingButton">
+        <item name="android:scaleType">center</item>
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="rippleColor">#42FFFFFF</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_margin">16dp</item>
+    </style>
+
 </resources>

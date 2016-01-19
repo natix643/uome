@@ -23,11 +23,6 @@
             </group>
         </menu>
     </item>
-    <item
-        android:id="@+id/menu_add_transaction"
-        android:icon="@drawable/ic_action_add_transaction"
-        android:title="@string/menu_add_transaction"
-        uome:showAsAction="always"/>
 
     <item
         android:id="@+id/menu_settle_debt"
@@ -43,12 +38,14 @@
 
     <item
         android:id="@+id/menu_edit_person"
+        android:icon="@drawable/ic_action_edit"
         android:title="@string/menu_edit_person"
-        uome:showAsAction="never"/>
+        uome:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/menu_delete_person"
+        android:icon="@drawable/ic_action_delete"
         android:title="@string/menu_delete_person"
-        uome:showAsAction="never"/>
+        uome:showAsAction="ifRoom"/>
 
 </menu>
