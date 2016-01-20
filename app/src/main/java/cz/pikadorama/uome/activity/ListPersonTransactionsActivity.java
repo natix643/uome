@@ -43,6 +43,8 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
 
     private ViewHoldingListAdapter<Transaction> adapter;
 
+    private FloatingActionButton addTransactionButton;
+
     private AvatarView avatarView;
     private TextView nameTextView;
     private TextView emailTextView;
@@ -70,9 +72,9 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
 
         adapter = createAdapter();
         setListAdapter(adapter);
-        getListView().setMultiChoiceModeListener(multiChoiceModeListener);
+        getListView().setMultiChoiceModeListener(actionModeCallback);
 
-        FloatingActionButton addTransactionButton = requireView(R.id.floatingButton);
+        addTransactionButton = requireView(R.id.floatingButton);
         addTransactionButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -218,12 +220,13 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
         invalidateOptionsMenu();
     }
 
-    private final MultiChoiceModeListener multiChoiceModeListener = new MultiChoiceModeListener() {
+    private final MultiChoiceModeListener actionModeCallback = new MultiChoiceModeListener() {
 
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
             mode.getMenuInflater().inflate(R.menu.context_list_transactions, menu);
+            addTransactionButton.setVisibility(View.GONE);
             return true;
         }
 
@@ -271,6 +274,7 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             actionMode = null;
+            addTransactionButton.setVisibility(View.VISIBLE);
         }
     };
 
