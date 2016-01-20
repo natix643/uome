@@ -18,10 +18,6 @@ public class SettingsActivity extends UomeActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        getFragmentManager().beginTransaction()
-                .replace(R.id.container, new SettingsFragment())
-                .commit();
     }
 
     @Override

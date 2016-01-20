@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Empty container to be filled with a PreferenceFragment -->
 <FrameLayout
-    android:id="@+id/container"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent">
+
+    <fragment
+        android:id="@+id/SettingsFragment"
+        class="cz.pikadorama.uome.activity.SettingsActivity$SettingsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</FrameLayout>
