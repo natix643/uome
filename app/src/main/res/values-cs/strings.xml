@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">U.O.me</string>
-
     <!-- Buttons, Menus etc. -->
 
     <string name="delete">Smazat</string>
-    <string name="edit">Upravit</string>
 
     <string name="button_backup">Zálohovat</string>
     <string name="button_restore">Obnovit</string>
@@ -43,7 +40,6 @@
 
     <string name="empty_list_transactions">Žádné transakce</string>
     <string name="empty_list_people">Žádní lidé</string>
-    <string name="empty_list_groups">Žádné skupiny</string>
 
     <!-- Form hints, labels, buttons -->
 
@@ -72,16 +68,13 @@
 
     <!-- ActionBar titles -->
 
-    <string name="title_app_name">@string/app_name</string>
     <string name="title_add_person">Přidat osobu</string>
     <string name="title_add_group">Přidat skupinu</string>
     <string name="title_add_transaction">Přidat transakci</string>
-    <string name="title_list_groups">Skupiny</string>
     <string name="title_edit_person">Upravit osobu</string>
     <string name="title_edit_group">Upravit skupinu</string>
     <string name="title_edit_transaction">Upravit transakci</string>
     <string name="title_unsettled_debts">Nevyrovnané dluhy</string>
-    <string name="title_select_group">Vyberte skupinu</string>
     <string name="title_help">Nápověda</string>
     <string name="title_settings">Nastavení</string>
     <string name="title_export">Exportovat do CSV</string>
@@ -97,7 +90,6 @@
     <!-- Error messages -->
 
     <string name="error">Chyba</string>
-    <string name="error_no_person">Musíte vybrat osobu</string>
     <string name="error_no_people">Musíte vybrat alespoň jednu osobu</string>
     <string name="error_no_name">Musíte zadat jméno</string>
     <string name="error_no_amount">Musíte zadat kladnou částku</string>
@@ -105,7 +97,6 @@
     <string name="error_person_exists_in_group">Osoba s tímto jménem již ve skupině existuje</string>
     <string name="error_group_exists">Skupina s tímto jménem již existuje</string>
     <string name="error_export">Export selhal. Ujistěte se, že máte správně připojenou SD kartu</string>
-    <string name="error_transaction_deleted">Upravovaná transakce byla smazána spolu s jejím vlastníkem</string>
     <string name="error_cannot_write_directory">Do této složky nelze zapisovat</string>
     <string name="error_directory_exists">Složka/soubor s tímto názvem již existuje</string>
     <string name="error_create_directory">Chyba při vytváření složky</string>
@@ -132,7 +123,6 @@
 
     <!-- Export -->
 
-    <string name="export_select_groups">Vyberte skupiny k exportu</string>
     <string name="export_success">Data úspěšně exportována</string>
     <string name="export_summary_suffix">souhrn</string>
     <string name="export_header_person">Osoba</string>
@@ -156,8 +146,6 @@
 
     <!-- About -->
 
-    <string name="about_version">v. {0}</string>
-    <string name="about_copyright">© Pikadorama</string>
     <string name="about_email"><a href="mailto:pikadorama@gmail.com">Kontaktujte nás</a></string>
     <string name="about_libraries">Open-source knihovny</string>
 

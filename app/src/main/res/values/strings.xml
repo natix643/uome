@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">U.O.me</string>
+    <string name="app_name" translatable="false">U.O.me</string>
 
     <!-- Buttons, Menus etc. -->
 
     <string name="delete">Delete</string>
-    <string name="edit">Edit</string>
 
     <string name="button_backup">Backup</string>
     <string name="button_restore">Restore</string>
@@ -43,7 +42,6 @@
 
     <string name="empty_list_transactions">No transactions</string>
     <string name="empty_list_people">No people</string>
-    <string name="empty_list_groups">No groups</string>
 
     <!-- Form hints, labels, buttons -->
 
@@ -72,16 +70,13 @@
 
     <!-- ActionBar titles -->
 
-    <string name="title_app_name">@string/app_name</string>
     <string name="title_add_person">Add person</string>
     <string name="title_add_group">Add group</string>
     <string name="title_add_transaction">Add transaction</string>
-    <string name="title_list_groups">Groups</string>
     <string name="title_edit_person">Edit person</string>
     <string name="title_edit_group">Edit group</string>
     <string name="title_edit_transaction">Edit transaction</string>
     <string name="title_unsettled_debts">Unsettled debts</string>
-    <string name="title_select_group">Select group</string>
     <string name="title_help">Help</string>
     <string name="title_settings">Settings</string>
     <string name="title_export">Export to CSV</string>
@@ -97,7 +92,6 @@
     <!-- Error messages -->
 
     <string name="error">Error</string>
-    <string name="error_no_person">You have to select a person</string>
     <string name="error_no_people">You have to select at least one person</string>
     <string name="error_no_name">You have to specify a name</string>
     <string name="error_no_amount">You have to specify a positive amount</string>
@@ -105,7 +99,6 @@
     <string name="error_person_exists_in_group">Person with this name already exists in this group</string>
     <string name="error_group_exists">Group with this name already exists</string>
     <string name="error_export">Export failed. Make sure that your SD card is connected</string>
-    <string name="error_transaction_deleted">The edited transaction has been deleted with its owner</string>
     <string name="error_cannot_write_directory">Cannot write into this folder</string>
     <string name="error_directory_exists">Folder/file with this name already exists</string>
     <string name="error_create_directory">Error while creating folder</string>
@@ -132,7 +125,6 @@
 
     <!-- Export -->
 
-    <string name="export_select_groups">Select groups to export</string>
     <string name="export_success">Data successfully exported</string>
     <string name="export_summary_suffix">summary</string>
     <string name="export_header_person">Person</string>
@@ -156,8 +148,8 @@
 
     <!-- About -->
 
-    <string name="about_version">v. {0}</string>
-    <string name="about_copyright">© Pikadorama</string>
+    <string name="about_version" translatable="false">v. {0}</string>
+    <string name="about_copyright" translatable="false">© Pikadorama</string>
     <string name="about_email"><a href="mailto:pikadorama@gmail.com">Contact us</a></string>
     <string name="about_libraries">Open-source Libraries</string>
 

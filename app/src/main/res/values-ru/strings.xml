@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">U.O.me</string>
-
     <!-- Buttons, Menus etc. -->
 
     <string name="delete">Удалить</string>
-    <string name="edit">Редактировать</string>
 
     <string name="button_backup">Создать резервную копию</string>
     <string name="button_restore">Восстановить</string>
@@ -43,7 +40,6 @@
 
     <string name="empty_list_transactions">Нет сделок</string>
     <string name="empty_list_people">Нет людей</string>
-    <string name="empty_list_groups">Нет групп</string>
 
     <!-- Form hints, labels, buttons -->
 
@@ -72,16 +68,13 @@
 
     <!-- ActionBar titles -->
 
-    <string name="title_app_name">@string/app_name</string>
     <string name="title_add_person">Добавить человека</string>
     <string name="title_add_group">Добавить группу</string>
     <string name="title_add_transaction">Добавить сделку</string>
-    <string name="title_list_groups">Группы</string>
     <string name="title_edit_person">Редактировать человека</string>
     <string name="title_edit_group">Редактировать группу</string>
     <string name="title_edit_transaction">Редактировать сделку</string>
     <string name="title_unsettled_debts">Невыплаченные долги</string>
-    <string name="title_select_group">Выбрать группу</string>
     <string name="title_help">Помощь</string>
     <string name="title_settings">Настройки</string>
     <string name="title_export">Экспорт в CSV</string>
@@ -97,7 +90,6 @@
     <!-- Error messages -->
 
     <string name="error">Ошибка</string>
-    <string name="error_no_person">Нужно выбрать человека</string>
     <string name="error_no_people">Нужно выбрать хотя бы одного человека</string>
     <string name="error_no_name">Нужно уточнить имя</string>
     <string name="error_no_amount">Нужно уточнить положительную сумму</string>
@@ -105,7 +97,6 @@
     <string name="error_person_exists_in_group">В этой группе уже есть человек с таким именем</string>
     <string name="error_group_exists">Гуппа с таким названием уже есть</string>
     <string name="error_export">Не удалось экспортировать. Убедитесь, что карта SD вставлена</string>
-    <string name="error_transaction_deleted">Изменённая сделка удалена владельцем</string>
     <string name="error_cannot_write_directory">Невозможно записать в эту папку</string>
     <string name="error_directory_exists">Папка/файл с таким названием уже есть</string>
     <string name="error_create_directory">Ошибка при создании папки</string>
@@ -132,7 +123,6 @@
 
     <!-- Export -->
 
-    <string name="export_select_groups">Выбрать группы для экспорта</string>
     <string name="export_success">Данные успешно экспортированы</string>
     <string name="export_summary_suffix">сумма</string>
     <string name="export_header_person">Человек</string>
@@ -156,8 +146,6 @@
 
     <!-- About -->
 
-    <string name="about_version">v. {0}</string>
-    <string name="about_copyright">© Pikadorama</string>
     <string name="about_email"><a href="mailto:pikadorama@gmail.com">Связаться с нами</a></string>
     <string name="about_libraries">Open-source библиотеки</string>
 
