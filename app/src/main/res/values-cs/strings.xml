@@ -77,7 +77,6 @@
     <string name="title_add_group">Přidat skupinu</string>
     <string name="title_add_transaction">Přidat transakci</string>
     <string name="title_list_groups">Skupiny</string>
-    <string name="title_list_transactions_for_person">Transakce</string>
     <string name="title_edit_person">Upravit osobu</string>
     <string name="title_edit_group">Upravit skupinu</string>
     <string name="title_edit_transaction">Upravit transakci</string>

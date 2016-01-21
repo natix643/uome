@@ -77,7 +77,6 @@
     <string name="title_add_group">Add group</string>
     <string name="title_add_transaction">Add transaction</string>
     <string name="title_list_groups">Groups</string>
-    <string name="title_list_transactions_for_person">Transactions</string>
     <string name="title_edit_person">Edit person</string>
     <string name="title_edit_group">Edit group</string>
     <string name="title_edit_transaction">Edit transaction</string>

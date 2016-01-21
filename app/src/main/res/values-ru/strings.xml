@@ -77,7 +77,6 @@
     <string name="title_add_group">Добавить группу</string>
     <string name="title_add_transaction">Добавить сделку</string>
     <string name="title_list_groups">Группы</string>
-    <string name="title_list_transactions_for_person">Сделки</string>
     <string name="title_edit_person">Редактировать человека</string>
     <string name="title_edit_group">Редактировать группу</string>
     <string name="title_edit_transaction">Редактировать сделку</string>
