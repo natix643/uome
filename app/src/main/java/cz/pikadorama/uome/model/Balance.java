@@ -1,7 +1,5 @@
 package cz.pikadorama.uome.model;
 
-import com.google.common.base.Objects;
-
 import java.math.BigDecimal;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -28,11 +26,4 @@ public class Balance {
         return person.getGroupId();
     }
 
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("person", person)
-                .add("amount", amount)
-                .toString();
-    }
 }

@@ -137,16 +137,4 @@ public class Person implements Entity {
         return Objects.equal(id, other.id);
     }
 
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("id", id)
-                .add("groupId", groupId)
-                .add("name", name)
-                .add("description", description)
-                .add("email", email)
-                .add("imageUri", imageUri)
-                .toString();
-    }
-
 }

@@ -94,13 +94,4 @@ public class Group implements Entity {
         return Objects.equal(id, other.id);
     }
 
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("id", id)
-                .add("name", name)
-                .add("description", description)
-                .toString();
-    }
-
 }

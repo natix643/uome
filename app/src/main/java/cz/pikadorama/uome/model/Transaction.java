@@ -1,6 +1,5 @@
 package cz.pikadorama.uome.model;
 
-import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableList;
 
 import java.util.Date;
@@ -54,7 +53,7 @@ public class Transaction implements Entity {
     }
 
     public enum Direction {
-        WITHDRAWAL, DEPOSIT;
+        WITHDRAWAL, DEPOSIT
     }
 
     private Long id;
@@ -152,20 +151,6 @@ public class Transaction implements Entity {
 
     public void setDirection(Direction direction) {
         this.direction = direction;
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("id", id)
-                .add("personId", personId)
-                .add("groupId", groupId)
-                .add("value", value)
-                .add("financial", financial)
-                .add("direction", direction)
-                .add("description", description)
-                .add("dateTime", dateTime)
-                .toString();
     }
 
 }
