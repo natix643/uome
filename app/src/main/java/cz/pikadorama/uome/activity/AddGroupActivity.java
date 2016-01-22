@@ -10,6 +10,7 @@ import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.ActivityPurpose;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
+import cz.pikadorama.uome.common.util.SnackbarHelper;
 import cz.pikadorama.uome.common.util.Toaster;
 import cz.pikadorama.uome.model.Group;
 import cz.pikadorama.uome.model.GroupDao;
@@ -22,6 +23,7 @@ public class AddGroupActivity extends UomeActivity {
     private GroupDao groupDao;
 
     private Toaster toaster;
+    private SnackbarHelper snackbarHelper;
 
     private Group editedGroup;
     private int purpose;
@@ -35,6 +37,7 @@ public class AddGroupActivity extends UomeActivity {
 
         groupDao = new GroupDao(getApplicationContext());
         toaster = new Toaster(this);
+        snackbarHelper = new SnackbarHelper(this);
 
         nameEditText = findView(R.id.nameEditText);
         descriptionEditText = findView(R.id.descriptionEditText);
@@ -90,7 +93,7 @@ public class AddGroupActivity extends UomeActivity {
     private void saveGroup() {
         String name = nameEditText.getText().toString().trim();
         if (name.isEmpty()) {
-            toaster.show(R.string.error_no_name);
+            snackbarHelper.warn(R.string.error_no_name);
             return;
         }
 
@@ -100,7 +103,7 @@ public class AddGroupActivity extends UomeActivity {
         if (purpose == ActivityPurpose.EDIT_EXISTING) {
             Group group = groupDao.getByName(name);
             if (group != null && !group.equals(editedGroup)) {
-                toaster.show(R.string.error_group_exists);
+                snackbarHelper.warn(R.string.error_group_exists);
                 return;
             }
 
@@ -113,7 +116,7 @@ public class AddGroupActivity extends UomeActivity {
         /* Create a new group */
         else {
             if (groupDao.getByName(name) != null) {
-                toaster.show(R.string.error_group_exists);
+                snackbarHelper.warn(R.string.error_group_exists);
                 return;
             }
             Group group = new Group(name, description);

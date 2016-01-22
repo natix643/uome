@@ -28,6 +28,7 @@ import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
 import cz.pikadorama.uome.common.util.Parcelables;
+import cz.pikadorama.uome.common.util.SnackbarHelper;
 import cz.pikadorama.uome.common.util.Toaster;
 import cz.pikadorama.uome.common.view.DateTimePicker;
 import cz.pikadorama.uome.model.Person;
@@ -49,6 +50,7 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
     private TransactionDao transactionDao;
 
     private Toaster toaster;
+    private SnackbarHelper snackbarHelper;
 
     private RadioGroup directionRadioGroup;
     private RadioButton withdrawalRadio;
@@ -70,6 +72,7 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
         super.onCreate(savedInstanceState);
 
         toaster = new Toaster(this);
+        snackbarHelper = new SnackbarHelper(this);
 
         initDaos();
         initViews();
@@ -217,13 +220,13 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
 
     private void saveTransaction() {
         if (selectedPersons.isEmpty()) {
-            toaster.show(R.string.error_no_people);
+            snackbarHelper.warn(R.string.error_no_people);
             return;
         }
 
         BigDecimal amount = getAmount();
         if (amount == null) {
-            toaster.show(R.string.error_no_amount);
+            snackbarHelper.warn(R.string.error_no_amount);
             return;
         }
 

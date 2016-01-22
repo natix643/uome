@@ -19,4 +19,7 @@
     <color name="list_item_activated">#FFFFBBBB</color>
     <color name="drawer_item_activated">#FFD8D8D8</color>
 
+    <!-- Material Amber 500 -->
+    <color name="snackbar_warn">#FFC107</color>
+
 </resources>

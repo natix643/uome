@@ -25,7 +25,7 @@ import cz.pikadorama.uome.adapter.viewholder.BalanceViewHolder;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.util.Intents;
 import cz.pikadorama.uome.common.util.ListViewUtil;
-import cz.pikadorama.uome.common.util.Toaster;
+import cz.pikadorama.uome.common.util.SnackbarHelper;
 import cz.pikadorama.uome.dialog.ConfirmationDialog;
 import cz.pikadorama.uome.model.Balance;
 import cz.pikadorama.uome.model.Person;
@@ -40,7 +40,7 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
     private PersonDao personDao;
     private TransactionDao transactionDao;
 
-    private Toaster toaster;
+    private SnackbarHelper snackbarHelper;
 
     private ViewHoldingListAdapter<Balance> adapter;
 
@@ -51,7 +51,7 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
         personDao = new PersonDao(activity);
         transactionDao = new TransactionDao(activity);
 
-        toaster = new Toaster(activity);
+        snackbarHelper = new SnackbarHelper(activity);
 
         adapter = createAdapter();
         setListAdapter(adapter);
@@ -238,7 +238,7 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
             personDao.deleteAll(getSelection());
             actionMode.finish();
             refreshAdapter();
-            toaster.show(R.string.toast_persons_deleted);
+            snackbarHelper.info(R.string.toast_persons_deleted);
 
             getBaseActivity().invalidateOptionsMenu();
 

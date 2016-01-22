@@ -22,6 +22,7 @@ import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeListActivity;
 import cz.pikadorama.uome.common.util.Intents;
 import cz.pikadorama.uome.common.util.ListViewUtil;
+import cz.pikadorama.uome.common.util.SnackbarHelper;
 import cz.pikadorama.uome.common.util.Toaster;
 import cz.pikadorama.uome.common.view.AvatarView;
 import cz.pikadorama.uome.dialog.ConfirmationDialog;
@@ -40,6 +41,7 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
     private PersonDao personDao;
 
     private Toaster toaster;
+    private SnackbarHelper snackbarHelper;
 
     private ViewHoldingListAdapter<Transaction> adapter;
 
@@ -64,6 +66,7 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
         super.onCreate(savedInstanceState);
 
         toaster = new Toaster(this);
+        snackbarHelper = new SnackbarHelper(this);
 
         transactionDao = new TransactionDao(this);
         personDao = new PersonDao(this);
@@ -187,7 +190,8 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
         transactionDao.deleteAll(getSelection());
         actionMode.finish();
         refreshTransactions();
-        toaster.show(R.string.toast_transactions_deleted);
+
+        snackbarHelper.info(R.string.toast_transactions_deleted);
     }
 
     private List<Transaction> getSelection() {

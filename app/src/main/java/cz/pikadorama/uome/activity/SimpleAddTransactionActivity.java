@@ -25,6 +25,7 @@ import cz.pikadorama.uome.common.ActivityPurpose;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
+import cz.pikadorama.uome.common.util.SnackbarHelper;
 import cz.pikadorama.uome.common.util.Toaster;
 import cz.pikadorama.uome.common.view.DateTimePicker;
 import cz.pikadorama.uome.model.Person;
@@ -43,6 +44,7 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
     private TransactionDao transactionDao;
 
     private Toaster toaster;
+    private SnackbarHelper snackbarHelper;
 
     private PersonSpinnerAdapter adapter;
 
@@ -69,6 +71,7 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
         super.onCreate(savedInstanceState);
 
         toaster = new Toaster(this);
+        snackbarHelper = new SnackbarHelper(this);
 
         initDaos();
         initViews();
@@ -217,7 +220,7 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
         boolean financial = financialCheckbox.isChecked();
         String value = financial ? getAmount() : getBorrowedItem();
         if (value == null) {
-            toaster.show(financial ? R.string.error_no_amount : R.string.error_no_borrowed_item);
+            snackbarHelper.warn(financial ? R.string.error_no_amount : R.string.error_no_borrowed_item);
             return;
         }
 

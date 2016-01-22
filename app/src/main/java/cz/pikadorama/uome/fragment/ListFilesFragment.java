@@ -21,7 +21,7 @@ import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.activity.SelectDirectoryActivity;
 import cz.pikadorama.uome.adapter.FileAdapter;
 import cz.pikadorama.uome.common.fragment.BaseListFragment;
-import cz.pikadorama.uome.common.util.Toaster;
+import cz.pikadorama.uome.common.util.SnackbarHelper;
 import cz.pikadorama.uome.dialog.CreateDirectoryDialog;
 
 public class ListFilesFragment extends BaseListFragment implements CreateDirectoryDialog.Callback {
@@ -32,7 +32,7 @@ public class ListFilesFragment extends BaseListFragment implements CreateDirecto
 
     private SelectDirectoryActivity activity;
 
-    private Toaster toaster;
+    private SnackbarHelper snackbarHelper;
 
     private FileAdapter adapter;
     private File currentDirectory;
@@ -51,7 +51,8 @@ public class ListFilesFragment extends BaseListFragment implements CreateDirecto
         super.onAttach(a);
 
         activity = (SelectDirectoryActivity) a;
-        toaster = new Toaster(activity);
+
+        snackbarHelper = new SnackbarHelper(activity);
 
         adapter = new FileAdapter(activity);
         setListAdapter(adapter);
@@ -97,14 +98,14 @@ public class ListFilesFragment extends BaseListFragment implements CreateDirecto
         switch (item.getItemId()) {
             case R.id.menu_create_directory:
                 if (!currentDirectory.canWrite()) {
-                    toaster.show(R.string.error_cannot_write_directory);
+                    snackbarHelper.warn(R.string.error_cannot_write_directory);
                 } else {
                     new CreateDirectoryDialog().show(this);
                 }
                 return true;
             case R.id.menu_done:
                 if (!currentDirectory.canWrite()) {
-                    toaster.show(R.string.error_cannot_write_directory);
+                    snackbarHelper.warn(R.string.error_cannot_write_directory);
                 } else {
                     Intent intent = new Intent().putExtra(
                             SelectDirectoryActivity.KEY_SELECTED_DIRECTORY,
@@ -120,23 +121,25 @@ public class ListFilesFragment extends BaseListFragment implements CreateDirecto
 
     @Override
     public void onCreateDirectory(String name, Dialog dialog) {
+        View dialogView = dialog.getWindow().getDecorView();
+
         File child = new File(currentDirectory, name);
         if (child.exists()) {
-            toaster.show(R.string.error_directory_exists);
+            snackbarHelper.warn(dialogView, R.string.error_directory_exists);
             return;
         }
 
         if (!currentDirectory.canWrite()) {
-            toaster.show(R.string.error_cannot_write_directory);
+            snackbarHelper.warn(dialogView, R.string.error_cannot_write_directory);
             dialog.dismiss();
             return;
         }
 
         if (child.mkdir()) {
             adapter.setDirectory(currentDirectory);
-            toaster.show(R.string.toast_directory_created);
+            snackbarHelper.info(R.string.toast_directory_created);
         } else {
-            toaster.show(R.string.error_create_directory);
+            snackbarHelper.warn(R.string.error_create_directory);
         }
         dialog.dismiss();
     }

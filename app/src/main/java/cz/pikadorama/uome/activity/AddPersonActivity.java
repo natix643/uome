@@ -22,6 +22,7 @@ import cz.pikadorama.uome.common.ActivityPurpose;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.util.Closeables;
+import cz.pikadorama.uome.common.util.SnackbarHelper;
 import cz.pikadorama.uome.common.util.Toaster;
 import cz.pikadorama.uome.dialog.SelectEmailDialog;
 import cz.pikadorama.uome.model.Person;
@@ -37,6 +38,7 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
     private PersonDao personDao;
 
     private Toaster toaster;
+    private SnackbarHelper snackbarHelper;
 
     private Person editedPerson;
 
@@ -55,6 +57,7 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
 
         personDao = new PersonDao(getApplicationContext());
         toaster = new Toaster(this);
+        snackbarHelper = new SnackbarHelper(this);
 
         if (savedInstanceState != null) {
             imageUri = savedInstanceState.getParcelable(Constants.IMAGE_URI);
@@ -124,7 +127,7 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
     private void savePerson() {
         String name = nameEditText.getText().toString().trim();
         if (name.isEmpty()) {
-            toaster.show(R.string.error_no_name);
+            snackbarHelper.warn(R.string.error_no_name);
             return;
         }
 
@@ -135,7 +138,7 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
         if (purpose == ActivityPurpose.EDIT_EXISTING) {
             Person person = personDao.getByNameForGroup(name, editedPerson.getGroupId());
             if (person != null && !person.equals(editedPerson)) {
-                toaster.show(R.string.error_person_exists_in_group);
+                snackbarHelper.warn(R.string.error_person_exists_in_group);
                 return;
             }
             editedPerson.setName(name);
@@ -147,11 +150,11 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
         /* Create a new person */
         else {
             if (personDao.getByNameForGroup(name, groupId) != null) {
-                toaster.show(R.string.error_person_exists_in_group);
+                snackbarHelper.warn(R.string.error_person_exists_in_group);
                 return;
             }
-            Person person = new Person(groupId, name, email, imageUri == null
-                    ? "" : imageUri.toString(), description);
+            Person person = new Person(
+                    groupId, name, email, (imageUri == null ? "" : imageUri.toString()), description);
             personDao.create(person);
         }
 
@@ -214,8 +217,7 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
 
     private String getName(Uri uri) {
         String name = "";
-        Cursor cursor = null;
-        cursor = managedQuery(uri, null, null, null, null);
+        Cursor cursor = managedQuery(uri, null, null, null, null);
         if (cursor.moveToFirst()) {
             name = cursor.getString(cursor.getColumnIndex(Contacts.DISPLAY_NAME));
         }
