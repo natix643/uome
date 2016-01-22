@@ -9,7 +9,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -41,6 +40,7 @@ import cz.pikadorama.uome.fragment.OverviewFragment;
 import cz.pikadorama.uome.model.Group;
 import cz.pikadorama.uome.model.GroupDao;
 
+import static android.support.v4.view.GravityCompat.START;
 import static com.google.common.base.Preconditions.checkState;
 
 public abstract class OverviewActivity extends PagerActivity {
@@ -105,12 +105,12 @@ public abstract class OverviewActivity extends PagerActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 NavigationItem item = (NavigationItem) drawerListView.getItemAtPosition(position);
                 onDrawerClosedListener = item.getListener();
-                drawerLayout.closeDrawer(Gravity.START);
+                drawerLayout.closeDrawer(START);
             }
         });
 
         drawerLayout = findView(R.id.drawer_layout);
-        drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, Gravity.START);
+        drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, START);
 
         drawerToggle = createToggle(drawerLayout);
         drawerLayout.setDrawerListener(drawerToggle);
@@ -215,10 +215,10 @@ public abstract class OverviewActivity extends PagerActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                if (drawerLayout.isDrawerVisible(Gravity.START)) {
-                    drawerLayout.closeDrawer(Gravity.START);
+                if (drawerLayout.isDrawerVisible(START)) {
+                    drawerLayout.closeDrawer(START);
                 } else {
-                    drawerLayout.openDrawer(Gravity.START);
+                    drawerLayout.openDrawer(START);
                 }
                 return true;
             default:
