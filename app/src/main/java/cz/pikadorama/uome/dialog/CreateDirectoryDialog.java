@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnShowListener;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.view.LayoutInflater;
@@ -23,10 +24,11 @@ import cz.pikadorama.uome.common.view.BaseTextWatcher;
 public class CreateDirectoryDialog extends DualDialogFragment {
 
     public interface Callback {
-        void onCreateDirectory(String name, Dialog dialog);
+        void onCreateDirectory(String name, CreateDirectoryDialog dialog);
     }
 
     private Callback callback;
+    private TextInputLayout nameTextLayout;
 
     @Override
     protected void onAttachToActivity(Activity activity) {
@@ -38,9 +40,18 @@ public class CreateDirectoryDialog extends DualDialogFragment {
         callback = (Callback) fragment;
     }
 
+    public void showError(int stringId) {
+        nameTextLayout.setError(getString(stringId));
+    }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         View layout = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_create_directory, null);
+
+        nameTextLayout = Views.require(layout, R.id.nameTextLayout);
+        nameTextLayout.setHint(null);
+        Views.autoClearError(nameTextLayout);
+
         final EditText editText = Views.require(layout, R.id.nameEditText);
 
         final AlertDialog dialog = new AlertDialog.Builder(getActivity())
@@ -66,7 +77,7 @@ public class CreateDirectoryDialog extends DualDialogFragment {
                 okButton.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        callback.onCreateDirectory(editText.getText().toString().trim(), dialog);
+                        callback.onCreateDirectory(editText.getText().toString().trim(), CreateDirectoryDialog.this);
                     }
                 });
             }

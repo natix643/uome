@@ -1,7 +1,6 @@
 package cz.pikadorama.uome.fragment;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.FragmentManager;
 import android.app.FragmentManager.BackStackEntry;
 import android.app.FragmentTransaction;
@@ -120,20 +119,14 @@ public class ListFilesFragment extends BaseListFragment implements CreateDirecto
     }
 
     @Override
-    public void onCreateDirectory(String name, Dialog dialog) {
-        View dialogView = dialog.getWindow().getDecorView();
-
+    public void onCreateDirectory(String name, CreateDirectoryDialog dialog) {
         File child = new File(currentDirectory, name);
         if (child.exists()) {
-            snackbarHelper.warn(dialogView, R.string.error_directory_exists);
+            dialog.showError(R.string.error_directory_exists);
             return;
         }
 
-        if (!currentDirectory.canWrite()) {
-            snackbarHelper.warn(dialogView, R.string.error_cannot_write_directory);
-            dialog.dismiss();
-            return;
-        }
+        dialog.dismiss();
 
         if (child.mkdir()) {
             adapter.setDirectory(currentDirectory);
@@ -141,7 +134,6 @@ public class ListFilesFragment extends BaseListFragment implements CreateDirecto
         } else {
             snackbarHelper.warn(R.string.error_create_directory);
         }
-        dialog.dismiss();
     }
 
     @Override
