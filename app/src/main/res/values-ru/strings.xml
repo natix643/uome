@@ -45,7 +45,7 @@
 
     <string name="hint_person_name">Имя *</string>
     <string name="hint_email">Электронная почта</string>
-    <string name="hint_group_name">Название</string>
+    <string name="hint_group_name">Название *</string>
     <string name="hint_description">Описание</string>
     <string name="button_is_financial">Денежный</string>
     <string name="label_amount">Сумма</string>
