@@ -50,4 +50,15 @@ public class Views {
         });
     }
 
+    public static void collapseError(final TextInputLayout layout) {
+        layout.setErrorEnabled(false);
+
+        layout.getEditText().addTextChangedListener(new BaseTextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                layout.setErrorEnabled(false);
+            }
+        });
+    }
+
 }

@@ -51,6 +51,7 @@ public class CreateDirectoryDialog extends DualDialogFragment {
         nameTextLayout = Views.require(layout, R.id.nameTextLayout);
         nameTextLayout.setHint(null);
         Views.autoClearError(nameTextLayout);
+        Views.collapseError(nameTextLayout);
 
         final EditText editText = Views.require(layout, R.id.nameEditText);
 
