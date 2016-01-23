@@ -45,10 +45,10 @@
 
     <!-- Form hints, labels, buttons -->
 
-    <string name="hint_person_name">Name</string>
-    <string name="hint_email">E-mail (optional)</string>
+    <string name="hint_person_name">Name *</string>
+    <string name="hint_email">E-mail</string>
     <string name="hint_group_name">Name</string>
-    <string name="hint_description">Description (optional)</string>
+    <string name="hint_description">Description</string>
     <string name="button_is_financial">Financial</string>
     <string name="label_amount">Amount</string>
     <string name="hint_amount">Amount</string>

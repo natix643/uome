@@ -1,6 +1,10 @@
 package cz.pikadorama.uome.common.util;
 
+import android.support.design.widget.TextInputLayout;
+import android.text.Editable;
 import android.view.View;
+
+import cz.pikadorama.uome.common.view.BaseTextWatcher;
 
 public class Views {
 
@@ -35,6 +39,15 @@ public class Views {
             throw new IllegalStateException("View with ID " + resourceId + " not found in the root " + root);
         }
         return view;
+    }
+
+    public static void autoClearError(final TextInputLayout layout) {
+        layout.getEditText().addTextChangedListener(new BaseTextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                layout.setError(null);
+            }
+        });
     }
 
 }
