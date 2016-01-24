@@ -49,10 +49,10 @@
     <string name="hint_description">Описание</string>
     <string name="button_is_financial">Денежный</string>
     <string name="label_amount">Сумма</string>
-    <string name="hint_amount">Сумма</string>
-    <string name="hint_total_amount">Общая сумма</string>
+    <string name="hint_amount">Сумма *</string>
+    <string name="hint_total_amount">Общая сумма *</string>
     <string name="label_borrowed_item">Предмет</string>
-    <string name="hint_borrowed_item">Одолженный предмет</string>
+    <string name="hint_borrowed_item">Одолженный предмет *</string>
     <string name="button_withdrawal">Снятие</string>
     <string name="button_deposit">Вклад</string>
     <string name="button_received">Получил</string>
@@ -60,7 +60,7 @@
     <string name="label_person">Человек</string>
     <string name="hint_select_person">Выбрать человека</string>
     <string name="label_people">Люди</string>
-    <string name="hint_select_people">Выбрать людей</string>
+    <string name="hint_select_people">Выбрать людей *</string>
     <string name="label_datetime">Когда</string>
     <string name="label_export_directory">Папка</string>
     <string name="hint_select_directory">Выбрать папку</string>

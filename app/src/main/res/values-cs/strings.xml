@@ -49,10 +49,10 @@
     <string name="hint_description">Popis</string>
     <string name="button_is_financial">Finanční</string>
     <string name="label_amount">Částka</string>
-    <string name="hint_amount">Částka</string>
-    <string name="hint_total_amount">Celková částka</string>
+    <string name="hint_amount">Částka *</string>
+    <string name="hint_total_amount">Celková částka *</string>
     <string name="label_borrowed_item">Předmět</string>
-    <string name="hint_borrowed_item">Půjčený předmět</string>
+    <string name="hint_borrowed_item">Půjčený předmět *</string>
     <string name="button_withdrawal">Výběr</string>
     <string name="button_deposit">Vklad</string>
     <string name="button_received">Dostal(a)</string>
@@ -60,7 +60,7 @@
     <string name="label_person">Osoba</string>
     <string name="hint_select_person">Vyberte osobu</string>
     <string name="label_people">Lidé</string>
-    <string name="hint_select_people">Vyberte lidi</string>
+    <string name="hint_select_people">Vyberte lidi *</string>
     <string name="label_datetime">Kdy</string>
     <string name="label_export_directory">Složka</string>
     <string name="hint_select_directory">Vyberte složku</string>

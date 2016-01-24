@@ -51,10 +51,10 @@
     <string name="hint_description">Description</string>
     <string name="button_is_financial">Financial</string>
     <string name="label_amount">Amount</string>
-    <string name="hint_amount">Amount</string>
-    <string name="hint_total_amount">Total amount</string>
+    <string name="hint_amount">Amount *</string>
+    <string name="hint_total_amount">Total amount *</string>
     <string name="label_borrowed_item">Item</string>
-    <string name="hint_borrowed_item">Borrowed item</string>
+    <string name="hint_borrowed_item">Borrowed item *</string>
     <string name="button_withdrawal">Withdrawal</string>
     <string name="button_deposit">Deposit</string>
     <string name="button_received">Received</string>
@@ -62,7 +62,7 @@
     <string name="label_person">Person</string>
     <string name="hint_select_person">Select person</string>
     <string name="label_people">People</string>
-    <string name="hint_select_people">Select people</string>
+    <string name="hint_select_people">Select people *</string>
     <string name="label_datetime">When</string>
     <string name="label_export_directory">Folder</string>
     <string name="hint_select_directory">Select folder</string>
