@@ -2,6 +2,7 @@ package cz.pikadorama.uome.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,8 +29,8 @@ import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
 import cz.pikadorama.uome.common.util.Parcelables;
-import cz.pikadorama.uome.common.util.SnackbarHelper;
 import cz.pikadorama.uome.common.util.Toaster;
+import cz.pikadorama.uome.common.util.Views;
 import cz.pikadorama.uome.common.view.DateTimePicker;
 import cz.pikadorama.uome.model.Person;
 import cz.pikadorama.uome.model.PersonDao;
@@ -50,15 +51,17 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
     private TransactionDao transactionDao;
 
     private Toaster toaster;
-    private SnackbarHelper snackbarHelper;
 
     private RadioGroup directionRadioGroup;
     private RadioButton withdrawalRadio;
     private RadioButton depositRadio;
 
-    private TextView personMultiPicker;
+    private TextView personPicker;
+    private TextInputLayout personPickerLayout;
 
     private EditText amountEditText;
+    private TextInputLayout amountTextLayout;
+
     private DateTimePicker dateTimePicker;
     private EditText descriptionEditText;
 
@@ -72,7 +75,6 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
         super.onCreate(savedInstanceState);
 
         toaster = new Toaster(this);
-        snackbarHelper = new SnackbarHelper(this);
 
         initDaos();
         initViews();
@@ -91,16 +93,20 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
     }
 
     private void initViews() {
-        directionRadioGroup = findView(R.id.typeRadioGroup);
-        depositRadio = findView(R.id.depositRadioButton);
-        withdrawalRadio = findView(R.id.withdrawalRadioButton);
+        directionRadioGroup = requireView(R.id.typeRadioGroup);
+        depositRadio = requireView(R.id.depositRadioButton);
+        withdrawalRadio = requireView(R.id.withdrawalRadioButton);
 
-        amountEditText = findView(R.id.amountEditText);
-        dateTimePicker = findView(R.id.dateTimePicker);
-        descriptionEditText = findView(R.id.descriptionEditText);
+        amountEditText = requireView(R.id.amountEditText);
+        amountTextLayout = requireView(R.id.amountTextLayout);
+        amountTextLayout.setHint(null);
+        Views.autoClearError(amountTextLayout);
 
-        personMultiPicker = findView(R.id.personMultiPicker);
-        personMultiPicker.setOnClickListener(new OnClickListener() {
+        dateTimePicker = requireView(R.id.dateTimePicker);
+        descriptionEditText = requireView(R.id.descriptionEditText);
+
+        personPicker = requireView(R.id.personPicker);
+        personPicker.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(self, ListPersonsMultichoiceActivity.class)
@@ -110,6 +116,9 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
                 startActivityForResult(intent, REQUEST_SELECT_PERSONS);
             }
         });
+        personPickerLayout = requireView(R.id.personPickerLayout);
+        personPickerLayout.setHint(null);
+        Views.autoClearError(personPickerLayout);
     }
 
     private long getGroupId() {
@@ -127,7 +136,7 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
         if (personId != null) {
             Person person = checkNotNull(personDao.getById(personId));
             selectPersons(newArrayList(person));
-            personMultiPicker.setEnabled(false);
+            personPicker.setEnabled(false);
         }
 
         Direction direction = data.getDirection();
@@ -170,26 +179,20 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        refreshSelectedPersons();
-    }
-
     private void selectPersons(List<Person> newPersons) {
         checkNotNull(newPersons);
         if (!selectedPersons.equals(newPersons)) {
             selectedPersons = newPersons;
-            refreshSelectedPersons();
+            refreshPersonPicker();
         }
     }
 
-    private void refreshSelectedPersons() {
+    private void refreshPersonPicker() {
         if (!selectedPersons.isEmpty()) {
             List<String> personNames = Lists.transform(selectedPersons, getPersonName);
-            personMultiPicker.setText(Joiner.on(", ").join(personNames));
+            personPicker.setText(Joiner.on(", ").join(personNames));
         } else {
-            personMultiPicker.setText("");
+            personPicker.setText("");
         }
     }
 
@@ -219,14 +222,20 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
     }
 
     private void saveTransaction() {
+        boolean valid = true;
+
         if (selectedPersons.isEmpty()) {
-            snackbarHelper.warn(R.string.error_no_people);
-            return;
+            personPickerLayout.setError(getString(R.string.error_no_people));
+            valid = false;
         }
 
         BigDecimal amount = getAmount();
         if (amount == null) {
-            snackbarHelper.warn(R.string.error_no_amount);
+            amountTextLayout.setError(getString(R.string.error_no_amount));
+            valid = false;
+        }
+
+        if (!valid) {
             return;
         }
 

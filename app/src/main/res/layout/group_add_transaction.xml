@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -14,84 +15,99 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="16dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
                 android:contentDescription="@string/label_people"
                 android:src="@drawable/ic_label_group"/>
 
             <!-- Persons -->
 
-            <TextView
-                android:id="@+id/personMultiPicker"
-                style="@style/Picker"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/personPickerLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="48dp"
-                android:hint="@string/hint_select_people"/>
+                android:hint="@string/hint_select_people"
+                app:errorEnabled="true">
 
-            <!-- Direction -->
+                <EditText
+                    android:id="@+id/personPicker"
+                    style="@style/Picker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_select_people"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
 
-            <RadioGroup
-                android:id="@+id/typeRadioGroup"
+        <!-- Direction -->
+
+        <RadioGroup
+            android:id="@+id/typeRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/withdrawalRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/personMultiPicker"
-                android:layout_marginLeft="48dp"
-                android:orientation="horizontal"
-                android:paddingTop="8dp">
+                android:layout_marginRight="12dp"
+                android:checked="true"
+                android:text="@string/button_withdrawal"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-                <RadioButton
-                    android:id="@+id/withdrawalRadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="12dp"
-                    android:checked="true"
-                    android:text="@string/button_withdrawal"
-                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <RadioButton
+                android:id="@+id/depositRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_deposit"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+        </RadioGroup>
 
-                <RadioButton
-                    android:id="@+id/depositRadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button_deposit"
-                    android:textAppearance="?android:attr/textAppearanceMedium"/>
-            </RadioGroup>
-        </RelativeLayout>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
 
         <!-- Amount -->
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="16dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
                 android:contentDescription="@string/label_amount"
                 android:src="@drawable/ic_label_amount"/>
 
-            <EditText
-                android:id="@+id/amountEditText"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/amountTextLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="48dp"
                 android:hint="@string/hint_total_amount"
-                android:inputType="numberDecimal"/>
+                app:errorEnabled="true">
+
+                <EditText
+                    android:id="@+id/amountEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_total_amount"
+                    android:inputType="numberDecimal"/>
+            </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
 
         <!-- Description -->
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="16dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -109,12 +125,15 @@
                 android:inputType="textCapSentences"/>
         </RelativeLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp"/>
+
         <!-- Date & time -->
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="16dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="wrap_content"
