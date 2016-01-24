@@ -18,8 +18,7 @@ import java.util.List;
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.adapter.GroupMultichoiceAdapter;
 import cz.pikadorama.uome.common.activity.UomeListActivity;
-import cz.pikadorama.uome.common.util.Toaster;
-import cz.pikadorama.uome.dialog.MessageDialog;
+import cz.pikadorama.uome.common.util.SnackbarHelper;
 import cz.pikadorama.uome.io.CsvExport;
 import cz.pikadorama.uome.model.Group;
 import cz.pikadorama.uome.model.GroupDao;
@@ -35,7 +34,8 @@ public class ExportActivity extends UomeListActivity {
     private GroupDao groupDao;
     private GroupMultichoiceAdapter adapter;
 
-    private Toaster toaster;
+    private SnackbarHelper snackbarHelper;
+
     private CsvExport csvExport;
 
     private File selectedDirectory;
@@ -49,7 +49,8 @@ public class ExportActivity extends UomeListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        toaster = new Toaster(this);
+        snackbarHelper = new SnackbarHelper(this);
+
         groupDao = new GroupDao(this);
         csvExport = new CsvExport(this);
 
@@ -68,7 +69,7 @@ public class ExportActivity extends UomeListActivity {
 
     private void export() {
         if (!(selectedDirectory.isDirectory() && selectedDirectory.canWrite())) {
-            toaster.show(R.string.error_cannot_write_directory);
+            snackbarHelper.warn(R.string.error_cannot_write_directory);
             return;
         }
 
@@ -76,10 +77,10 @@ public class ExportActivity extends UomeListActivity {
 
         try {
             csvExport.export(selectedGroups, selectedDirectory);
-            toaster.show(R.string.export_success);
+            snackbarHelper.info(R.string.export_success);
         } catch (IOException ex) {
             Log.e(TAG, "CSV export failed", ex);
-            MessageDialog.create(R.string.error_export, R.string.error, R.drawable.ic_dialog_error).show(this);
+            snackbarHelper.error(R.string.error_export);
         }
     }
 

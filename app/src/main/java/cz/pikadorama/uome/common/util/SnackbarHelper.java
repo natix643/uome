@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import cz.pikadorama.uome.R;
 
+import static android.support.design.widget.Snackbar.LENGTH_LONG;
 import static android.support.design.widget.Snackbar.LENGTH_SHORT;
 
 public class SnackbarHelper {
@@ -19,25 +20,25 @@ public class SnackbarHelper {
         this.contentView = activity.findViewById(android.R.id.content);
     }
 
-    public void info(View view, int stringId) {
-        Snackbar.make(view, stringId, LENGTH_SHORT).show();
-    }
-
     public void info(int stringId) {
-        info(contentView, stringId);
-    }
-
-    public void warn(View view, int stringId) {
-        Snackbar snackbar = Snackbar.make(view, stringId, LENGTH_SHORT);
-
-        TextView text = (TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
-        text.setTextColor(activity.getResources().getColor(R.color.snackbar_warn));
-
-        snackbar.show();
+        Snackbar.make(contentView, stringId, LENGTH_SHORT).show();
     }
 
     public void warn(int stringId) {
-        warn(contentView, stringId);
+        show(stringId, R.color.snackbar_warn, LENGTH_SHORT);
+    }
+
+    public void error(int stringId) {
+        show(stringId, R.color.snackbar_error, LENGTH_LONG);
+    }
+
+    private void show(int stringId, int colorId, int length) {
+        Snackbar snackbar = Snackbar.make(contentView, stringId, length);
+
+        TextView text = (TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
+        text.setTextColor(activity.getResources().getColor(colorId));
+
+        snackbar.show();
     }
 
 }

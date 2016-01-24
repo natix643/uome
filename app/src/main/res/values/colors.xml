@@ -21,5 +21,7 @@
 
     <!-- Material Amber 500 -->
     <color name="snackbar_warn">#FFC107</color>
+    <!-- Material Red 500 -->
+    <color name="snackbar_error">#F44336</color>
 
 </resources>

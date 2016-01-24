@@ -96,7 +96,7 @@
     <string name="error_no_borrowed_item">Musíte zadat vypůjčený předmět</string>
     <string name="error_person_exists_in_group">Osoba s tímto jménem již ve skupině existuje</string>
     <string name="error_group_exists">Skupina s tímto jménem již existuje</string>
-    <string name="error_export">Export selhal. Ujistěte se, že máte správně připojenou SD kartu</string>
+    <string name="error_export">Export selhal. Ujistěte se, že máte správně připojenou SD kartu.</string>
     <string name="error_cannot_write_directory">Do této složky nelze zapisovat</string>
     <string name="error_directory_exists">Složka/soubor s tímto názvem již existuje</string>
     <string name="error_create_directory">Chyba při vytváření složky</string>
