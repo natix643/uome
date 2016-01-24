@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -14,8 +15,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="16dp">
+            android:layout_height="wrap_content">
 
             <!-- Person -->
 
@@ -32,40 +32,45 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="48dp"
                 android:prompt="@string/hint_select_person"/>
+        </RelativeLayout>
 
-            <!-- Direction -->
+        <!-- Direction -->
 
-            <RadioGroup
-                android:id="@+id/directionRadioGroup"
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+        <RadioGroup
+            android:id="@+id/directionRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/withdrawalRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/personSpinner"
-                android:layout_marginLeft="48dp"
-                android:orientation="horizontal"
-                android:paddingTop="8dp">
+                android:layout_marginRight="12dp"
+                android:checked="true"
+                android:text="@string/button_received"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-                <RadioButton
-                    android:id="@+id/withdrawalRadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="12dp"
-                    android:checked="true"
-                    android:text="@string/button_received"
-                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <RadioButton
+                android:id="@+id/depositRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_gave"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+        </RadioGroup>
 
-                <RadioButton
-                    android:id="@+id/depositRadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button_gave"
-                    android:textAppearance="?android:attr/textAppearanceMedium"/>
-            </RadioGroup>
-        </RelativeLayout>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="16dp">
+            android:layout_height="wrap_content">
 
             <!-- Amount / Item label -->
 
@@ -73,30 +78,46 @@
                 android:id="@+id/amountOrItemLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
                 android:contentDescription="@string/label_amount"
                 android:src="@drawable/ic_label_amount"/>
 
             <!-- Amount -->
 
-            <EditText
-                android:id="@+id/amountEditText"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/amountTextLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="48dp"
                 android:hint="@string/hint_amount"
-                android:inputType="numberDecimal"/>
+                app:errorEnabled="true">
+
+                <EditText
+                    android:id="@+id/amountEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_amount"
+                    android:inputType="numberDecimal"/>
+            </android.support.design.widget.TextInputLayout>
 
             <!-- Item -->
 
-            <EditText
-                android:id="@+id/nameEditText"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/itemTextLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="48dp"
                 android:hint="@string/hint_borrowed_item"
-                android:inputType="textCapSentences"
-                android:visibility="invisible"/>
+                android:visibility="invisible"
+                app:errorEnabled="true">
+
+                <EditText
+                    android:id="@+id/itemEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_borrowed_item"
+                    android:inputType="textCapSentences"/>
+            </android.support.design.widget.TextInputLayout>
 
             <!-- Is financial -->
 
@@ -104,20 +125,22 @@
                 android:id="@+id/financialTransactionCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/amountEditText"
+                android:layout_below="@+id/amountTextLayout"
                 android:layout_marginLeft="48dp"
-                android:layout_marginTop="8dp"
                 android:checked="true"
                 android:text="@string/button_is_financial"
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
         </RelativeLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
         <!-- Description -->
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="16dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -135,12 +158,15 @@
                 android:inputType="textCapSentences"/>
         </RelativeLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
         <!-- Date & time -->
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="16dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="wrap_content"

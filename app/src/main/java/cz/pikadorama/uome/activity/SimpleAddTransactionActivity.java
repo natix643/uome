@@ -1,6 +1,7 @@
 package cz.pikadorama.uome.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,7 +26,6 @@ import cz.pikadorama.uome.common.ActivityPurpose;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
-import cz.pikadorama.uome.common.util.SnackbarHelper;
 import cz.pikadorama.uome.common.util.Toaster;
 import cz.pikadorama.uome.common.view.DateTimePicker;
 import cz.pikadorama.uome.model.Person;
@@ -44,7 +44,6 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
     private TransactionDao transactionDao;
 
     private Toaster toaster;
-    private SnackbarHelper snackbarHelper;
 
     private PersonSpinnerAdapter adapter;
 
@@ -57,7 +56,9 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
 
     private ImageView amountOrItemLabel;
     private EditText amountEditText;
-    private EditText borrowedItemEditText;
+    private TextInputLayout amountTextLayout;
+    private EditText itemEditText;
+    private TextInputLayout itemTextLayout;
 
     private DateTimePicker dateTimePicker;
     private EditText descriptionEditText;
@@ -71,7 +72,6 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
         super.onCreate(savedInstanceState);
 
         toaster = new Toaster(this);
-        snackbarHelper = new SnackbarHelper(this);
 
         initDaos();
         initViews();
@@ -91,38 +91,44 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
     }
 
     private void initViews() {
-        directionRadioGroup = findView(R.id.directionRadioGroup);
-        withdrawalRadio = findView(R.id.withdrawalRadioButton);
-        depositRadio = findView(R.id.depositRadioButton);
+        directionRadioGroup = requireView(R.id.directionRadioGroup);
+        withdrawalRadio = requireView(R.id.withdrawalRadioButton);
+        depositRadio = requireView(R.id.depositRadioButton);
 
         adapter = new PersonSpinnerAdapter(this, personDao.getAllForGroup(Constants.SIMPLE_GROUP_ID));
-        personSpinner = findView(R.id.personSpinner);
+        personSpinner = requireView(R.id.personSpinner);
         personSpinner.setAdapter(adapter);
 
-        financialCheckbox = findView(R.id.financialTransactionCheckBox);
+        financialCheckbox = requireView(R.id.financialTransactionCheckBox);
         financialCheckbox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked) {
-                    amountEditText.setVisibility(View.VISIBLE);
-                    borrowedItemEditText.setVisibility(View.INVISIBLE);
+                    amountTextLayout.setVisibility(View.VISIBLE);
+                    itemTextLayout.setVisibility(View.INVISIBLE);
                     amountOrItemLabel.setContentDescription(getString(R.string.label_amount));
                     amountOrItemLabel.setImageResource(R.drawable.ic_label_amount);
                 } else {
-                    amountEditText.setVisibility(View.INVISIBLE);
-                    borrowedItemEditText.setVisibility(View.VISIBLE);
+                    amountTextLayout.setVisibility(View.INVISIBLE);
+                    itemTextLayout.setVisibility(View.VISIBLE);
                     amountOrItemLabel.setContentDescription(getString(R.string.label_borrowed_item));
                     amountOrItemLabel.setImageResource(R.drawable.ic_label_borrowed_item);
                 }
             }
         });
 
-        amountOrItemLabel = findView(R.id.amountOrItemLabel);
-        amountEditText = findView(R.id.amountEditText);
-        borrowedItemEditText = findView(R.id.nameEditText);
+        amountOrItemLabel = requireView(R.id.amountOrItemLabel);
 
-        dateTimePicker = findView(R.id.dateTimePicker);
-        descriptionEditText = findView(R.id.descriptionEditText);
+        amountEditText = requireView(R.id.amountEditText);
+        amountTextLayout = requireView(R.id.amountTextLayout);
+        amountTextLayout.setHint(null);
+
+        itemEditText = requireView(R.id.itemEditText);
+        itemTextLayout = requireView(R.id.itemTextLayout);
+        itemTextLayout.setHint(null);
+
+        dateTimePicker = requireView(R.id.dateTimePicker);
+        descriptionEditText = requireView(R.id.descriptionEditText);
     }
 
     private int actionBarTitle() {
@@ -149,7 +155,7 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
         Boolean isFinancial = data.isFinancial();
         if (isFinancial != null) {
             financialCheckbox.setChecked(isFinancial);
-            (isFinancial ? amountEditText : borrowedItemEditText).setText(data.getValue());
+            (isFinancial ? amountEditText : itemEditText).setText(data.getValue());
         }
 
         Direction direction = data.getDirection();
@@ -218,9 +224,14 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
         Person person = adapter.getItem(personSpinner.getSelectedItemPosition());
 
         boolean financial = financialCheckbox.isChecked();
+
         String value = financial ? getAmount() : getBorrowedItem();
         if (value == null) {
-            snackbarHelper.warn(financial ? R.string.error_no_amount : R.string.error_no_borrowed_item);
+            if (financial) {
+                amountTextLayout.setError(getString(R.string.error_no_amount));
+            } else {
+                itemTextLayout.setError(getString(R.string.error_no_borrowed_item));
+            }
             return;
         }
 
@@ -255,7 +266,7 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
     }
 
     private String getBorrowedItem() {
-        return Strings.emptyToNull(borrowedItemEditText.getText().toString().trim());
+        return Strings.emptyToNull(itemEditText.getText().toString().trim());
     }
 
     private Direction getDirection() {
