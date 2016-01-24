@@ -15,9 +15,8 @@ import java.io.IOException;
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.format.MessageFormatter;
-import cz.pikadorama.uome.common.util.Toaster;
+import cz.pikadorama.uome.common.util.SnackbarHelper;
 import cz.pikadorama.uome.dialog.ConfirmationDialog;
-import cz.pikadorama.uome.dialog.MessageDialog;
 import cz.pikadorama.uome.io.BackupHelper;
 import cz.pikadorama.uome.model.SQLiteHelper;
 
@@ -40,7 +39,7 @@ public class BackupActivity extends UomeActivity implements ConfirmationDialog.C
 
     private final MessageFormatter messageFormatter = new MessageFormatter(this);
 
-    private Toaster toaster;
+    private SnackbarHelper snackbarHelper;
 
     private TextView directoryPicker;
 
@@ -50,7 +49,7 @@ public class BackupActivity extends UomeActivity implements ConfirmationDialog.C
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        toaster = new Toaster(this);
+        snackbarHelper = new SnackbarHelper(this);
 
         initTexts();
         initPicker();
@@ -164,7 +163,7 @@ public class BackupActivity extends UomeActivity implements ConfirmationDialog.C
 
     private void backup() {
         if (!(selectedDirectory.isDirectory() && selectedDirectory.canWrite())) {
-            toaster.show(R.string.error_cannot_write_directory);
+            snackbarHelper.warn(R.string.error_cannot_write_directory);
             return;
         }
 
@@ -182,16 +181,16 @@ public class BackupActivity extends UomeActivity implements ConfirmationDialog.C
     private void forceBackup() {
         try {
             backupHelper.backupTo(selectedDirectory);
-            toaster.show(R.string.toast_backup_successful);
+            snackbarHelper.info(R.string.toast_backup_successful);
         } catch (IOException e) {
             Log.e(TAG, "Backup failed", e);
-            MessageDialog.create(R.string.error_backup_failed, R.string.error, R.drawable.ic_dialog_error).show(this);
+            snackbarHelper.error(R.string.error_backup_failed);
         }
     }
 
     private void restore() {
         if (!backupHelper.isBackupFilePresent(selectedDirectory)) {
-            toaster.showLong(messageFormatter.format(R.string.error_missing_backup_file, BACKUP_FILE_NAME));
+            snackbarHelper.warn(R.string.error_missing_backup_file);
             return;
         }
 
@@ -205,7 +204,7 @@ public class BackupActivity extends UomeActivity implements ConfirmationDialog.C
     private void forceRestore() {
         try {
             backupHelper.restoreFrom(selectedDirectory);
-            toaster.show(R.string.toast_restore_successful);
+            snackbarHelper.info(R.string.toast_restore_successful);
         } catch (IOException e) {
             // TODO maybe we could show dialog with something like "backup failed, your data may be corrupted"
             throw new RuntimeException(e);

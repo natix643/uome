@@ -101,7 +101,7 @@
     <string name="error_directory_exists">Папка/файл с таким названием уже есть</string>
     <string name="error_create_directory">Ошибка при создании папки</string>
     <string name="error_backup_failed">Не удалось создать резервную копию</string>
-    <string name="error_missing_backup_file">В этой папке не содержится файл резервной копии {0}</string>
+    <string name="error_missing_backup_file">В этой папке не содержится файл резервной копии</string>
 
     <!-- Notifications -->
 

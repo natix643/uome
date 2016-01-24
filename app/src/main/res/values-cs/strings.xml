@@ -101,7 +101,7 @@
     <string name="error_directory_exists">Složka/soubor s tímto názvem již existuje</string>
     <string name="error_create_directory">Chyba při vytváření složky</string>
     <string name="error_backup_failed">Zálohování se nezdařilo</string>
-    <string name="error_missing_backup_file">Tato složka neobsahuje záložní soubor {0}</string>
+    <string name="error_missing_backup_file">Tato složka neobsahuje záložní soubor</string>
 
     <!-- Notifications -->
 

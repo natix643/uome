@@ -103,7 +103,7 @@
     <string name="error_directory_exists">Folder/file with this name already exists</string>
     <string name="error_create_directory">Error while creating folder</string>
     <string name="error_backup_failed">Backup failed</string>
-    <string name="error_missing_backup_file">This folder doesn\'\'t contain the backup file {0}</string>
+    <string name="error_missing_backup_file">This folder doesn\'t contain a backup file</string>
 
     <!-- Notifications -->
 
