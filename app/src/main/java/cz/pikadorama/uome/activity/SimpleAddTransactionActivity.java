@@ -27,6 +27,7 @@ import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
 import cz.pikadorama.uome.common.util.Toaster;
+import cz.pikadorama.uome.common.util.Views;
 import cz.pikadorama.uome.common.view.DateTimePicker;
 import cz.pikadorama.uome.model.Person;
 import cz.pikadorama.uome.model.PersonDao;
@@ -122,10 +123,12 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
         amountEditText = requireView(R.id.amountEditText);
         amountTextLayout = requireView(R.id.amountTextLayout);
         amountTextLayout.setHint(null);
+        Views.autoClearError(amountTextLayout);
 
         itemEditText = requireView(R.id.itemEditText);
         itemTextLayout = requireView(R.id.itemTextLayout);
         itemTextLayout.setHint(null);
+        Views.autoClearError(itemTextLayout);
 
         dateTimePicker = requireView(R.id.dateTimePicker);
         descriptionEditText = requireView(R.id.descriptionEditText);
