@@ -46,11 +46,12 @@ public class GroupOverviewActivity extends OverviewActivity implements Confirmat
     protected void onResume() {
         super.onResume();
 
-        // TODO can this really happen?
         group = groupDao.getById(getGroupId());
         if (group == null) {
+            // this can happen if current group was deleted by a restore
             startActivity(Intents.openGroup(this, Constants.SIMPLE_GROUP_ID));
             finish();
+            return;
         }
 
         ActionBar actionBar = getSupportActionBar();
