@@ -1,6 +1,7 @@
 package cz.pikadorama.uome.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
@@ -22,6 +23,7 @@ import java.util.List;
 
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.adapter.viewholder.BalanceViewHolder;
+import cz.pikadorama.uome.common.ActivityRequest;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.util.Intents;
 import cz.pikadorama.uome.common.util.ListViewUtil;
@@ -122,13 +124,30 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_add_person:
-                startActivity(Intents.addPerson(getBaseActivity(), getGroupId()));
+                startActivityForResult(Intents.addPerson(getBaseActivity(), getGroupId()), ActivityRequest.ADD_PERSON);
                 return true;
             case R.id.menu_add_transaction:
                 startActivity(Intents.addTransaction(getBaseActivity(), getGroupId()));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            switch (requestCode) {
+                case ActivityRequest.ADD_PERSON:
+                    snackbarHelper.info(R.string.toast_person_added);
+                    break;
+                case ActivityRequest.EDIT_PERSON:
+                    snackbarHelper.info(R.string.toast_person_updated);
+                    break;
+                case ActivityRequest.ADD_TRANSACTION:
+                    snackbarHelper.info(R.string.toast_transaction_added);
+                    break;
+            }
         }
     }
 
@@ -193,18 +212,24 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
 
             switch (item.getItemId()) {
                 case R.id.menu_add_transaction:
-                    startActivity(Intents.addTransaction(getBaseActivity(), balance.getPerson()));
+                    startActivityForResult(
+                            Intents.addTransaction(getBaseActivity(), balance.getPerson()),
+                            ActivityRequest.ADD_TRANSACTION);
                     mode.finish();
                     return true;
                 case R.id.menu_settle_debt:
-                    startActivity(Intents.settleDebt(getBaseActivity(), balance));
+                    startActivityForResult(
+                            Intents.settleDebt(getBaseActivity(), balance),
+                            ActivityRequest.ADD_TRANSACTION);
                     mode.finish();
                     return true;
                 case R.id.menu_send_email_with_debt:
                     startActivity(Intents.shareViaEmail(balance, getBaseActivity()));
                     return true;
                 case R.id.menu_edit:
-                    startActivity(Intents.editPerson(getBaseActivity(), balance.getPerson()));
+                    startActivityForResult(
+                            Intents.editPerson(getBaseActivity(), balance.getPerson()),
+                            ActivityRequest.EDIT_PERSON);
                     mode.finish();
                     return true;
                 case R.id.menu_delete:

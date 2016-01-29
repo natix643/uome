@@ -1,5 +1,6 @@
 package cz.pikadorama.uome.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.util.SparseBooleanArray;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.pikadorama.uome.R;
+import cz.pikadorama.uome.common.ActivityRequest;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeListActivity;
 import cz.pikadorama.uome.common.util.Intents;
@@ -81,7 +83,7 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
         addTransactionButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(Intents.addTransaction(self, person));
+                startActivityForResult(Intents.addTransaction(self, person), ActivityRequest.ADD_TRANSACTION);
             }
         });
     }
@@ -123,6 +125,25 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case ActivityRequest.EDIT_PERSON:
+                    snackbarHelper.info(R.string.toast_person_updated);
+                    break;
+                case ActivityRequest.ADD_TRANSACTION:
+                    snackbarHelper.info(R.string.toast_transaction_added);
+                    break;
+                case ActivityRequest.EDIT_TRANSACTION:
+                    snackbarHelper.info(R.string.toast_transaction_updated);
+                    break;
+            }
+        }
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.list_person_transactions, menu);
         if (totalAmount.compareTo(BigDecimal.ZERO) == 0) {
@@ -136,13 +157,13 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_settle_debt:
-                startActivity(Intents.settleDebt(this, getBalance()));
+                startActivityForResult(Intents.settleDebt(this, getBalance()), ActivityRequest.ADD_TRANSACTION);
                 return true;
             case R.id.menu_send_email_with_debt:
                 startActivity(Intents.shareViaEmail(getBalance(), this));
                 return true;
             case R.id.menu_edit_person:
-                startActivity(Intents.editPerson(this, person));
+                startActivityForResult(Intents.editPerson(this, person), ActivityRequest.EDIT_PERSON);
                 return true;
             case R.id.menu_delete_person:
                 ConfirmationDialog.of(REQUEST_DELETE_PERSON)
@@ -250,11 +271,15 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
 
             switch (item.getItemId()) {
                 case R.id.menu_settle_transaction:
-                    startActivity(Intents.settleTransaction(self, transaction));
+                    startActivityForResult(
+                            Intents.settleTransaction(self, transaction),
+                            ActivityRequest.ADD_TRANSACTION);
                     mode.finish();
                     return true;
                 case R.id.menu_edit:
-                    startActivity(Intents.editTransaction(self, transaction));
+                    startActivityForResult(
+                            Intents.editTransaction(self, transaction),
+                            ActivityRequest.EDIT_TRANSACTION);
                     mode.finish();
                     return true;
                 case R.id.menu_delete:

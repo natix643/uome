@@ -1,6 +1,7 @@
 package cz.pikadorama.uome.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.pikadorama.uome.R;
+import cz.pikadorama.uome.common.ActivityRequest;
 import cz.pikadorama.uome.common.util.Intents;
 import cz.pikadorama.uome.common.util.ListViewUtil;
 import cz.pikadorama.uome.common.util.SnackbarHelper;
@@ -103,6 +105,20 @@ public abstract class ListTransactionsFragment extends OverviewFragment implemen
     }
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            switch (requestCode) {
+                case ActivityRequest.ADD_TRANSACTION:
+                    snackbarHelper.info(R.string.toast_transaction_added);
+                    break;
+                case ActivityRequest.EDIT_TRANSACTION:
+                    snackbarHelper.info(R.string.toast_transaction_updated);
+                    break;
+            }
+        }
+    }
+
+    @Override
     public void onConfirmed(String requestCode) {
         if (requestCode.equals(REQUEST_DELETE_TRANSACTIONS)) {
             transactionDao.deleteAll(getSelection());
@@ -167,11 +183,15 @@ public abstract class ListTransactionsFragment extends OverviewFragment implemen
 
             switch (item.getItemId()) {
                 case R.id.menu_settle_transaction:
-                    startActivity(Intents.settleTransaction(getActivity(), transaction));
+                    startActivityForResult(
+                            Intents.settleTransaction(getActivity(), transaction),
+                            ActivityRequest.ADD_TRANSACTION);
                     mode.finish();
                     return true;
                 case R.id.menu_edit:
-                    startActivity(Intents.editTransaction(getActivity(), transaction));
+                    startActivityForResult(
+                            Intents.editTransaction(getActivity(), transaction),
+                            ActivityRequest.EDIT_TRANSACTION);
                     mode.finish();
                     return true;
                 case R.id.menu_delete:

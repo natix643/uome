@@ -11,7 +11,6 @@ import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.ActivityPurpose;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
-import cz.pikadorama.uome.common.util.Toaster;
 import cz.pikadorama.uome.common.util.Views;
 import cz.pikadorama.uome.model.Group;
 import cz.pikadorama.uome.model.GroupDao;
@@ -22,8 +21,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class AddGroupActivity extends UomeActivity {
 
     private GroupDao groupDao;
-
-    private Toaster toaster;
 
     private Group editedGroup;
     private int purpose;
@@ -37,7 +34,6 @@ public class AddGroupActivity extends UomeActivity {
         super.onCreate(savedInstanceState);
 
         groupDao = new GroupDao(getApplicationContext());
-        toaster = new Toaster(this);
 
         initViews();
 
@@ -107,8 +103,8 @@ public class AddGroupActivity extends UomeActivity {
 
         String description = descriptionEditText.getText().toString().trim();
 
-		/* Edit an existing group */
         if (purpose == ActivityPurpose.EDIT_EXISTING) {
+            /* Edit an existing group */
             Group group = groupDao.getByName(name);
             if (group != null && !group.equals(editedGroup)) {
                 nameTextLayout.setError(getString(R.string.error_group_exists));
@@ -119,22 +115,19 @@ public class AddGroupActivity extends UomeActivity {
             editedGroup.setDescription(description);
             groupDao.update(editedGroup);
 
-            toaster.show(R.string.toast_group_updated);
-        }
-        /* Create a new group */
-        else {
+            setResult(RESULT_OK);
+        } else {
+            /* Create a new group */
             if (groupDao.getByName(name) != null) {
                 nameTextLayout.setError(getString(R.string.error_group_exists));
                 return;
             }
+
             Group group = new Group(name, description);
             long groupId = groupDao.create(group);
 
-            Intent intent = new Intent();
-            intent.putExtra(Constants.GROUP_ID, groupId);
+            Intent intent = new Intent().putExtra(Constants.GROUP_ID, groupId);
             setResult(RESULT_OK, intent);
-
-            toaster.show(R.string.toast_group_added);
         }
 
         finish();

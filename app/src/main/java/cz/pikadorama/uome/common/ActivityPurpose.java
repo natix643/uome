@@ -1,5 +1,9 @@
 package cz.pikadorama.uome.common;
 
+/**
+ * @deprecated replace with {@link ActivityRequest}
+ */
+@Deprecated
 public class ActivityPurpose {
 
     private ActivityPurpose() {}

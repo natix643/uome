@@ -1,5 +1,6 @@
 package cz.pikadorama.uome.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.view.Menu;
@@ -11,10 +12,12 @@ import com.google.common.collect.ImmutableList;
 import java.util.List;
 
 import cz.pikadorama.uome.R;
+import cz.pikadorama.uome.common.ActivityRequest;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
 import cz.pikadorama.uome.common.pager.Page;
 import cz.pikadorama.uome.common.util.Intents;
+import cz.pikadorama.uome.common.util.SnackbarHelper;
 import cz.pikadorama.uome.common.util.Toaster;
 import cz.pikadorama.uome.dialog.ConfirmationDialog;
 import cz.pikadorama.uome.fragment.GroupListTransactionsFragment;
@@ -29,6 +32,7 @@ public class GroupOverviewActivity extends OverviewActivity implements Confirmat
     private final MoneyFormatter moneyFormatter = MoneyFormatter.withPlusPrefix();
 
     private Toaster toaster;
+    private SnackbarHelper snackbarHelper;
 
     private GroupDao groupDao;
 
@@ -39,6 +43,8 @@ public class GroupOverviewActivity extends OverviewActivity implements Confirmat
         super.onCreate(savedInstanceState);
 
         toaster = new Toaster(this);
+        snackbarHelper = new SnackbarHelper(this);
+
         groupDao = new GroupDao(this);
     }
 
@@ -69,7 +75,7 @@ public class GroupOverviewActivity extends OverviewActivity implements Confirmat
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_edit_group:
-                startActivity(Intents.editGroup(this, group));
+                startActivityForResult(Intents.editGroup(this, group), ActivityRequest.EDIT_GROUP);
                 return true;
             case R.id.menu_delete_group:
                 ConfirmationDialog.of(REQUEST_DELETE_GROUP)
@@ -80,6 +86,15 @@ public class GroupOverviewActivity extends OverviewActivity implements Confirmat
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK && requestCode == ActivityRequest.EDIT_GROUP) {
+            snackbarHelper.info(R.string.toast_group_updated);
         }
     }
 

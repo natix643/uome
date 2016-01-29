@@ -26,7 +26,6 @@ import cz.pikadorama.uome.common.ActivityPurpose;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
-import cz.pikadorama.uome.common.util.Toaster;
 import cz.pikadorama.uome.common.util.Views;
 import cz.pikadorama.uome.common.view.DateTimePicker;
 import cz.pikadorama.uome.model.Person;
@@ -43,8 +42,6 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
 
     private PersonDao personDao;
     private TransactionDao transactionDao;
-
-    private Toaster toaster;
 
     private PersonSpinnerAdapter adapter;
 
@@ -71,8 +68,6 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        toaster = new Toaster(this);
 
         initDaos();
         initViews();
@@ -247,14 +242,14 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
         switch (getPurpose()) {
             case ActivityPurpose.ADD_NEW_PREFILLED:
                 transactionDao.create(transaction);
-                toaster.show(R.string.toast_transaction_added);
                 break;
             case ActivityPurpose.EDIT_EXISTING:
                 transaction.setId(editedTransactionId);
                 transactionDao.update(transaction);
-                toaster.show(R.string.toast_transaction_updated);
                 break;
         }
+
+        setResult(RESULT_OK);
         finish();
     }
 

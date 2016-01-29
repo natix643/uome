@@ -29,7 +29,6 @@ import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
 import cz.pikadorama.uome.common.util.Parcelables;
-import cz.pikadorama.uome.common.util.Toaster;
 import cz.pikadorama.uome.common.util.Views;
 import cz.pikadorama.uome.common.view.DateTimePicker;
 import cz.pikadorama.uome.model.Person;
@@ -49,8 +48,6 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
 
     private PersonDao personDao;
     private TransactionDao transactionDao;
-
-    private Toaster toaster;
 
     private RadioGroup directionRadioGroup;
     private RadioButton withdrawalRadio;
@@ -73,8 +70,6 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        toaster = new Toaster(this);
 
         initDaos();
         initViews();
@@ -257,7 +252,7 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
             amount = amount.subtract(dividedAmount);
         }
 
-        toaster.show(R.string.toast_transaction_added);
+        setResult(RESULT_OK);
         finish();
     }
 

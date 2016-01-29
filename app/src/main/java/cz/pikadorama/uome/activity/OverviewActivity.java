@@ -30,12 +30,14 @@ import cz.pikadorama.uome.adapter.navigation.GroupItem;
 import cz.pikadorama.uome.adapter.navigation.NavigationAdapter;
 import cz.pikadorama.uome.adapter.navigation.NavigationItem;
 import cz.pikadorama.uome.adapter.navigation.NavigationListener;
+import cz.pikadorama.uome.common.ActivityRequest;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
 import cz.pikadorama.uome.common.pager.BasePagerAdapter;
 import cz.pikadorama.uome.common.pager.PagerActivity;
 import cz.pikadorama.uome.common.util.Intents;
 import cz.pikadorama.uome.common.util.ListViewUtil;
+import cz.pikadorama.uome.common.util.SnackbarHelper;
 import cz.pikadorama.uome.fragment.OverviewFragment;
 import cz.pikadorama.uome.model.Group;
 import cz.pikadorama.uome.model.GroupDao;
@@ -45,9 +47,9 @@ import static com.google.common.base.Preconditions.checkState;
 
 public abstract class OverviewActivity extends PagerActivity {
 
-    private static final int REQUEST_ADD_GROUP = 19;
-
     private GroupDao groupDao;
+
+    private SnackbarHelper snackbarHelper;
 
     private NavigationAdapter navigationAdapter;
 
@@ -67,6 +69,8 @@ public abstract class OverviewActivity extends PagerActivity {
         super.onCreate(savedInstanceState);
 
         groupDao = new GroupDao(this);
+        snackbarHelper = new SnackbarHelper(this);
+
         navigationAdapter = new NavigationAdapter(this);
 
         Toolbar toolbar = requireView(R.id.toolbar);
@@ -83,7 +87,9 @@ public abstract class OverviewActivity extends PagerActivity {
         addTransactionButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(Intents.addTransaction(self, getGroupId()));
+                startActivityForResult(
+                        Intents.addTransaction(self, getGroupId()),
+                        ActivityRequest.ADD_TRANSACTION);
             }
         });
     }
@@ -146,7 +152,7 @@ public abstract class OverviewActivity extends PagerActivity {
                 new NavigationListener() {
                     @Override
                     public void onItemSelected() {
-                        startActivityForResult(Intents.addGroup(self), REQUEST_ADD_GROUP);
+                        startActivityForResult(Intents.addGroup(self), ActivityRequest.ADD_GROUP);
                     }
                 }));
 
@@ -188,12 +194,19 @@ public abstract class OverviewActivity extends PagerActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQUEST_ADD_GROUP && resultCode == RESULT_OK) {
-            long groupId = data.getLongExtra(Constants.GROUP_ID, Constants.MISSING_EXTRA);
-            checkState(groupId != Constants.MISSING_EXTRA, "Missing intent extra for key: " + Constants.GROUP_ID);
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case ActivityRequest.ADD_GROUP:
+                    long groupId = data.getLongExtra(Constants.GROUP_ID, Constants.MISSING_EXTRA);
+                    checkState(groupId != Constants.MISSING_EXTRA);
 
-            startActivity(Intents.openGroup(this, groupId));
-            finish();
+                    startActivity(Intents.openGroup(this, groupId));
+                    finish();
+                    break;
+                case ActivityRequest.ADD_TRANSACTION:
+                    snackbarHelper.info(R.string.toast_transaction_added);
+                    break;
+            }
         }
     }
 

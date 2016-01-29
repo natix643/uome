@@ -23,7 +23,6 @@ import cz.pikadorama.uome.common.ActivityPurpose;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.util.Closeables;
-import cz.pikadorama.uome.common.util.Toaster;
 import cz.pikadorama.uome.common.util.Views;
 import cz.pikadorama.uome.dialog.SelectEmailDialog;
 import cz.pikadorama.uome.model.Person;
@@ -37,8 +36,6 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
     private static final int SELECT_CONTACT = 0;
 
     private PersonDao personDao;
-
-    private Toaster toaster;
 
     private Person editedPerson;
 
@@ -58,7 +55,6 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
         super.onCreate(savedInstanceState);
 
         personDao = new PersonDao(getApplicationContext());
-        toaster = new Toaster(this);
 
         if (savedInstanceState != null) {
             imageUri = savedInstanceState.getParcelable(Constants.IMAGE_URI);
@@ -163,12 +159,8 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
             personDao.create(person);
         }
 
-        toaster.show(getToastText());
+        setResult(RESULT_OK);
         finish();
-    }
-
-    private int getToastText() {
-        return purpose == ActivityPurpose.EDIT_EXISTING ? R.string.toast_person_updated : R.string.toast_person_added;
     }
 
     @Override
