@@ -13,12 +13,12 @@ import java.util.List;
 
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.ActivityRequest;
+import cz.pikadorama.uome.common.ActivityResult;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
 import cz.pikadorama.uome.common.pager.Page;
 import cz.pikadorama.uome.common.util.Intents;
 import cz.pikadorama.uome.common.util.SnackbarHelper;
-import cz.pikadorama.uome.common.util.Toaster;
 import cz.pikadorama.uome.dialog.ConfirmationDialog;
 import cz.pikadorama.uome.fragment.GroupListTransactionsFragment;
 import cz.pikadorama.uome.fragment.ListBalancesFragment.GroupListBalancesFragment;
@@ -31,7 +31,6 @@ public class GroupOverviewActivity extends OverviewActivity implements Confirmat
 
     private final MoneyFormatter moneyFormatter = MoneyFormatter.withPlusPrefix();
 
-    private Toaster toaster;
     private SnackbarHelper snackbarHelper;
 
     private GroupDao groupDao;
@@ -42,9 +41,7 @@ public class GroupOverviewActivity extends OverviewActivity implements Confirmat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        toaster = new Toaster(this);
         snackbarHelper = new SnackbarHelper(this);
-
         groupDao = new GroupDao(this);
     }
 
@@ -103,11 +100,12 @@ public class GroupOverviewActivity extends OverviewActivity implements Confirmat
         if (requestCode.equals(REQUEST_DELETE_GROUP)) {
             groupDao.delete(group);
 
-            startActivity(SimpleOverviewActivity.class);
+            Intent intent = new Intent(this, SimpleOverviewActivity.class)
+                    .putExtra(ActivityResult.GROUP_DELETED, true);
+            startActivity(intent);
+
             finish();
             overridePendingTransition(0, 0);
-
-            toaster.show(R.string.toast_group_deleted);
         }
     }
 
