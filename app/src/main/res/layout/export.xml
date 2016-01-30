@@ -4,42 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ListView
+        android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/button_bar"
-        android:orientation="vertical">
-
-        <TextView
-            style="@style/Subheader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:text="@string/label_export_directory"/>
-
-        <TextView
-            android:id="@+id/directoryPicker"
-            style="@style/Picker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:hint="@string/hint_select_directory"/>
-
-        <TextView
-            style="@style/Subheader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/label_groups"/>
-
-        <ListView
-            android:id="@android:id/list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:choiceMode="multipleChoice"
-            android:drawSelectorOnTop="true"/>
-    </LinearLayout>
+        android:choiceMode="multipleChoice"
+        android:clipToPadding="false"
+        android:drawSelectorOnTop="true"
+        android:paddingBottom="8dp"/>
 
     <!-- Button bar -->
 
@@ -57,9 +30,7 @@
             style="?android:attr/buttonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:dividerPadding="0dp"
-            android:orientation="horizontal"
-            android:showDividers="middle">
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/flipSelectionButton"

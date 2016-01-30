@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        style="@style/Subheader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_export_directory"/>
+
+    <TextView
+        android:id="@+id/directoryPicker"
+        style="@style/Picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_select_directory"/>
+
+    <TextView
+        style="@style/Subheader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/label_select_groups"/>
+</LinearLayout>

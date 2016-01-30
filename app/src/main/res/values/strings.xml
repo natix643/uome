@@ -66,7 +66,7 @@
     <string name="label_datetime">When</string>
     <string name="label_export_directory">Folder</string>
     <string name="hint_select_directory">Select folder</string>
-    <string name="label_groups">Groups</string>
+    <string name="label_select_groups">Select groups</string>
 
     <!-- ActionBar titles -->
 

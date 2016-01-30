@@ -64,7 +64,7 @@
     <string name="label_datetime">Kdy</string>
     <string name="label_export_directory">Složka</string>
     <string name="hint_select_directory">Vyberte složku</string>
-    <string name="label_groups">Skupiny</string>
+    <string name="label_select_groups">Vyberte skupiny</string>
 
     <!-- ActionBar titles -->
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -19,6 +20,7 @@ import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.adapter.GroupMultichoiceAdapter;
 import cz.pikadorama.uome.common.activity.UomeListActivity;
 import cz.pikadorama.uome.common.util.SnackbarHelper;
+import cz.pikadorama.uome.common.util.Views;
 import cz.pikadorama.uome.io.CsvExport;
 import cz.pikadorama.uome.model.Group;
 import cz.pikadorama.uome.model.GroupDao;
@@ -32,7 +34,6 @@ public class ExportActivity extends UomeListActivity {
     private static final int REQUEST_SELECT_DIRECTORY = 1;
 
     private GroupDao groupDao;
-    private GroupMultichoiceAdapter adapter;
 
     private SnackbarHelper snackbarHelper;
 
@@ -55,7 +56,7 @@ public class ExportActivity extends UomeListActivity {
         csvExport = new CsvExport(this);
 
         initAdapter();
-        initPicker();
+        initHeader();
         initButtons();
 
         String directoryPath = getPreferences(MODE_PRIVATE).getString(PREFERENCE_EXPORT_DIRECTORY, null);
@@ -86,12 +87,15 @@ public class ExportActivity extends UomeListActivity {
 
     private void initAdapter() {
         List<Group> groups = groupDao.getAllWithSimpleFirst();
-        adapter = new GroupMultichoiceAdapter(this, groups);
+        GroupMultichoiceAdapter adapter = new GroupMultichoiceAdapter(this, groups);
         setListAdapter(adapter);
     }
 
-    private void initPicker() {
-        directoryPicker = findView(R.id.directoryPicker);
+    private void initHeader() {
+        View header = LayoutInflater.from(this).inflate(R.layout.export_header, getListView(), false);
+        getListView().addHeaderView(header, null, false);
+
+        directoryPicker = Views.require(header, R.id.directoryPicker);
         directoryPicker.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,34 +125,26 @@ public class ExportActivity extends UomeListActivity {
     }
 
     private void refreshButtons() {
-        exportButton.setEnabled(getListView().getCheckedItemCount() > 0);
+        int selectedCount = getListView().getCheckedItemCount();
 
-        if (getListView().getCheckedItemCount() < getListView().getCount()) {
-            flipSelectionButton.setText(R.string.button_select_all);
-        } else {
-            flipSelectionButton.setText(R.string.button_select_none);
-        }
+        exportButton.setEnabled(selectedCount > 0);
+        flipSelectionButton.setText(selectedCount < getRealItemCount()
+                ? R.string.button_select_all : R.string.button_select_none);
     }
 
     private void flipSelection() {
-        if (getListView().getCheckedItemCount() < getListView().getCount()) {
-            checkAll(true);
-        } else {
-            checkAll(false);
-        }
+        setAllItems(getListView().getCheckedItemCount() < getRealItemCount());
         refreshButtons();
     }
 
-    private void checkAll(boolean checked) {
-        ListView listView = getListView();
-        for (int i = 0; i < listView.getCount(); i++) {
-            listView.setItemChecked(i, checked);
+    private void setAllItems(boolean selected) {
+        for (int i = 1; i <= getRealItemCount(); i++) { // skip header view
+            getListView().setItemChecked(i, selected);
         }
     }
 
     @Override
     protected void onListItemClick(ListView list, View view, int position, long id) {
-        super.onListItemClick(list, view, position, id);
         refreshButtons();
     }
 
@@ -202,12 +198,17 @@ public class ExportActivity extends UomeListActivity {
         List<Group> groups = new ArrayList<>();
         ListView listView = getListView();
 
-        for (int i = 0; i < listView.getCount(); i++) {
+        for (int i = 1; i <= getRealItemCount(); i++) { // skip header view
             if (listView.isItemChecked(i)) {
-                groups.add(adapter.getItem(i));
+                Group group = (Group) listView.getItemAtPosition(i);
+                groups.add(group);
             }
         }
         return groups;
+    }
+
+    private int getRealItemCount() {
+        return getListView().getCount() - 1; // exclude header view
     }
 
 }

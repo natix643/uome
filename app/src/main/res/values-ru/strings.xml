@@ -64,7 +64,7 @@
     <string name="label_datetime">Когда</string>
     <string name="label_export_directory">Папка</string>
     <string name="hint_select_directory">Выбрать папку</string>
-    <string name="label_groups">Группы</string>
+    <string name="label_select_groups">Выбрать группы</string>
 
     <!-- ActionBar titles -->
 
