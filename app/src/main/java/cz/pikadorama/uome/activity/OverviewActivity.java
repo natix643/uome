@@ -31,8 +31,8 @@ import cz.pikadorama.uome.adapter.navigation.NavigationAdapter;
 import cz.pikadorama.uome.adapter.navigation.NavigationItem;
 import cz.pikadorama.uome.adapter.navigation.NavigationListener;
 import cz.pikadorama.uome.common.ActivityRequest;
-import cz.pikadorama.uome.common.ActivityResult;
 import cz.pikadorama.uome.common.Constants;
+import cz.pikadorama.uome.common.Event;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
 import cz.pikadorama.uome.common.pager.BasePagerAdapter;
 import cz.pikadorama.uome.common.pager.PagerActivity;
@@ -139,10 +139,10 @@ public abstract class OverviewActivity extends PagerActivity {
     protected void onStart() {
         super.onStart();
 
-        if (getIntent().getBooleanExtra(ActivityResult.GROUP_ADDED, false)) {
+        if (getIntent().getBooleanExtra(Event.GROUP_ADDED, false)) {
             snackbarHelper.info(R.string.toast_group_added);
         }
-        if (getIntent().getBooleanExtra(ActivityResult.GROUP_DELETED, false)) {
+        if (getIntent().getBooleanExtra(Event.GROUP_DELETED, false)) {
             snackbarHelper.info(R.string.toast_group_deleted);
         }
     }
@@ -214,7 +214,7 @@ public abstract class OverviewActivity extends PagerActivity {
                     checkState(groupId != Constants.MISSING_EXTRA);
 
                     Intent intent = Intents.openGroup(this, groupId)
-                            .putExtra(ActivityResult.GROUP_ADDED, true);
+                            .putExtra(Event.GROUP_ADDED, true);
                     startActivity(intent);
                     finish();
                     break;

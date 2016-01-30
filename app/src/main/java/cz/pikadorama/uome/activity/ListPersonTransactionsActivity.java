@@ -20,8 +20,8 @@ import java.util.List;
 
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.ActivityRequest;
-import cz.pikadorama.uome.common.ActivityResult;
 import cz.pikadorama.uome.common.Constants;
+import cz.pikadorama.uome.common.Event;
 import cz.pikadorama.uome.common.activity.UomeListActivity;
 import cz.pikadorama.uome.common.util.Intents;
 import cz.pikadorama.uome.common.util.ListViewUtil;
@@ -202,7 +202,7 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
     private void deletePerson() {
         personDao.delete(person);
 
-        setResult(RESULT_OK, new Intent().putExtra(ActivityResult.PERSON_DELETED, true));
+        setResult(RESULT_OK, new Intent().putExtra(Event.PERSON_DELETED, true));
         finish();
     }
 

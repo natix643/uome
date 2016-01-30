@@ -24,8 +24,8 @@ import java.util.List;
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.adapter.viewholder.BalanceViewHolder;
 import cz.pikadorama.uome.common.ActivityRequest;
-import cz.pikadorama.uome.common.ActivityResult;
 import cz.pikadorama.uome.common.Constants;
+import cz.pikadorama.uome.common.Event;
 import cz.pikadorama.uome.common.util.Intents;
 import cz.pikadorama.uome.common.util.ListViewUtil;
 import cz.pikadorama.uome.common.util.SnackbarHelper;
@@ -151,7 +151,7 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
                     snackbarHelper.info(R.string.toast_transaction_added);
                     break;
                 case ActivityRequest.LIST_PERSON_TRANSACTIONS:
-                    if (data.getBooleanExtra(ActivityResult.PERSON_DELETED, false)) {
+                    if (data.getBooleanExtra(Event.PERSON_DELETED, false)) {
                         snackbarHelper.info(R.string.toast_person_deleted);
                     }
                     break;

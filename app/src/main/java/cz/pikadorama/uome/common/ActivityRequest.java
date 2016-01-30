@@ -1,5 +1,11 @@
 package cz.pikadorama.uome.common;
 
+import android.content.Intent;
+import android.os.Bundle;
+
+/**
+ * Request codes used in {@link android.app.Activity#startActivityForResult(Intent, int, Bundle)}.
+ */
 public class ActivityRequest {
 
     private ActivityRequest() {}

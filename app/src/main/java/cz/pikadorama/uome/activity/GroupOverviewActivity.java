@@ -13,8 +13,8 @@ import java.util.List;
 
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.ActivityRequest;
-import cz.pikadorama.uome.common.ActivityResult;
 import cz.pikadorama.uome.common.Constants;
+import cz.pikadorama.uome.common.Event;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
 import cz.pikadorama.uome.common.pager.Page;
 import cz.pikadorama.uome.common.util.Intents;
@@ -101,7 +101,7 @@ public class GroupOverviewActivity extends OverviewActivity implements Confirmat
             groupDao.delete(group);
 
             Intent intent = new Intent(this, SimpleOverviewActivity.class)
-                    .putExtra(ActivityResult.GROUP_DELETED, true);
+                    .putExtra(Event.GROUP_DELETED, true);
             startActivity(intent);
 
             finish();
