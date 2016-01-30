@@ -20,12 +20,12 @@ import java.util.List;
 
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.ActivityRequest;
+import cz.pikadorama.uome.common.ActivityResult;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeListActivity;
 import cz.pikadorama.uome.common.util.Intents;
 import cz.pikadorama.uome.common.util.ListViewUtil;
 import cz.pikadorama.uome.common.util.SnackbarHelper;
-import cz.pikadorama.uome.common.util.Toaster;
 import cz.pikadorama.uome.common.view.AvatarView;
 import cz.pikadorama.uome.dialog.ConfirmationDialog;
 import cz.pikadorama.uome.model.Balance;
@@ -42,7 +42,6 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
     private TransactionDao transactionDao;
     private PersonDao personDao;
 
-    private Toaster toaster;
     private SnackbarHelper snackbarHelper;
 
     private ViewHoldingListAdapter<Transaction> adapter;
@@ -67,7 +66,6 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        toaster = new Toaster(this);
         snackbarHelper = new SnackbarHelper(this);
 
         transactionDao = new TransactionDao(this);
@@ -203,8 +201,9 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
 
     private void deletePerson() {
         personDao.delete(person);
+
+        setResult(RESULT_OK, new Intent().putExtra(ActivityResult.PERSON_DELETED, true));
         finish();
-        toaster.show(R.string.toast_person_deleted);
     }
 
     private void deleteSelectedTransactions() {
