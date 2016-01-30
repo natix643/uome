@@ -63,8 +63,6 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
 
     private Integer lazyPurpose;
 
-    private Long editedTransactionId;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -164,9 +162,13 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
         descriptionEditText.setText(data.getDescription());
 
         if (getPurpose() == ActivityPurpose.EDIT_EXISTING) {
-            editedTransactionId = data.getId();
             dateTimePicker.setDateTime(data.getDateTime());
         }
+    }
+
+    private long getEditedTransactionId() {
+        TransactionData data = getIntent().getParcelableExtra(TransactionData.TAG);
+        return data.getId();
     }
 
     private void checkDirectionRadio(Direction direction) {
@@ -181,24 +183,6 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
         checkState(lazyPurpose == ADD_NEW_PREFILLED || lazyPurpose == EDIT_EXISTING,
                 "Invalid purpose: %s", lazyPurpose);
         return lazyPurpose;
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        if (editedTransactionId != null) {
-            outState.putLong(Constants.EDITED_TRANSACTION_ID, editedTransactionId);
-        }
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        long savedTransactionId = savedInstanceState.getLong(Constants.EDITED_TRANSACTION_ID, Constants.MISSING_EXTRA);
-        if (savedTransactionId != Constants.MISSING_EXTRA) {
-            editedTransactionId = savedTransactionId;
-        }
     }
 
     @Override
@@ -244,7 +228,7 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
                 transactionDao.create(transaction);
                 break;
             case ActivityPurpose.EDIT_EXISTING:
-                transaction.setId(editedTransactionId);
+                transaction.setId(getEditedTransactionId());
                 transactionDao.update(transaction);
                 break;
         }

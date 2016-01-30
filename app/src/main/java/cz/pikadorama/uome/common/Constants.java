@@ -22,8 +22,6 @@ public class Constants {
     public static final String SELECTED_GROUP = "selectedGroup";
     public static final String SELECTED_TRANSACTIONS = "selectedTransactions";
 
-    public static final String EDITED_TRANSACTION_ID = "editedTransactionId";
-
     public static final BigDecimal MINUS_ONE = new BigDecimal("-1");
 
     public static final String IMAGE_URI = "imageUri";
