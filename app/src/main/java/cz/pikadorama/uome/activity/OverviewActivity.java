@@ -48,6 +48,8 @@ import static com.google.common.base.Preconditions.checkState;
 
 public abstract class OverviewActivity extends PagerActivity {
 
+    private static final String PREFERENCE_CURRENT_PAGE = "currentPage";
+
     private GroupDao groupDao;
 
     private SnackbarHelper snackbarHelper;
@@ -71,28 +73,23 @@ public abstract class OverviewActivity extends PagerActivity {
 
         groupDao = new GroupDao(this);
         snackbarHelper = new SnackbarHelper(this);
-
         navigationAdapter = new NavigationAdapter(this);
+
+        totalTextView = requireView(R.id.totalTextView);
 
         Toolbar toolbar = requireView(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         initTabs();
-
         initNavigationDrawer();
+        initFloatingButton();
 
-        totalTextView = findView(R.id.totalTextView);
-
-        FloatingActionButton addTransactionButton = requireView(R.id.floatingButton);
-        addTransactionButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivityForResult(
-                        Intents.addTransaction(self, getGroupId()),
-                        ActivityRequest.ADD_TRANSACTION);
-            }
-        });
+        boolean firstStart = savedInstanceState == null;
+        if (firstStart) {
+            showRequestSnackbars();
+        }
+        selectPage(firstStart);
     }
 
     private void initTabs() {
@@ -123,6 +120,36 @@ public abstract class OverviewActivity extends PagerActivity {
         drawerLayout.setDrawerListener(drawerToggle);
     }
 
+    private void initFloatingButton() {
+        FloatingActionButton button = requireView(R.id.floatingButton);
+        button.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivityForResult(Intents.addTransaction(self, getGroupId()), ActivityRequest.ADD_TRANSACTION);
+            }
+        });
+    }
+
+    private void showRequestSnackbars() {
+        if (getIntent().getBooleanExtra(Event.GROUP_ADDED, false)) {
+            snackbarHelper.info(R.string.toast_group_added);
+        }
+        if (getIntent().getBooleanExtra(Event.GROUP_DELETED, false)) {
+            snackbarHelper.info(R.string.toast_group_deleted);
+        }
+    }
+
+    private void selectPage(boolean firstStart) {
+        boolean newGroup = getIntent().getBooleanExtra(Event.GROUP_ADDED, false);
+
+        if (newGroup && firstStart) {
+            getPager().setCurrentItem(0);
+        } else {
+            int page = PreferenceManager.getDefaultSharedPreferences(this).getInt(PREFERENCE_CURRENT_PAGE, 0);
+            getPager().setCurrentItem(page);
+        }
+    }
+
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -133,18 +160,6 @@ public abstract class OverviewActivity extends PagerActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        if (getIntent().getBooleanExtra(Event.GROUP_ADDED, false)) {
-            snackbarHelper.info(R.string.toast_group_added);
-        }
-        if (getIntent().getBooleanExtra(Event.GROUP_DELETED, false)) {
-            snackbarHelper.info(R.string.toast_group_deleted);
-        }
     }
 
     @Override
@@ -231,6 +246,7 @@ public abstract class OverviewActivity extends PagerActivity {
         PreferenceManager.getDefaultSharedPreferences(this)
                 .edit()
                 .putLong(Constants.PREF_LAST_OPENED_GROUP, getGroupId())
+                .putInt(PREFERENCE_CURRENT_PAGE, getPager().getCurrentItem())
                 .commit();
     }
 
