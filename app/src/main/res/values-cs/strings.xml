@@ -47,7 +47,6 @@
     <string name="hint_email">E-mail</string>
     <string name="hint_group_name">Jméno *</string>
     <string name="hint_description">Popis</string>
-    <string name="button_is_financial">Finanční</string>
     <string name="label_amount">Částka</string>
     <string name="hint_amount">Částka *</string>
     <string name="hint_total_amount">Celková částka *</string>

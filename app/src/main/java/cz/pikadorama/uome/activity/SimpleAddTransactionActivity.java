@@ -1,11 +1,12 @@
 package cz.pikadorama.uome.activity;
 
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.widget.SwitchCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
@@ -47,7 +48,7 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
     private RadioButton depositRadio;
 
     private Spinner personSpinner;
-    private CheckBox financialCheckbox;
+    private SwitchCompat financialSwitch;
 
     private ImageView amountOrItemLabel;
     private EditText amountEditText;
@@ -88,18 +89,24 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
         personSpinner = requireView(R.id.personSpinner);
         personSpinner.setAdapter(adapter);
 
-        financialCheckbox = requireView(R.id.financialTransactionCheckBox);
-        financialCheckbox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+        financialSwitch = requireView(R.id.financialSwitch);
+        int accent = getResources().getColor(R.color.accent);
+        financialSwitch.getThumbDrawable().setColorFilter(accent, PorterDuff.Mode.MULTIPLY);
+        financialSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked) {
                     amountTextLayout.setVisibility(View.VISIBLE);
                     itemTextLayout.setVisibility(View.INVISIBLE);
+                    itemTextLayout.setError(null);
+
                     amountOrItemLabel.setContentDescription(getString(R.string.label_amount));
                     amountOrItemLabel.setImageResource(R.drawable.ic_label_amount);
                 } else {
                     amountTextLayout.setVisibility(View.INVISIBLE);
+                    amountTextLayout.setError(null);
                     itemTextLayout.setVisibility(View.VISIBLE);
+
                     amountOrItemLabel.setContentDescription(getString(R.string.label_borrowed_item));
                     amountOrItemLabel.setImageResource(R.drawable.ic_label_borrowed_item);
                 }
@@ -145,7 +152,7 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
 
         Boolean isFinancial = data.isFinancial();
         if (isFinancial != null) {
-            financialCheckbox.setChecked(isFinancial);
+            financialSwitch.setChecked(isFinancial);
             (isFinancial ? amountEditText : itemEditText).setText(data.getValue());
         }
 
@@ -203,7 +210,7 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
     private void saveTransaction() {
         Person person = adapter.getItem(personSpinner.getSelectedItemPosition());
 
-        boolean financial = financialCheckbox.isChecked();
+        boolean financial = financialSwitch.isChecked();
 
         String value = financial ? getAmount() : getBorrowedItem();
         if (value == null) {

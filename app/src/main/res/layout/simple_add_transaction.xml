@@ -13,11 +13,15 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+        <!-- Person -->
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <!-- Person -->
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -34,11 +38,11 @@
                 android:prompt="@string/hint_select_person"/>
         </RelativeLayout>
 
-        <!-- Direction -->
-
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp"/>
+            android:layout_height="20dp"/>
+
+        <!-- Direction -->
 
         <RadioGroup
             android:id="@+id/directionRadioGroup"
@@ -68,11 +72,11 @@
             android:layout_width="match_parent"
             android:layout_height="16dp"/>
 
+        <!-- Amount / Item -->
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <!-- Amount / Item label -->
 
             <ImageView
                 android:id="@+id/amountOrItemLabel"
@@ -89,6 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="48dp"
+                android:layout_toLeftOf="@+id/financialSwitch"
                 android:hint="@string/hint_amount"
                 app:errorEnabled="true">
 
@@ -107,6 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="48dp"
+                android:layout_toLeftOf="@+id/financialSwitch"
                 android:hint="@string/hint_borrowed_item"
                 android:visibility="invisible"
                 app:errorEnabled="true">
@@ -121,20 +127,15 @@
 
             <!-- Is financial -->
 
-            <CheckBox
-                android:id="@+id/financialTransactionCheckBox"
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/financialSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/amountTextLayout"
-                android:layout_marginLeft="48dp"
-                android:checked="true"
-                android:text="@string/button_is_financial"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="24dp"
+                android:checked="true"/>
         </RelativeLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp"/>
 
         <!-- Description -->
 
@@ -160,7 +161,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp"/>
+            android:layout_height="24dp"/>
 
         <!-- Date & time -->
 
