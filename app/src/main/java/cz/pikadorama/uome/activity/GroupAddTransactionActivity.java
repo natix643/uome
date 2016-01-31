@@ -24,7 +24,6 @@ import java.util.Date;
 import java.util.List;
 
 import cz.pikadorama.uome.R;
-import cz.pikadorama.uome.common.ActivityPurpose;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
@@ -122,9 +121,6 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
     }
 
     private void loadIntent() {
-        int purpose = requireIntentExtra(ActivityPurpose.TAG);
-        checkState(purpose == ActivityPurpose.ADD_NEW_PREFILLED, "Illegal purpose: %s", purpose);
-
         TransactionData data = requireIntentExtra(TransactionData.TAG);
 
         Long personId = data.getPersonId();

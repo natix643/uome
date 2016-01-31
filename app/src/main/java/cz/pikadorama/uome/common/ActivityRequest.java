@@ -5,10 +5,13 @@ import android.os.Bundle;
 
 /**
  * Request codes used in {@link android.app.Activity#startActivityForResult(Intent, int, Bundle)}.
+ * They may also be passed into the target activity as intent extra using the {@link #KEY}.
  */
 public class ActivityRequest {
 
     private ActivityRequest() {}
+
+    public static final String KEY = ActivityRequest.class.getSimpleName();
 
     public static final int ADD_GROUP = 0;
     public static final int EDIT_GROUP = 1;

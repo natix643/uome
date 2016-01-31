@@ -22,7 +22,7 @@ import java.util.Date;
 
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.adapter.PersonSpinnerAdapter;
-import cz.pikadorama.uome.common.ActivityPurpose;
+import cz.pikadorama.uome.common.ActivityRequest;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
@@ -34,9 +34,6 @@ import cz.pikadorama.uome.model.Transaction;
 import cz.pikadorama.uome.model.Transaction.Direction;
 import cz.pikadorama.uome.model.TransactionDao;
 import cz.pikadorama.uome.model.parcelable.TransactionData;
-
-import static com.google.common.base.Preconditions.checkState;
-import static cz.pikadorama.uome.common.ActivityPurpose.*;
 
 public class SimpleAddTransactionActivity extends UomeActivity implements DateTimePicker.Holder {
 
@@ -60,8 +57,6 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
 
     private DateTimePicker dateTimePicker;
     private EditText descriptionEditText;
-
-    private Integer lazyPurpose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,10 +123,10 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
     }
 
     private int actionBarTitle() {
-        switch (getPurpose()) {
-            case ActivityPurpose.ADD_NEW_PREFILLED:
+        switch (getRequestCode()) {
+            case ActivityRequest.ADD_TRANSACTION:
                 return R.string.title_add_transaction;
-            case ActivityPurpose.EDIT_EXISTING:
+            case ActivityRequest.EDIT_TRANSACTION:
                 return R.string.title_edit_transaction;
             default:
                 throw new IllegalStateException();
@@ -161,7 +156,7 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
 
         descriptionEditText.setText(data.getDescription());
 
-        if (getPurpose() == ActivityPurpose.EDIT_EXISTING) {
+        if (getRequestCode() == ActivityRequest.EDIT_TRANSACTION) {
             dateTimePicker.setDateTime(data.getDateTime());
         }
     }
@@ -176,13 +171,16 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
         radio.setChecked(true);
     }
 
-    private int getPurpose() {
-        if (lazyPurpose == null) {
-            lazyPurpose = requireIntentExtra(ActivityPurpose.TAG);
+    private int getRequestCode() {
+        int code = requireIntentExtra(ActivityRequest.KEY);
+
+        switch (code) {
+            case ActivityRequest.ADD_TRANSACTION:
+            case ActivityRequest.EDIT_TRANSACTION:
+                return code;
+            default:
+                throw new IllegalStateException("invalid request code: " + code);
         }
-        checkState(lazyPurpose == ADD_NEW_PREFILLED || lazyPurpose == EDIT_EXISTING,
-                "Invalid purpose: %s", lazyPurpose);
-        return lazyPurpose;
     }
 
     @Override
@@ -223,11 +221,11 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
         Transaction transaction = new Transaction(person.getId(), Constants.SIMPLE_GROUP_ID,
                 value, financial, getDirection(), description, dateTime);
 
-        switch (getPurpose()) {
-            case ActivityPurpose.ADD_NEW_PREFILLED:
+        switch (getRequestCode()) {
+            case ActivityRequest.ADD_TRANSACTION:
                 transactionDao.create(transaction);
                 break;
-            case ActivityPurpose.EDIT_EXISTING:
+            case ActivityRequest.EDIT_TRANSACTION:
                 transaction.setId(getEditedTransactionId());
                 transactionDao.update(transaction);
                 break;

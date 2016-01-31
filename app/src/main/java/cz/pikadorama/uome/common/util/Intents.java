@@ -17,6 +17,7 @@ import cz.pikadorama.uome.activity.SimpleAddTransactionActivity;
 import cz.pikadorama.uome.activity.SimpleListPersonTransactionsActivity;
 import cz.pikadorama.uome.activity.SimpleOverviewActivity;
 import cz.pikadorama.uome.common.ActivityPurpose;
+import cz.pikadorama.uome.common.ActivityRequest;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.format.EmailFormatter;
 import cz.pikadorama.uome.model.Balance;
@@ -58,7 +59,7 @@ public class Intents {
 
     private static Intent addPrefilledTransaction(Activity activity, TransactionData data) {
         return new Intent(activity, addActivityClass(data.getGroupId()))
-                .putExtra(ActivityPurpose.TAG, ActivityPurpose.ADD_NEW_PREFILLED)
+                .putExtra(ActivityRequest.KEY, ActivityRequest.ADD_TRANSACTION)
                 .putExtra(TransactionData.TAG, data);
     }
 
@@ -108,12 +109,12 @@ public class Intents {
     }
 
 	/*
-	 * Editing
+     * Editing
 	 */
 
     public static Intent editTransaction(Activity activity, Transaction transaction) {
-        return new Intent(activity, addActivityClass(transaction.getGroupId()))
-                .putExtra(ActivityPurpose.TAG, ActivityPurpose.EDIT_EXISTING)
+        return new Intent(activity, SimpleAddTransactionActivity.class)
+                .putExtra(ActivityRequest.KEY, ActivityRequest.EDIT_TRANSACTION)
                 .putExtra(TransactionData.TAG, TransactionData.from(transaction));
     }
 
