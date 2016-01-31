@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="Theme.UomeBase" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.Uome" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
@@ -15,8 +15,6 @@
         <item name="alertDialogTheme">@style/Theme.Uome.Dialog</item>
         <item name="android:dialogTheme">@style/Theme.Uome.Dialog</item>
     </style>
-
-    <style name="Theme.Uome" parent="@style/Theme.UomeBase"/>
 
     <style name="Theme.Uome.NoActionBar" parent="@style/Theme.Uome">
         <item name="windowActionBar">false</item>
