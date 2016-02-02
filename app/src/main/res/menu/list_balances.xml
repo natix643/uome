@@ -9,10 +9,4 @@
         android:title="@string/menu_add_person"
         uome:showAsAction="always"/>
 
-    <item
-        android:id="@+id/menu_add_transaction"
-        android:icon="@drawable/ic_action_add_transaction"
-        android:title="@string/menu_add_transaction"
-        uome:showAsAction="always"/>
-
 </menu>

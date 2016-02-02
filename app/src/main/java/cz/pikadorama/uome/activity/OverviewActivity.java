@@ -298,11 +298,11 @@ public abstract class OverviewActivity extends PagerActivity {
         };
     }
 
-    public void onCreateActionMode() {
+    public void hideFloatingButton() {
         Animations.collapse(addTransactionButton);
     }
 
-    public void onDestroyActionMode() {
+    public void showFloatingButton() {
         Animations.expand(addTransactionButton);
     }
 

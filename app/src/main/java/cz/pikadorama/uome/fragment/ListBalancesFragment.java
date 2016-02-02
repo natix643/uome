@@ -83,12 +83,17 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
     public void onResume() {
         super.onResume();
         refreshAdapter();
-        getBaseActivity().invalidateOptionsMenu();
     }
 
     void refreshAdapter() {
         List<Balance> balances = loadBalances();
         adapter.setList(balances);
+
+        if (adapter.isEmpty()) {
+            getBaseActivity().hideFloatingButton();
+        } else {
+            getBaseActivity().showFloatingButton();
+        }
     }
 
     private List<Balance> loadBalances() {
@@ -114,9 +119,6 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.list_balances, menu);
-        if (adapter.isEmpty()) {
-            menu.removeItem(R.id.menu_add_transaction);
-        }
     }
 
     @Override
@@ -124,9 +126,6 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
         switch (item.getItemId()) {
             case R.id.menu_add_person:
                 startActivityForResult(Intents.addPerson(getBaseActivity(), getGroupId()), ActivityRequest.ADD_PERSON);
-                return true;
-            case R.id.menu_add_transaction:
-                startActivity(Intents.addTransaction(getBaseActivity(), getGroupId()));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -182,7 +181,7 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
             mode.getMenuInflater().inflate(R.menu.context_list_balances, menu);
-            getBaseActivity().onCreateActionMode();
+            getBaseActivity().hideFloatingButton();
             return true;
         }
 
@@ -259,7 +258,7 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             actionMode = null;
-            getBaseActivity().onDestroyActionMode();
+            getBaseActivity().showFloatingButton();
         }
     };
 
@@ -267,11 +266,10 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
     public void onConfirmed(String requestCode) {
         if (requestCode.equals(REQUEST_DELETE_PERSONS)) {
             personDao.deleteAll(getSelection());
-            actionMode.finish();
-            refreshAdapter();
-            snackbarHelper.info(R.string.toast_persons_deleted);
 
-            getBaseActivity().invalidateOptionsMenu();
+            actionMode.finish();
+            snackbarHelper.info(R.string.toast_persons_deleted);
+            refreshAdapter();
 
             // TODO remove this hack and use MVC instead
             ListTransactionsFragment other =
@@ -289,7 +287,6 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
 	 */
 
     public static class SimpleListBalancesFragment extends ListBalancesFragment {
-
         @Override
         protected long getGroupId() {
             return Constants.SIMPLE_GROUP_ID;
@@ -302,7 +299,6 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
     }
 
     public static class GroupListBalancesFragment extends ListBalancesFragment {
-
         @Override
         protected long getGroupId() {
             return requireArgument(Constants.GROUP_ID);
