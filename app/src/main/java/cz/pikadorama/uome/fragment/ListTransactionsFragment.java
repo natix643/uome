@@ -164,6 +164,7 @@ public abstract class ListTransactionsFragment extends OverviewFragment implemen
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
             mode.getMenuInflater().inflate(R.menu.context_list_transactions, menu);
+            getBaseActivity().onCreateActionMode();
             return true;
         }
 
@@ -215,6 +216,7 @@ public abstract class ListTransactionsFragment extends OverviewFragment implemen
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             actionMode = null;
+            getBaseActivity().onDestroyActionMode();
         }
     };
 

@@ -39,6 +39,7 @@ import cz.pikadorama.uome.common.pager.PagerActivity;
 import cz.pikadorama.uome.common.util.Intents;
 import cz.pikadorama.uome.common.util.ListViewUtil;
 import cz.pikadorama.uome.common.util.SnackbarHelper;
+import cz.pikadorama.uome.common.view.Animations;
 import cz.pikadorama.uome.fragment.OverviewFragment;
 import cz.pikadorama.uome.model.Group;
 import cz.pikadorama.uome.model.GroupDao;
@@ -60,6 +61,7 @@ public abstract class OverviewActivity extends PagerActivity {
     private ListView drawerListView;
     private ActionBarDrawerToggle drawerToggle;
 
+    private FloatingActionButton addTransactionButton;
     private TextView totalTextView;
 
     // TODO this is not really needed when MVC is used
@@ -93,12 +95,12 @@ public abstract class OverviewActivity extends PagerActivity {
     }
 
     private void initTabs() {
-        TabLayout tabLayout = findView(R.id.tabs);
+        TabLayout tabLayout = requireView(R.id.tabs);
         tabLayout.setupWithViewPager(getPager());
     }
 
     private void initNavigationDrawer() {
-        drawerListView = findView(R.id.drawer_list_view);
+        drawerListView = requireView(R.id.drawer_list_view);
 
         View header = getLayoutInflater().inflate(R.layout.drawer_header, drawerListView, false);
         drawerListView.addHeaderView(header, null, false);
@@ -113,7 +115,7 @@ public abstract class OverviewActivity extends PagerActivity {
             }
         });
 
-        drawerLayout = findView(R.id.drawer_layout);
+        drawerLayout = requireView(R.id.drawer_layout);
         drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, START);
 
         drawerToggle = createToggle(drawerLayout);
@@ -121,8 +123,8 @@ public abstract class OverviewActivity extends PagerActivity {
     }
 
     private void initFloatingButton() {
-        FloatingActionButton button = requireView(R.id.floatingButton);
-        button.setOnClickListener(new OnClickListener() {
+        addTransactionButton = requireView(R.id.floatingButton);
+        addTransactionButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivityForResult(Intents.addTransaction(self, getGroupId()), ActivityRequest.ADD_TRANSACTION);
@@ -279,7 +281,9 @@ public abstract class OverviewActivity extends PagerActivity {
 
             @Override
             public void onDrawerStateChanged(int i) {
-                closeFragmentActionMode();
+                int currentTab = getPager().getCurrentItem();
+                OverviewFragment fragment = (OverviewFragment) getPagerAdapter().getFragment(currentTab);
+                fragment.closeActionMode();
             }
 
             @Override
@@ -294,10 +298,12 @@ public abstract class OverviewActivity extends PagerActivity {
         };
     }
 
-    private void closeFragmentActionMode() {
-        int currentTab = getPager().getCurrentItem();
-        OverviewFragment fragment = (OverviewFragment) getPagerAdapter().getFragment(currentTab);
-        fragment.closeActionMode();
+    public void onCreateActionMode() {
+        Animations.collapse(addTransactionButton);
+    }
+
+    public void onDestroyActionMode() {
+        Animations.expand(addTransactionButton);
     }
 
     @Override

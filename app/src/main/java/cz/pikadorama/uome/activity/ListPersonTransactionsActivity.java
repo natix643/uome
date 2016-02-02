@@ -26,6 +26,7 @@ import cz.pikadorama.uome.common.activity.UomeListActivity;
 import cz.pikadorama.uome.common.util.Intents;
 import cz.pikadorama.uome.common.util.ListViewUtil;
 import cz.pikadorama.uome.common.util.SnackbarHelper;
+import cz.pikadorama.uome.common.view.Animations;
 import cz.pikadorama.uome.common.view.AvatarView;
 import cz.pikadorama.uome.dialog.ConfirmationDialog;
 import cz.pikadorama.uome.model.Balance;
@@ -250,7 +251,7 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
             mode.getMenuInflater().inflate(R.menu.context_list_transactions, menu);
-            addTransactionButton.setVisibility(View.GONE);
+            Animations.collapse(addTransactionButton);
             return true;
         }
 
@@ -302,7 +303,7 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             actionMode = null;
-            addTransactionButton.setVisibility(View.VISIBLE);
+            Animations.expand(addTransactionButton);
         }
     };
 

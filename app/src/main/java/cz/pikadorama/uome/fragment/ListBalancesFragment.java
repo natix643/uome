@@ -186,6 +186,7 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
             mode.getMenuInflater().inflate(R.menu.context_list_balances, menu);
+            getBaseActivity().onCreateActionMode();
             return true;
         }
 
@@ -262,6 +263,7 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             actionMode = null;
+            getBaseActivity().onDestroyActionMode();
         }
     };
 
