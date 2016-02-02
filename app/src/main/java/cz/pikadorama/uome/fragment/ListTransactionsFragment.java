@@ -43,7 +43,6 @@ public abstract class ListTransactionsFragment extends OverviewFragment implemen
         super.onAttach(activity);
 
         transactionDao = new TransactionDao(activity);
-        snackbarHelper = new SnackbarHelper(activity);
 
         adapter = createAdapter();
         setListAdapter(adapter);
@@ -57,6 +56,8 @@ public abstract class ListTransactionsFragment extends OverviewFragment implemen
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        snackbarHelper = new SnackbarHelper(getBaseActivity());
 
         setHasOptionsMenu(true);
         getListView().setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE_MODAL);

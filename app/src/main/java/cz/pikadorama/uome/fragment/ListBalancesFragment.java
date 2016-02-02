@@ -54,8 +54,6 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
         personDao = new PersonDao(activity);
         transactionDao = new TransactionDao(activity);
 
-        snackbarHelper = new SnackbarHelper(activity);
-
         adapter = createAdapter();
         setListAdapter(adapter);
     }
@@ -68,6 +66,8 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        snackbarHelper = new SnackbarHelper(getBaseActivity());
 
         setHasOptionsMenu(true);
         getListView().setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE_MODAL);
