@@ -6,14 +6,13 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.SwitchCompat;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.ViewSwitcher;
 
 import com.google.common.base.Strings;
 
@@ -48,13 +47,14 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
     private RadioButton depositRadio;
 
     private Spinner personSpinner;
-    private SwitchCompat financialSwitch;
 
-    private ImageView amountOrItemLabel;
     private EditText amountEditText;
     private TextInputLayout amountTextLayout;
     private EditText itemEditText;
     private TextInputLayout itemTextLayout;
+
+    private ViewSwitcher financialViewSwitcher;
+    private SwitchCompat financialSwitch;
 
     private DateTimePicker dateTimePicker;
     private EditText descriptionEditText;
@@ -89,31 +89,23 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
         personSpinner = requireView(R.id.personSpinner);
         personSpinner.setAdapter(adapter);
 
-        financialSwitch = requireView(R.id.financialSwitch);
+        financialViewSwitcher = requireView(R.id.financialViewSwitcher);
+
         int accent = getResources().getColor(R.color.accent);
+        financialSwitch = requireView(R.id.financialSwitch);
         financialSwitch.getThumbDrawable().setColorFilter(accent, PorterDuff.Mode.MULTIPLY);
         financialSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked) {
-                    amountTextLayout.setVisibility(View.VISIBLE);
-                    itemTextLayout.setVisibility(View.INVISIBLE);
                     itemTextLayout.setError(null);
-
-                    amountOrItemLabel.setContentDescription(getString(R.string.label_amount));
-                    amountOrItemLabel.setImageResource(R.drawable.ic_label_amount);
+                    financialViewSwitcher.setDisplayedChild(0);
                 } else {
-                    amountTextLayout.setVisibility(View.INVISIBLE);
                     amountTextLayout.setError(null);
-                    itemTextLayout.setVisibility(View.VISIBLE);
-
-                    amountOrItemLabel.setContentDescription(getString(R.string.label_borrowed_item));
-                    amountOrItemLabel.setImageResource(R.drawable.ic_label_borrowed_item);
+                    financialViewSwitcher.setDisplayedChild(1);
                 }
             }
         });
-
-        amountOrItemLabel = requireView(R.id.amountOrItemLabel);
 
         amountEditText = requireView(R.id.amountEditText);
         amountTextLayout = requireView(R.id.amountTextLayout);

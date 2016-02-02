@@ -72,58 +72,82 @@
             android:layout_width="match_parent"
             android:layout_height="16dp"/>
 
-        <!-- Amount / Item -->
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/amountOrItemLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:contentDescription="@string/label_amount"
-                android:src="@drawable/ic_label_amount"/>
-
-            <!-- Amount -->
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/amountTextLayout"
+            <ViewSwitcher
+                android:id="@+id/financialViewSwitcher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="48dp"
                 android:layout_toLeftOf="@+id/financialSwitch"
-                android:hint="@string/hint_amount"
-                app:errorEnabled="true">
+                android:inAnimation="@anim/fade_in"
+                android:outAnimation="@anim/fade_out">
 
-                <EditText
-                    android:id="@+id/amountEditText"
+                <!-- Amount -->
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_amount"
-                    android:inputType="numberDecimal"/>
-            </android.support.design.widget.TextInputLayout>
+                    android:layout_height="wrap_content">
 
-            <!-- Item -->
+                    <ImageView
+                        android:id="@+id/amountLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:contentDescription="@string/label_amount"
+                        android:src="@drawable/ic_label_amount"/>
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/itemTextLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="48dp"
-                android:layout_toLeftOf="@+id/financialSwitch"
-                android:hint="@string/hint_borrowed_item"
-                android:visibility="invisible"
-                app:errorEnabled="true">
 
-                <EditText
-                    android:id="@+id/itemEditText"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/amountTextLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="48dp"
+                        android:hint="@string/hint_amount"
+                        app:errorEnabled="true">
+
+                        <EditText
+                            android:id="@+id/amountEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/hint_amount"
+                            android:inputType="numberDecimal"/>
+                    </android.support.design.widget.TextInputLayout>
+                </RelativeLayout>
+
+                <!-- Item -->
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_borrowed_item"
-                    android:inputType="textCapSentences"/>
-            </android.support.design.widget.TextInputLayout>
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/itemLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:contentDescription="@string/label_borrowed_item"
+                        android:src="@drawable/ic_label_borrowed_item"/>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/itemTextLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="48dp"
+                        android:hint="@string/hint_borrowed_item"
+                        app:errorEnabled="true">
+
+                        <EditText
+                            android:id="@+id/itemEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/hint_borrowed_item"
+                            android:inputType="textCapSentences"/>
+                    </android.support.design.widget.TextInputLayout>
+                </RelativeLayout>
+
+            </ViewSwitcher>
 
             <!-- Is financial -->
 
@@ -135,6 +159,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="24dp"
                 android:checked="true"/>
+
         </RelativeLayout>
 
         <!-- Description -->
@@ -182,6 +207,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="48dp"/>
         </RelativeLayout>
+
     </LinearLayout>
 
 </ScrollView>
