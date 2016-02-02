@@ -41,12 +41,8 @@ public class SimpleListTransactionsFragment extends ListTransactionsFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-
+        inflater.inflate(R.menu.list_transactions, menu);
         filter.prepareOptionsMenu(menu);
-        if (getOtherFragment() != null && getOtherFragment().isAdapterEmpty()) {
-            menu.removeItem(R.id.menu_filter);
-        }
     }
 
     @Override

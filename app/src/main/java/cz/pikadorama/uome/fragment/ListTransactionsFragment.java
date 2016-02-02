@@ -7,7 +7,6 @@ import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,25 +85,6 @@ public abstract class ListTransactionsFragment extends OverviewFragment implemen
     protected abstract List<Transaction> filter(List<Transaction> transactions);
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.list_transactions, menu);
-        if (getOtherFragment() != null && getOtherFragment().isAdapterEmpty()) {
-            menu.removeItem(R.id.menu_add_transaction);
-        }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_add_transaction:
-                startActivity(Intents.addTransaction(getBaseActivity(), getGroupId()));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
@@ -122,6 +102,7 @@ public abstract class ListTransactionsFragment extends OverviewFragment implemen
     public void onConfirmed(String requestCode) {
         if (requestCode.equals(REQUEST_DELETE_TRANSACTIONS)) {
             transactionDao.deleteAll(getSelection());
+
             actionMode.finish();
             refreshAdapter();
             snackbarHelper.info(R.string.toast_transactions_deleted);

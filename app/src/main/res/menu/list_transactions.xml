@@ -24,10 +24,4 @@
         </menu>
     </item>
 
-    <item
-        android:id="@+id/menu_add_transaction"
-        android:icon="@drawable/ic_action_add_transaction"
-        android:title="@string/menu_add_transaction"
-        uome:showAsAction="always"/>
-
 </menu>

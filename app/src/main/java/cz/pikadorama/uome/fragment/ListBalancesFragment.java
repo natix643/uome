@@ -91,10 +91,6 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
         adapter.setList(balances);
     }
 
-    boolean isAdapterEmpty() {
-        return adapter.isEmpty();
-    }
-
     private List<Balance> loadBalances() {
         List<Person> persons = personDao.getAllForGroup(getGroupId());
         List<Balance> balances = new ArrayList<>(persons.size());
