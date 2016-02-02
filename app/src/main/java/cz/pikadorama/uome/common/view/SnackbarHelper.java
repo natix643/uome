@@ -1,4 +1,4 @@
-package cz.pikadorama.uome.common.util;
+package cz.pikadorama.uome.common.view;
 
 import android.app.Activity;
 import android.support.design.widget.Snackbar;

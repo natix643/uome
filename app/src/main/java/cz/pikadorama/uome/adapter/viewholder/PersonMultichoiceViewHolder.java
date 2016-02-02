@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.pikadorama.uome.R;
-import cz.pikadorama.uome.common.util.Views;
 import cz.pikadorama.uome.common.view.AvatarView;
+import cz.pikadorama.uome.common.view.Views;
 import cz.pikadorama.uome.model.Person;
 
 public class PersonMultichoiceViewHolder implements ViewHolder<Person> {

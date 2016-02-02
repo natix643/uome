@@ -14,7 +14,6 @@ import com.google.common.base.Strings;
 import com.google.common.primitives.Ints;
 
 import cz.pikadorama.uome.R;
-import cz.pikadorama.uome.common.util.Views;
 import cz.pikadorama.uome.model.Person;
 
 public class AvatarView extends RelativeLayout {

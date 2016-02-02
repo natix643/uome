@@ -18,7 +18,7 @@ import android.widget.EditText;
 
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.fragment.DualDialogFragment;
-import cz.pikadorama.uome.common.util.Views;
+import cz.pikadorama.uome.common.view.Views;
 import cz.pikadorama.uome.common.view.BaseTextWatcher;
 
 public class CreateDirectoryDialog extends DualDialogFragment {

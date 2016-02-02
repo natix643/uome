@@ -20,7 +20,7 @@ import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.activity.SelectDirectoryActivity;
 import cz.pikadorama.uome.adapter.FileAdapter;
 import cz.pikadorama.uome.common.fragment.BaseListFragment;
-import cz.pikadorama.uome.common.util.SnackbarHelper;
+import cz.pikadorama.uome.common.view.SnackbarHelper;
 import cz.pikadorama.uome.dialog.CreateDirectoryDialog;
 
 public class ListFilesFragment extends BaseListFragment implements CreateDirectoryDialog.Callback {

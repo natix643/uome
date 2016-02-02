@@ -23,7 +23,7 @@ import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.ActivityRequest;
 import cz.pikadorama.uome.common.util.Intents;
 import cz.pikadorama.uome.common.util.ListViewUtil;
-import cz.pikadorama.uome.common.util.SnackbarHelper;
+import cz.pikadorama.uome.common.view.SnackbarHelper;
 import cz.pikadorama.uome.dialog.ConfirmationDialog;
 import cz.pikadorama.uome.model.Transaction;
 import cz.pikadorama.uome.model.TransactionDao;

@@ -24,7 +24,6 @@ import java.util.Date;
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.format.DateTimeFormatter;
 import cz.pikadorama.uome.common.fragment.BaseDialogFragment;
-import cz.pikadorama.uome.common.util.Views;
 
 import static java.util.Calendar.*;
 

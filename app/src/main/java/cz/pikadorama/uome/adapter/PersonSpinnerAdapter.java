@@ -10,8 +10,8 @@ import java.util.List;
 
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.activity.UomeListAdapter;
-import cz.pikadorama.uome.common.util.Views;
 import cz.pikadorama.uome.common.view.AvatarView;
+import cz.pikadorama.uome.common.view.Views;
 import cz.pikadorama.uome.model.Person;
 
 public class PersonSpinnerAdapter extends UomeListAdapter<Person> {

@@ -18,7 +18,7 @@ import cz.pikadorama.uome.common.Event;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
 import cz.pikadorama.uome.common.pager.Page;
 import cz.pikadorama.uome.common.util.Intents;
-import cz.pikadorama.uome.common.util.SnackbarHelper;
+import cz.pikadorama.uome.common.view.SnackbarHelper;
 import cz.pikadorama.uome.dialog.ConfirmationDialog;
 import cz.pikadorama.uome.fragment.GroupListTransactionsFragment;
 import cz.pikadorama.uome.fragment.ListBalancesFragment.GroupListBalancesFragment;

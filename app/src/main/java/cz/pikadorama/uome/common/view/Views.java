@@ -1,10 +1,8 @@
-package cz.pikadorama.uome.common.util;
+package cz.pikadorama.uome.common.view;
 
 import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.view.View;
-
-import cz.pikadorama.uome.common.view.BaseTextWatcher;
 
 public class Views {
 

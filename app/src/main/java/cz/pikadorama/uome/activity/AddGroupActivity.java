@@ -11,7 +11,7 @@ import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.ActivityPurpose;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
-import cz.pikadorama.uome.common.util.Views;
+import cz.pikadorama.uome.common.view.Views;
 import cz.pikadorama.uome.model.Group;
 import cz.pikadorama.uome.model.GroupDao;
 import cz.pikadorama.uome.model.parcelable.ParcelableGroup;

@@ -23,7 +23,7 @@ import cz.pikadorama.uome.common.ActivityPurpose;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.util.Closeables;
-import cz.pikadorama.uome.common.util.Views;
+import cz.pikadorama.uome.common.view.Views;
 import cz.pikadorama.uome.dialog.SelectEmailDialog;
 import cz.pikadorama.uome.model.Person;
 import cz.pikadorama.uome.model.PersonDao;

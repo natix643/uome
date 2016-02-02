@@ -19,7 +19,7 @@ import java.util.List;
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.activity.UomeListAdapter;
 import cz.pikadorama.uome.common.format.DateTimeFormatter;
-import cz.pikadorama.uome.common.util.Views;
+import cz.pikadorama.uome.common.view.Views;
 
 import static com.google.common.base.Preconditions.checkArgument;
 

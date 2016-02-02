@@ -12,7 +12,7 @@ import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
 import cz.pikadorama.uome.common.util.ListViewUtil;
-import cz.pikadorama.uome.common.util.Views;
+import cz.pikadorama.uome.common.view.Views;
 import cz.pikadorama.uome.model.Group;
 import cz.pikadorama.uome.model.TransactionDao;
 
