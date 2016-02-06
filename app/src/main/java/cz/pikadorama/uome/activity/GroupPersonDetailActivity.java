@@ -11,7 +11,7 @@ import cz.pikadorama.uome.adapter.viewholder.PersonTransactionViewHolder;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
 import cz.pikadorama.uome.model.Transaction;
 
-public class GroupListPersonTransactionsActivity extends ListPersonTransactionsActivity {
+public class GroupPersonDetailActivity extends PersonDetailActivity {
 
     private final MoneyFormatter moneyFormatter = MoneyFormatter.withPlusPrefix();
 

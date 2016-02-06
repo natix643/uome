@@ -11,11 +11,11 @@ import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.activity.AddGroupActivity;
 import cz.pikadorama.uome.activity.AddPersonActivity;
 import cz.pikadorama.uome.activity.GroupAddTransactionActivity;
-import cz.pikadorama.uome.activity.GroupListPersonTransactionsActivity;
 import cz.pikadorama.uome.activity.GroupOverviewActivity;
+import cz.pikadorama.uome.activity.GroupPersonDetailActivity;
 import cz.pikadorama.uome.activity.SimpleAddTransactionActivity;
-import cz.pikadorama.uome.activity.SimpleListPersonTransactionsActivity;
 import cz.pikadorama.uome.activity.SimpleOverviewActivity;
+import cz.pikadorama.uome.activity.SimplePersonDetailActivity;
 import cz.pikadorama.uome.common.ActivityPurpose;
 import cz.pikadorama.uome.common.ActivityRequest;
 import cz.pikadorama.uome.common.Constants;
@@ -145,8 +145,8 @@ public class Intents {
                 .putExtra(Intent.EXTRA_TEXT, formatter.formatEmail(balance));
     }
 
-    public static Intent listPersonTransactions(Activity activity, Person person) {
-        return new Intent(activity, listPersonTransactionsClass(person.getGroupId()))
+    public static Intent openPersonDetail(Activity activity, Person person) {
+        return new Intent(activity, personDetailClass(person.getGroupId()))
                 .putExtra(Constants.PERSON_ID, person.getId());
     }
 
@@ -168,10 +168,10 @@ public class Intents {
                 : GroupAddTransactionActivity.class;
     }
 
-    private static Class<?> listPersonTransactionsClass(long groupId) {
+    private static Class<?> personDetailClass(long groupId) {
         return groupId == Constants.SIMPLE_GROUP_ID
-                ? SimpleListPersonTransactionsActivity.class
-                : GroupListPersonTransactionsActivity.class;
+                ? SimplePersonDetailActivity.class
+                : GroupPersonDetailActivity.class;
     }
 
 }

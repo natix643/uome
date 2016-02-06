@@ -37,11 +37,11 @@
             android:name=".activity.AddGroupActivity"
             android:theme="@style/Theme.Uome.HomeAsCross"/>
         <activity
-            android:name=".activity.GroupListPersonTransactionsActivity"
+            android:name=".activity.GroupPersonDetailActivity"
             android:label=""
             android:theme="@style/Theme.Uome.NoActionBarShadow"/>
         <activity
-            android:name=".activity.SimpleListPersonTransactionsActivity"
+            android:name=".activity.SimplePersonDetailActivity"
             android:label=""
             android:theme="@style/Theme.Uome.NoActionBarShadow"/>
         <activity

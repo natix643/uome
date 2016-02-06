@@ -19,7 +19,7 @@ import cz.pikadorama.uome.model.Transaction;
 
 import static cz.pikadorama.uome.common.util.TransactionFilter.*;
 
-public class SimpleListPersonTransactionsActivity extends ListPersonTransactionsActivity {
+public class SimplePersonDetailActivity extends PersonDetailActivity {
 
     private static final String KEY_FILTER = "filter";
 

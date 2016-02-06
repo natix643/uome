@@ -112,7 +112,7 @@ public abstract class ListTransactionsFragment extends OverviewFragment implemen
         }
     }
 
-    // TODO duplicate with ListPersonTransactionsActivity => extract somewhere
+    // TODO duplicate with PersonDetailActivity => extract somewhere
     private List<Transaction> getSelection() {
         List<Transaction> transactions = new ArrayList<>();
         SparseBooleanArray positions = getListView().getCheckedItemPositions();
@@ -139,7 +139,7 @@ public abstract class ListTransactionsFragment extends OverviewFragment implemen
         }
     }
 
-    // TODO duplicate with ListPersonTransactionsActivity => extract into a separate class
+    // TODO duplicate with PersonDetailActivity => extract into a separate class
     private final MultiChoiceModeListener multiChoiceModeListener = new MultiChoiceModeListener() {
 
         @Override

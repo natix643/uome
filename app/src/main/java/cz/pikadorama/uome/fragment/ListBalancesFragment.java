@@ -112,8 +112,8 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
     public void onListItemClick(ListView listView, View view, int position, long id) {
         Balance balance = adapter.getItem(position);
         startActivityForResult(
-                Intents.listPersonTransactions(getBaseActivity(), balance.getPerson()),
-                ActivityRequest.LIST_PERSON_TRANSACTIONS);
+                Intents.openPersonDetail(getBaseActivity(), balance.getPerson()),
+                ActivityRequest.OPEN_PERSON_DETAIL);
     }
 
     @Override
@@ -145,7 +145,7 @@ public abstract class ListBalancesFragment extends OverviewFragment implements C
                 case ActivityRequest.ADD_TRANSACTION:
                     snackbarHelper.info(R.string.toast_transaction_added);
                     break;
-                case ActivityRequest.LIST_PERSON_TRANSACTIONS:
+                case ActivityRequest.OPEN_PERSON_DETAIL:
                     if (data.getBooleanExtra(Event.PERSON_DELETED, false)) {
                         snackbarHelper.info(R.string.toast_person_deleted);
                     }

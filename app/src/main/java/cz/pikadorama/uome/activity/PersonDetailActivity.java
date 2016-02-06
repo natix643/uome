@@ -35,7 +35,7 @@ import cz.pikadorama.uome.model.PersonDao;
 import cz.pikadorama.uome.model.Transaction;
 import cz.pikadorama.uome.model.TransactionDao;
 
-public abstract class ListPersonTransactionsActivity extends UomeListActivity implements ConfirmationDialog.Callback {
+public abstract class PersonDetailActivity extends UomeListActivity implements ConfirmationDialog.Callback {
 
     private static final String REQUEST_DELETE_PERSON = "deletePerson";
     private static final String REQUEST_DELETE_TRANSACTIONS = "deleteTransactions";
@@ -93,7 +93,7 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
 
     @Override
     protected int getLayoutId() {
-        return R.layout.list_person_bar;
+        return R.layout.person_detail;
     }
 
     protected abstract ViewHoldingListAdapter<Transaction> createAdapter();
@@ -146,7 +146,7 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.list_person_transactions, menu);
+        getMenuInflater().inflate(R.menu.person_detail, menu);
         if (totalAmount.compareTo(BigDecimal.ZERO) == 0) {
             menu.removeItem(R.id.menu_settle_debt);
             menu.removeItem(R.id.menu_send_email_with_debt);
