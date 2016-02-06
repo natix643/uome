@@ -74,6 +74,8 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
         transactionDao = new TransactionDao(this);
         personDao = new PersonDao(this);
 
+        getSupportActionBar().setElevation(0);
+
         initViews();
 
         adapter = createAdapter();
@@ -100,20 +102,17 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
         avatarView = requireView(R.id.avatar);
         nameTextView = requireView(R.id.nameTextView);
         emailTextView = requireView(R.id.emailTextView);
-        descriptionTextView = findView(R.id.descriptionTextView);
+        descriptionTextView = requireView(R.id.descriptionTextView);
 
         bottomHintText = requireView(R.id.bottomHintText);
         bottomAmountText = requireView(R.id.bottomAmountText);
     }
 
     private void refreshPerson() {
+        avatarView.setPerson(person);
         nameTextView.setText(person.getName());
         emailTextView.setText(person.getEmail());
-        avatarView.setPerson(person);
-
-        if (descriptionTextView != null) {
-            descriptionTextView.setText(person.getDescription());
-        }
+        descriptionTextView.setText(person.getDescription());
     }
 
     @Override

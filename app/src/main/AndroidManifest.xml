@@ -38,10 +38,12 @@
             android:theme="@style/Theme.Uome.HomeAsCross"/>
         <activity
             android:name=".activity.GroupListPersonTransactionsActivity"
-            android:label=""/>
+            android:label=""
+            android:theme="@style/Theme.Uome.NoActionBarShadow"/>
         <activity
             android:name=".activity.SimpleListPersonTransactionsActivity"
-            android:label=""/>
+            android:label=""
+            android:theme="@style/Theme.Uome.NoActionBarShadow"/>
         <activity
             android:name=".activity.SimpleAddTransactionActivity"
             android:theme="@style/Theme.Uome.HomeAsCross"/>

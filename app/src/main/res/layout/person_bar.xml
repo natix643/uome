@@ -1,82 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:background="@color/primary"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <RelativeLayout
+    <!-- Avatar -->
+
+    <cz.pikadorama.uome.common.view.AvatarView
+        android:id="@+id/avatar"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentLeft="true"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/lighter_gray">
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/avatar"
+        android:orientation="vertical">
 
-        <!-- Avatar -->
+        <!-- Name -->
 
-        <cz.pikadorama.uome.common.view.AvatarView
-            android:id="@+id/avatar"
-            android:layout_width="56sp"
-            android:layout_height="56sp"
-            android:layout_alignParentLeft="true"/>
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="?android:attr/textColorPrimary"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="56sp"
-            android:layout_toRightOf="@+id/avatar"
-            android:paddingBottom="8dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingTop="4dp">
+        <!-- Email -->
 
-            <!-- Name -->
+        <TextView
+            android:id="@+id/emailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="?android:attr/textColorSecondary"/>
 
-            <TextView
-                android:id="@+id/nameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_toLeftOf="@+id/valueTextView"
-                android:paddingRight="12dp"
-                android:singleLine="true"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="?android:attr/textColorPrimary"/>
+        <!-- Description -->
 
-            <!-- Balance -->
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="?android:attr/textColorSecondary"/>
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/valueTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-            <!-- Email -->
-
-            <TextView
-                android:id="@+id/emailTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_toLeftOf="@+id/hintTextView"
-                android:paddingRight="12dp"
-                android:singleLine="true"
-                android:textColor="?android:attr/textColorSecondary"/>
-
-            <!-- Direction hint -->
-
-            <TextView
-                android:id="@+id/hintTextView"
-                style="@style/DirectionHint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"/>
-        </RelativeLayout>
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/light_gray"/>
-
-</LinearLayout>
+</RelativeLayout>
