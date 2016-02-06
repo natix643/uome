@@ -332,7 +332,7 @@ public abstract class OverviewActivity extends PagerActivity {
                     if (group.getId() != getGroupId()) {
                         startActivity(Intents.openGroup(self, group));
                         finish();
-                        overridePendingTransition(0, 0);
+                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     }
                 }
             });

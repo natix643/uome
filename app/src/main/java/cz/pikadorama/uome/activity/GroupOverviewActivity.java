@@ -105,7 +105,7 @@ public class GroupOverviewActivity extends OverviewActivity implements Confirmat
             startActivity(intent);
 
             finish();
-            overridePendingTransition(0, 0);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         }
     }
 
