@@ -101,12 +101,7 @@ public abstract class BalanceViewHolder implements ViewHolder<Balance> {
         public void updateViewFor(Balance balance) {
             super.updateViewFor(balance);
 
-            if (balance.getAmount().compareTo(BigDecimal.ZERO) == 0) {
-                amountText.setVisibility(View.GONE);
-            } else {
-                amountText.setVisibility(View.VISIBLE);
-            }
-
+            amountText.setVisibility(balance.getAmount().compareTo(BigDecimal.ZERO) == 0 ? View.GONE : View.VISIBLE);
             directionText.setText(ListViewUtil.getHintForBalance(balance.getAmount()));
         }
 

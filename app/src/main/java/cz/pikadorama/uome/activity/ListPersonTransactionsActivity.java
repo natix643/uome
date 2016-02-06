@@ -52,7 +52,9 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
     private AvatarView avatarView;
     private TextView nameTextView;
     private TextView emailTextView;
-    private TextView valueTextView;
+
+    protected TextView bottomHintText;
+    protected TextView bottomAmountText;
 
     private TextView descriptionTextView;
 
@@ -72,7 +74,7 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
         transactionDao = new TransactionDao(this);
         personDao = new PersonDao(this);
 
-        initPersonBar();
+        initViews();
 
         adapter = createAdapter();
         setListAdapter(adapter);
@@ -94,13 +96,14 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
 
     protected abstract ViewHoldingListAdapter<Transaction> createAdapter();
 
-    private void initPersonBar() {
+    private void initViews() {
         avatarView = requireView(R.id.avatar);
         nameTextView = requireView(R.id.nameTextView);
         emailTextView = requireView(R.id.emailTextView);
-        valueTextView = requireView(R.id.valueTextView);
-
         descriptionTextView = findView(R.id.descriptionTextView);
+
+        bottomHintText = requireView(R.id.bottomHintText);
+        bottomAmountText = requireView(R.id.bottomAmountText);
     }
 
     private void refreshPerson() {
@@ -180,10 +183,6 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
         return new Balance(person, totalAmount);
     }
 
-    protected TextView getValueTextView() {
-        return valueTextView;
-    }
-
     protected ViewHoldingListAdapter<Transaction> getAdapter() {
         return adapter;
     }
@@ -240,7 +239,7 @@ public abstract class ListPersonTransactionsActivity extends UomeListActivity im
 
     protected void refreshTransactionsSummary(List<Transaction> transactions) {
         totalAmount = ListViewUtil.sumTransactions(transactions);
-        valueTextView.setTextColor(ListViewUtil.getAmountColor(this, totalAmount));
+        bottomAmountText.setTextColor(ListViewUtil.getAmountColor(this, totalAmount));
         refreshTransactionsSummary(totalAmount);
         invalidateOptionsMenu();
     }

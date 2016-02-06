@@ -3,7 +3,7 @@ package cz.pikadorama.uome.activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
 
 import com.madgag.android.listviews.ViewHoldingListAdapter;
 
@@ -27,12 +27,9 @@ public class SimpleListPersonTransactionsActivity extends ListPersonTransactions
 
     private TransactionFilter filter = TransactionFilter.ALL;
 
-    private TextView hintTextView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        hintTextView = findView(R.id.hintTextView);
     }
 
     @Override
@@ -91,8 +88,10 @@ public class SimpleListPersonTransactionsActivity extends ListPersonTransactions
 
     @Override
     protected void refreshTransactionsSummary(BigDecimal amount) {
-        getValueTextView().setText(moneyFormatter.format(amount.abs()));
-        hintTextView.setText(ListViewUtil.getHintForBalance(amount));
+        bottomHintText.setText(ListViewUtil.getHintForBalance(amount));
+
+        bottomAmountText.setVisibility(amount.compareTo(BigDecimal.ZERO) == 0 ? View.GONE : View.VISIBLE);
+        bottomAmountText.setText(moneyFormatter.format(amount.abs()));
     }
 
     @Override

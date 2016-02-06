@@ -5,33 +5,46 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <include
-        android:id="@+id/person_bar"
-        layout="@layout/person_bar"/>
-
-    <ListView
-        android:id="@android:id/list"
-        style="@style/List"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/person_bar"
-        android:choiceMode="multipleChoiceModal"/>
+        android:layout_above="@+id/bottom_bar">
 
-    <TextView
-        android:id="@android:id/empty"
-        style="@style/EmptyListText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/empty_list_transactions"/>
+        <include
+            android:id="@+id/person_bar"
+            layout="@layout/person_bar"/>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingButton"
-        style="@style/FloatingButton"
-        android:layout_width="wrap_content"
+        <ListView
+            android:id="@android:id/list"
+            style="@style/List"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/person_bar"
+            android:choiceMode="multipleChoiceModal"/>
+
+        <TextView
+            android:id="@android:id/empty"
+            style="@style/EmptyListText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/empty_list_transactions"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingButton"
+            style="@style/FloatingButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_action_add_transaction"/>
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/bottom_bar"
+        layout="@layout/bottom_bar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/ic_action_add_transaction"/>
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

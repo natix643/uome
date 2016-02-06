@@ -29,7 +29,7 @@ public class GroupListPersonTransactionsActivity extends ListPersonTransactionsA
 
     @Override
     protected void refreshTransactionsSummary(BigDecimal amount) {
-        getValueTextView().setText(moneyFormatter.format(amount));
+        bottomAmountText.setText(moneyFormatter.format(amount));
     }
 
     @Override

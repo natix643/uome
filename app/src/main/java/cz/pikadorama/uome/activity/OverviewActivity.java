@@ -62,7 +62,7 @@ public abstract class OverviewActivity extends PagerActivity {
     private ActionBarDrawerToggle drawerToggle;
 
     private FloatingActionButton addTransactionButton;
-    private TextView totalTextView;
+    private TextView bottomAmountText;
 
     // TODO this is not really needed when MVC is used
     private BasePagerAdapter pagerAdapter;
@@ -77,7 +77,7 @@ public abstract class OverviewActivity extends PagerActivity {
         snackbarHelper = new SnackbarHelper(this);
         navigationAdapter = new NavigationAdapter(this);
 
-        totalTextView = requireView(R.id.totalTextView);
+        bottomAmountText = requireView(R.id.bottomAmountText);
 
         Toolbar toolbar = requireView(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -317,8 +317,8 @@ public abstract class OverviewActivity extends PagerActivity {
     }
 
     public void refreshTotalAmount(BigDecimal amount) {
-        totalTextView.setText(getMoneyFormatter().format(amount));
-        totalTextView.setTextColor(ListViewUtil.getAmountColor(this, amount));
+        bottomAmountText.setText(getMoneyFormatter().format(amount));
+        bottomAmountText.setTextColor(ListViewUtil.getAmountColor(this, amount));
 
         refreshNavigation();
     }

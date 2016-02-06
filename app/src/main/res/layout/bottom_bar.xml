@@ -15,19 +15,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/lighter_gray"
-        android:padding="8dp">
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <TextView
+            android:id="@+id/bottomHintText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/bottomAmountText"
             android:text="@string/bottom_bar_total"
             android:textAllCaps="true"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            tools:ignore="UnusedAttribute"/>
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
 
         <TextView
-            android:id="@+id/totalTextView"
+            android:id="@+id/bottomAmountText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
