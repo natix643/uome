@@ -10,11 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- XXX setting height to ?android:attr/actionBarSize to fix title position in landscape -->
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             style="@style/ActionBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="?android:attr/actionBarSize"/>
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"

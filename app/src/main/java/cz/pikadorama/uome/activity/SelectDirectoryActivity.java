@@ -1,17 +1,18 @@
 package cz.pikadorama.uome.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import java.io.File;
 
 import cz.pikadorama.uome.R;
-import cz.pikadorama.uome.common.activity.UomeActivity;
+import cz.pikadorama.uome.common.activity.BaseActivity;
 import cz.pikadorama.uome.fragment.ListFilesFragment;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
-public class SelectDirectoryActivity extends UomeActivity {
+public class SelectDirectoryActivity extends BaseActivity {
 
     public static final String KEY_SELECTED_DIRECTORY = "selectedDirectory";
 
@@ -21,10 +22,10 @@ public class SelectDirectoryActivity extends UomeActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getSupportActionBar().setElevation(0);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_navigation_close);
+        Toolbar toolbar = requireView(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        currentDirectoryText = findView(R.id.current_directory);
+        currentDirectoryText = requireView(R.id.current_directory);
 
         if (savedInstanceState == null) {
             File directory = getDirectoryFromIntent();

@@ -75,7 +75,7 @@
         <activity
             android:name=".activity.SelectDirectoryActivity"
             android:label="@string/title_select_directory"
-            android:theme="@style/Theme.Uome.NoActionBarShadow"/>
+            android:theme="@style/Theme.Uome.NoActionBar"/>
         <activity
             android:name=".activity.AboutActivity"
             android:label="@string/title_about"/>
