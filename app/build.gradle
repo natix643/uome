@@ -36,6 +36,7 @@ dependencies {
 
     compile 'com.google.guava:guava:18.0'
     compile 'net.sourceforge.javacsv:javacsv:2.0'
+    compile 'com.mikhaellopez:circularimageview:3.0.0'
 
     compile files('libs/android-viewholder-listviews-0.8-SNAPSHOT.jar')
 }

@@ -2,23 +2,25 @@ package cz.pikadorama.uome.common.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.common.base.Strings;
 import com.google.common.primitives.Ints;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.model.Person;
 
 public class AvatarView extends RelativeLayout {
 
-    private ImageView image;
+    private CircularImageView image;
     private TextView text;
 
     public AvatarView(Context context, AttributeSet attrs) {
@@ -45,7 +47,10 @@ public class AvatarView extends RelativeLayout {
         } else {
             text.setVisibility(View.VISIBLE);
             text.setText(person.getName().substring(0, 1));
-            text.setBackgroundColor(getColor(person.getId()));
+
+            ShapeDrawable background = new ShapeDrawable(new OvalShape());
+            background.getPaint().setColor(getColor(person.getId()));
+            text.setBackgroundDrawable(background);
 
             image.setVisibility(View.INVISIBLE);
         }

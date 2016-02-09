@@ -22,6 +22,7 @@ public class ListLibrariesDialog extends BaseDialogFragment {
     private static final List<Library> LIBRARIES = ImmutableList.of(
             new Library("Android Support Library", "http://developer.android.com/tools/support-library/index.html"),
             new Library("Guava", "https://github.com/google/guava"),
+            new Library("CircularImageView", "https://github.com/lopspower/CircularImageView"),
             new Library("android-viewholder-listviews", "https://github.com/rtyley/android-viewholder-listviews"),
             new Library("Java CSV", "http://www.csvreader.com/java_csv.php"));
 
