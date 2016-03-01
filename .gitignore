@@ -6,3 +6,10 @@
 
 /.idea/workspace.xml
 /.idea/libraries/
+/.idea/copyright/
+/.idea/*.xml
+!/.idea/codeStyleSettings.xml
+!/.idea/encodings.xml
+
+/*.iml
+/app/*.iml
