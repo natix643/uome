@@ -51,8 +51,6 @@ public class ListFilesFragment extends BaseListFragment implements CreateDirecto
 
         activity = (SelectDirectoryActivity) a;
 
-        snackbarHelper = new SnackbarHelper(activity);
-
         adapter = new FileAdapter(activity);
         setListAdapter(adapter);
 
@@ -67,6 +65,9 @@ public class ListFilesFragment extends BaseListFragment implements CreateDirecto
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        snackbarHelper = new SnackbarHelper(getBaseActivity());
+
         setHasOptionsMenu(true);
     }
 
