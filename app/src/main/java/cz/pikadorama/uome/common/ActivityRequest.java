@@ -23,4 +23,5 @@ public class ActivityRequest {
     public static final int EDIT_TRANSACTION = 5;
 
     public static final int OPEN_PERSON_DETAIL = 6;
+
 }

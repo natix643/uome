@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 import cz.pikadorama.uome.R;
-import cz.pikadorama.uome.common.ActivityPurpose;
+import cz.pikadorama.uome.common.ActivityRequest;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.view.Views;
@@ -56,8 +56,8 @@ public class AddGroupActivity extends UomeActivity {
     }
 
     private void readIntent() {
-        purpose = requireIntentExtra(ActivityPurpose.TAG);
-        if (purpose == ActivityPurpose.EDIT_EXISTING) {
+        purpose = requireIntentExtra(ActivityRequest.KEY);
+        if (purpose == ActivityRequest.EDIT_GROUP) {
             ParcelableGroup parcelableGroup = requireIntentExtra(Constants.SELECTED_GROUP);
             editedGroup = checkNotNull(parcelableGroup.getGroup());
 
@@ -68,9 +68,9 @@ public class AddGroupActivity extends UomeActivity {
 
     private int actionBarTitle() {
         switch (purpose) {
-            case ActivityPurpose.ADD_NEW_EMPTY:
+            case ActivityRequest.ADD_GROUP:
                 return R.string.title_add_group;
-            case ActivityPurpose.EDIT_EXISTING:
+            case ActivityRequest.EDIT_GROUP:
                 return R.string.title_edit_group;
             default:
                 throw new IllegalStateException("Invalid purpose: " + purpose);
@@ -103,7 +103,7 @@ public class AddGroupActivity extends UomeActivity {
 
         String description = descriptionEditText.getText().toString().trim();
 
-        if (purpose == ActivityPurpose.EDIT_EXISTING) {
+        if (purpose == ActivityRequest.EDIT_GROUP) {
             /* Edit an existing group */
             Group group = groupDao.getByName(name);
             if (group != null && !group.equals(editedGroup)) {

@@ -16,7 +16,6 @@ import cz.pikadorama.uome.activity.GroupPersonDetailActivity;
 import cz.pikadorama.uome.activity.SimpleAddTransactionActivity;
 import cz.pikadorama.uome.activity.SimpleOverviewActivity;
 import cz.pikadorama.uome.activity.SimplePersonDetailActivity;
-import cz.pikadorama.uome.common.ActivityPurpose;
 import cz.pikadorama.uome.common.ActivityRequest;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.format.EmailFormatter;
@@ -100,12 +99,12 @@ public class Intents {
     public static Intent addPerson(Activity activity, long groupId) {
         return new Intent(activity, AddPersonActivity.class)
                 .putExtra(Constants.GROUP_ID, groupId)
-                .putExtra(ActivityPurpose.TAG, ActivityPurpose.ADD_NEW_EMPTY);
+                .putExtra(ActivityRequest.KEY, ActivityRequest.ADD_PERSON);
     }
 
     public static Intent addGroup(Activity activity) {
         return new Intent(activity, AddGroupActivity.class)
-                .putExtra(ActivityPurpose.TAG, ActivityPurpose.ADD_NEW_EMPTY);
+                .putExtra(ActivityRequest.KEY, ActivityRequest.ADD_GROUP);
     }
 
 	/*
@@ -120,13 +119,13 @@ public class Intents {
 
     public static Intent editPerson(Activity activity, Person person) {
         return new Intent(activity, AddPersonActivity.class)
-                .putExtra(ActivityPurpose.TAG, ActivityPurpose.EDIT_EXISTING)
+                .putExtra(ActivityRequest.KEY, ActivityRequest.EDIT_PERSON)
                 .putExtra(Constants.SELECTED_PERSON, new ParcelablePerson(person));
     }
 
     public static Intent editGroup(Activity activity, Group group) {
         return new Intent(activity, AddGroupActivity.class)
-                .putExtra(ActivityPurpose.TAG, ActivityPurpose.EDIT_EXISTING)
+                .putExtra(ActivityRequest.KEY, ActivityRequest.EDIT_GROUP)
                 .putExtra(Constants.SELECTED_GROUP, new ParcelableGroup(group));
     }
 

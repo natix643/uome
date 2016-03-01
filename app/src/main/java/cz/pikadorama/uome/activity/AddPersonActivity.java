@@ -19,7 +19,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import cz.pikadorama.uome.R;
-import cz.pikadorama.uome.common.ActivityPurpose;
+import cz.pikadorama.uome.common.ActivityRequest;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.util.Closeables;
@@ -81,9 +81,9 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
     }
 
     private void readIntent() {
-        purpose = requireIntentExtra(ActivityPurpose.TAG);
+        purpose = requireIntentExtra(ActivityRequest.KEY);
         switch (purpose) {
-            case ActivityPurpose.EDIT_EXISTING: {
+            case ActivityRequest.EDIT_PERSON: {
                 ParcelablePerson parcelablePerson = requireIntentExtra(Constants.SELECTED_PERSON);
                 editedPerson = checkNotNull(parcelablePerson.getPerson());
 
@@ -95,7 +95,7 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
                 }
                 break;
             }
-            case ActivityPurpose.ADD_NEW_EMPTY: {
+            case ActivityRequest.ADD_PERSON: {
                 groupId = requireIntentExtra(Constants.GROUP_ID);
                 break;
             }
@@ -136,7 +136,7 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
         String description = descriptionEditText.getText().toString().trim();
 
 		/* Edit an existing person */
-        if (purpose == ActivityPurpose.EDIT_EXISTING) {
+        if (purpose == ActivityRequest.EDIT_PERSON) {
             Person person = personDao.getByNameForGroup(name, editedPerson.getGroupId());
             if (person != null && !person.equals(editedPerson)) {
                 nameTextLayout.setError(getString(R.string.error_person_exists_in_group));
@@ -251,9 +251,9 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
 
     private int actionBarTitle() {
         switch (purpose) {
-            case ActivityPurpose.ADD_NEW_EMPTY:
+            case ActivityRequest.ADD_PERSON:
                 return R.string.title_add_person;
-            case ActivityPurpose.EDIT_EXISTING:
+            case ActivityRequest.EDIT_PERSON:
                 return R.string.title_edit_person;
             default:
                 throw new IllegalStateException("Invalid purpose:" + purpose);
