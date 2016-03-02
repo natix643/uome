@@ -1,7 +1,9 @@
 package cz.pikadorama.uome.activity;
 
+import android.Manifest;
 import android.content.ContentUris;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +13,8 @@ import android.provider.ContactsContract.CommonDataKinds.Photo;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Data;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -114,8 +118,11 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_search:
-                Intent intent = new Intent(Intent.ACTION_PICK, Contacts.CONTENT_URI);
-                startActivityForResult(intent, SELECT_CONTACT);
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
+                    searchForContact();
+                } else {
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, SELECT_CONTACT);
+                }
                 return true;
             case R.id.menu_save:
                 savePerson();
@@ -123,6 +130,18 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            searchForContact();
+        }
+    }
+
+    private void searchForContact() {
+        Intent intent = new Intent(Intent.ACTION_PICK, Contacts.CONTENT_URI);
+        startActivityForResult(intent, SELECT_CONTACT);
     }
 
     private void savePerson() {

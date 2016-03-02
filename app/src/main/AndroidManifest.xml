@@ -6,8 +6,11 @@
     android:versionCode="6"
     android:versionName="2.0.1">
 
+    <!-- dangerous permissions, need to be handled in runtime -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
+    <!-- safe permissions, granted automatically -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application

@@ -4,6 +4,7 @@
 
 /local.properties
 
+/.idea/.name
 /.idea/libraries/
 /.idea/copyright/
 /.idea/*.xml
@@ -12,3 +13,6 @@
 
 /*.iml
 /app/*.iml
+
+# leave ignored unless it contains something else than proxy settings
+gradle.properties

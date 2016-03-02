@@ -1,12 +1,19 @@
 package cz.pikadorama.uome.activity;
 
+import android.Manifest;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.ListPreference;
+import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+import android.support.v13.app.FragmentCompat;
+import android.support.v4.content.ContextCompat;
 
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.Constants;
@@ -26,6 +33,9 @@ public class SettingsActivity extends UomeActivity {
     }
 
     public static class SettingsFragment extends PreferenceFragment {
+
+        private static final int REQUEST_BACKUP = 0;
+        private static final int REQUEST_EXPORT = 1;
 
         private SharedPreferences preferences;
 
@@ -68,6 +78,59 @@ public class SettingsActivity extends UomeActivity {
             super.onPause();
             preferences.unregisterOnSharedPreferenceChangeListener(preferenceListener);
         }
-    }
 
+        @Override
+        public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+            if (Constants.PREF_BACKUP.equals(preference.getKey())) {
+                if (writePermissionGranted()) {
+                    startBackupActivity();
+                } else {
+                    requestWritePermission(REQUEST_BACKUP);
+                }
+                return true;
+            } else if (Constants.PREF_EXPORT.equals(preference.getKey())) {
+                if (writePermissionGranted()) {
+                    startExportActivity();
+                } else {
+                    requestWritePermission(REQUEST_EXPORT);
+                }
+                return true;
+            } else if (Constants.PREF_ABOUT.equals(preference.getKey())) {
+                startActivity(new Intent(getActivity(), AboutActivity.class));
+                return true;
+            }
+
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
+        }
+
+        private boolean writePermissionGranted() {
+            return ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+        }
+
+        private void requestWritePermission(int requestCode) {
+            FragmentCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, requestCode);
+        }
+
+        private void startExportActivity() {
+            startActivity(new Intent(getActivity(), ExportActivity.class));
+        }
+
+        private void startBackupActivity() {
+            startActivity(new Intent(getActivity(), BackupActivity.class));
+        }
+
+        @Override
+        public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                switch(requestCode) {
+                    case REQUEST_BACKUP:
+                        startBackupActivity();
+                        break;
+                    case REQUEST_EXPORT:
+                        startExportActivity();
+                        break;
+                }
+            }
+        }
+    }
 }

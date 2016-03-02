@@ -18,24 +18,9 @@
             android:title="@string/pref_debt_age"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_category_other">
-        <PreferenceScreen android:title="@string/pref_backup">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetClass="cz.pikadorama.uome.activity.BackupActivity"
-                android:targetPackage="cz.kns.uome"/>
-        </PreferenceScreen>
-        <PreferenceScreen android:title="@string/pref_export">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetClass="cz.pikadorama.uome.activity.ExportActivity"
-                android:targetPackage="cz.kns.uome"/>
-        </PreferenceScreen>
-        <PreferenceScreen android:title="@string/pref_about">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetClass="cz.pikadorama.uome.activity.AboutActivity"
-                android:targetPackage="cz.kns.uome"/>
-        </PreferenceScreen>
+        <Preference android:key="backup" android:title="@string/title_backup" />
+        <Preference android:key="export" android:title="@string/title_export" />
+        <Preference android:key="about" android:title="@string/title_about" />
     </PreferenceCategory>
 
 </PreferenceScreen>
