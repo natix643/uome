@@ -40,12 +40,12 @@
         android:id="@+id/menu_edit_person"
         android:icon="@drawable/ic_action_edit"
         android:title="@string/menu_edit_person"
-        uome:showAsAction="ifRoom"/>
+        uome:showAsAction="never"/>
 
     <item
         android:id="@+id/menu_delete_person"
         android:icon="@drawable/ic_action_delete"
         android:title="@string/menu_delete_person"
-        uome:showAsAction="ifRoom"/>
+        uome:showAsAction="never"/>
 
 </menu>
