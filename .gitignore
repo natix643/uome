@@ -11,8 +11,8 @@
 !/.idea/codeStyleSettings.xml
 !/.idea/encodings.xml
 
-/*.iml
-/app/*.iml
+*.iml
+*.apk
 
 # leave ignored unless it contains something else than proxy settings
 gradle.properties

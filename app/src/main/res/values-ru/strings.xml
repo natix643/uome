@@ -221,5 +221,6 @@
     <string name="withdrawal">Снятие</string>
     <string name="deposit">Вклад</string>
     <string name="debt_settlement">Выплата долга</string>
+    <string name="permission_not_granted">Вы отзывать разрешение на это действие.</string>
 
 </resources>

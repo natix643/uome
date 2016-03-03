@@ -221,5 +221,6 @@
     <string name="withdrawal">Výběr</string>
     <string name="deposit">Vklad</string>
     <string name="debt_settlement">Vyrovnání dluhu</string>
+    <string name="permission_not_granted">Pro tuto akci jste nepovolil(a) oprávnění.</string>
 
 </resources>

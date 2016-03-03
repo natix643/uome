@@ -13,12 +13,14 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.support.v13.app.FragmentCompat;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.util.NotificationUtil;
+import cz.pikadorama.uome.common.view.SnackbarHelper;
 
 public class SettingsActivity extends UomeActivity {
 
@@ -95,9 +97,6 @@ public class SettingsActivity extends UomeActivity {
                     requestWritePermission(REQUEST_EXPORT);
                 }
                 return true;
-            } else if (Constants.PREF_ABOUT.equals(preference.getKey())) {
-                startActivity(new Intent(getActivity(), AboutActivity.class));
-                return true;
             }
 
             return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -130,6 +129,8 @@ public class SettingsActivity extends UomeActivity {
                         startExportActivity();
                         break;
                 }
+            } else {
+                new SnackbarHelper(getActivity()).warn(R.string.permission_not_granted);
             }
         }
     }

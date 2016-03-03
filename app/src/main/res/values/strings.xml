@@ -225,5 +225,6 @@
     <string name="withdrawal">Withdrawal</string>
     <string name="deposit">Deposit</string>
     <string name="debt_settlement">Debt settlement</string>
+    <string name="permission_not_granted">You revoked permission for this action.</string>
 
 </resources>

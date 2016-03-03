@@ -27,6 +27,7 @@ import cz.pikadorama.uome.common.ActivityRequest;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.util.Closeables;
+import cz.pikadorama.uome.common.view.SnackbarHelper;
 import cz.pikadorama.uome.common.view.Views;
 import cz.pikadorama.uome.dialog.SelectEmailDialog;
 import cz.pikadorama.uome.model.Person;
@@ -136,6 +137,8 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             searchForContact();
+        } else {
+            new SnackbarHelper(this).warn(R.string.permission_not_granted);
         }
     }
 

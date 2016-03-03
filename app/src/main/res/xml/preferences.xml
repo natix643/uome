@@ -20,7 +20,12 @@
     <PreferenceCategory android:title="@string/pref_category_other">
         <Preference android:key="backup" android:title="@string/title_backup" />
         <Preference android:key="export" android:title="@string/title_export" />
-        <Preference android:key="about" android:title="@string/title_about" />
+        <PreferenceScreen android:title="@string/pref_about">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetClass="cz.pikadorama.uome.activity.AboutActivity"
+                android:targetPackage="cz.kns.uome"/>
+        </PreferenceScreen>
     </PreferenceCategory>
 
 </PreferenceScreen>
