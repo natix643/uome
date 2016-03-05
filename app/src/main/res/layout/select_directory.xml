@@ -13,6 +13,7 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
+            style="@style/ActionBar"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             app:navigationIcon="@drawable/ic_action_navigation_close"/>

@@ -4,21 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        style="@style/AppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/ActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"/>
+
+        <include
+            layout="@layout/person_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </android.support.design.widget.AppBarLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_bar">
-
-        <include
-            android:id="@+id/person_bar"
-            layout="@layout/person_bar"/>
+        android:layout_above="@+id/bottomBar"
+        android:layout_below="@+id/appBar">
 
         <ListView
             android:id="@android:id/list"
             style="@style/List"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/person_bar"
             android:choiceMode="multipleChoiceModal"/>
 
         <TextView
@@ -40,7 +54,7 @@
     </RelativeLayout>
 
     <include
-        android:id="@+id/bottom_bar"
+        android:id="@+id/bottomBar"
         layout="@layout/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

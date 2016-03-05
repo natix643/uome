@@ -42,11 +42,11 @@
         <activity
             android:name=".activity.GroupPersonDetailActivity"
             android:label=""
-            android:theme="@style/Theme.Uome.NoActionBarShadow"/>
+            android:theme="@style/Theme.Uome.NoActionBar"/>
         <activity
             android:name=".activity.SimplePersonDetailActivity"
             android:label=""
-            android:theme="@style/Theme.Uome.NoActionBarShadow"/>
+            android:theme="@style/Theme.Uome.NoActionBar"/>
         <activity
             android:name=".activity.SimpleAddTransactionActivity"
             android:theme="@style/Theme.Uome.HomeAsCross"/>

@@ -1,18 +1,17 @@
 package cz.pikadorama.uome.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import java.io.File;
 
 import cz.pikadorama.uome.R;
-import cz.pikadorama.uome.common.activity.BaseActivity;
+import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.fragment.ListFilesFragment;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
-public class SelectDirectoryActivity extends BaseActivity {
+public class SelectDirectoryActivity extends UomeActivity {
 
     public static final String KEY_SELECTED_DIRECTORY = "selectedDirectory";
 
@@ -21,9 +20,6 @@ public class SelectDirectoryActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Toolbar toolbar = requireView(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         currentDirectoryText = requireView(R.id.current_directory);
 

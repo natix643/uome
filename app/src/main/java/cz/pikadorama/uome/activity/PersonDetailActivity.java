@@ -74,8 +74,6 @@ public abstract class PersonDetailActivity extends UomeListActivity implements C
         transactionDao = new TransactionDao(this);
         personDao = new PersonDao(this);
 
-        getSupportActionBar().setElevation(0);
-
         initViews();
 
         adapter = createAdapter();
