@@ -50,7 +50,7 @@ public class SelectDirectoryActivity extends UomeActivity {
 
     @Override
     public void onBackPressed() {
-        // XXX This hack is needed because ActionBarActivity
+        // XXX This hack is needed because AppCompatActivity
         // immediately closes the activity instead of popping the stack.
         if (getFragmentManager().getBackStackEntryCount() > 0) {
             getFragmentManager().popBackStack();
