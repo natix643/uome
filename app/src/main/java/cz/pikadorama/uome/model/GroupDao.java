@@ -14,7 +14,7 @@ import static cz.pikadorama.uome.model.Group.Column.indexOf;
 public class GroupDao extends Dao<Group> {
 
     public GroupDao(Context context) {
-        super(new SQLiteHelper(context));
+        super(context);
     }
 
     public Group getByName(String name) {

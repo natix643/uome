@@ -1,6 +1,7 @@
 package cz.pikadorama.uome.model;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -15,6 +16,7 @@ import java.util.Collections;
 import java.util.List;
 
 import cz.pikadorama.uome.common.util.Closeables;
+import cz.pikadorama.uome.widget.WidgetProvider;
 
 public abstract class Dao<E extends Entity> {
 
@@ -28,9 +30,11 @@ public abstract class Dao<E extends Entity> {
     };
 
     private final SQLiteOpenHelper databaseHelper;
+    private final Context context;
 
-    protected Dao(SQLiteOpenHelper databaseHelper) {
-        this.databaseHelper = databaseHelper;
+    protected Dao(Context context) {
+        this.context = context;
+        this.databaseHelper = new SQLiteHelper(context);
     }
 
     protected SQLiteOpenHelper getDatabaseHelper() {
@@ -84,7 +88,9 @@ public abstract class Dao<E extends Entity> {
     public long create(E entity) {
         try {
             ContentValues values = entityToContentValues(entity);
-            return databaseHelper.getWritableDatabase().insert(getTableName(), null, values);
+            long rowId = databaseHelper.getWritableDatabase().insert(getTableName(), null, values);
+            WidgetProvider.updateAllWidgets(context);
+            return rowId;
         } finally {
             databaseHelper.close();
         }
@@ -97,6 +103,7 @@ public abstract class Dao<E extends Entity> {
             String[] whereArgs = { entity.getId().toString() };
 
             databaseHelper.getWritableDatabase().update(getTableName(), values, whereClause, whereArgs);
+            WidgetProvider.updateAllWidgets(context);
         } finally {
             databaseHelper.close();
         }
@@ -128,7 +135,9 @@ public abstract class Dao<E extends Entity> {
 
     protected int deleteWhere(String whereClause, String[] whereArgs) {
         try {
-            return databaseHelper.getWritableDatabase().delete(getTableName(), whereClause, whereArgs);
+            int rowsDeleted = databaseHelper.getWritableDatabase().delete(getTableName(), whereClause, whereArgs);
+            WidgetProvider.updateAllWidgets(context);
+            return rowsDeleted;
         } finally {
             databaseHelper.close();
         }

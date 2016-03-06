@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Date;
 import java.util.List;
 
 import cz.pikadorama.uome.R;
@@ -36,20 +37,23 @@ public class ListViewUtil {
     public static BigDecimal sumTransactions(List<Transaction> transactions) {
         BigDecimal sum = BigDecimal.ZERO;
         for (Transaction transaction : transactions) {
-            if (transaction.isFinancial()) {
-                switch (transaction.getDirection()) {
-                    case WITHDRAWAL:
-                        sum = sum.subtract(new BigDecimal(transaction.getValue()));
-                        break;
-                    case DEPOSIT:
-                        sum = sum.add(new BigDecimal(transaction.getValue()));
-                        break;
-                    default:
-                        throw new AssertionError();
-                }
-            }
+            sum = addTransactionAmountToSum(sum, transaction);
         }
         return sum.setScale(MoneyFormatter.DECIMAL_PLACES, RoundingMode.DOWN);
+    }
+
+    private static BigDecimal addTransactionAmountToSum(BigDecimal sum, Transaction transaction) {
+        if (transaction.isFinancial()) {
+            switch (transaction.getDirection()) {
+                case WITHDRAWAL:
+                    return sum.subtract(new BigDecimal(transaction.getValue()));
+                case DEPOSIT:
+                    return sum.add(new BigDecimal(transaction.getValue()));
+                default:
+                    throw new AssertionError();
+            }
+        }
+        return sum;
     }
 
     public static int getHintForBalance(BigDecimal value) {
@@ -74,5 +78,46 @@ public class ListViewUtil {
             default:
                 throw new AssertionError();
         }
+    }
+
+    /**
+     * Get the last known date where balance was zero or it moved between negative and positive numbers.
+     *
+     * @param transactions list of all transactions sorted by date (newest first)
+     * @param category list view category - decides which kind of debts we want to show
+     * @return last known date where balance was zero or it moved between negative and positive numbers
+     */
+    public static Date getLastSettleDate(List<Transaction> transactions, BalanceCategory category) {
+        if (transactions.size() == 1) {
+            return transactions.get(0).getDateTime();
+        }
+
+        Date lastSettleDate = new Date(0L);
+        BigDecimal balance = BigDecimal.ZERO;
+        for (Transaction transaction : transactions) {
+            BigDecimal newBalance = addTransactionAmountToSum(balance, transaction);
+            if (newBalance.equals(BigDecimal.ZERO)) {
+                lastSettleDate = transaction.getDateTime();
+            } else {
+                switch (category) {
+                    case I_OWE_LONGEST_TIME:
+                    case I_OWE_MOST:
+                        // we count settle date when going from 'I owe' to 'they owe'
+                        if (balance.compareTo(BigDecimal.ZERO) > 0 && newBalance.compareTo(BigDecimal.ZERO) < 0) {
+                            lastSettleDate = transaction.getDateTime();
+                        }
+                        break;
+                    case OWES_ME_LONGEST_TIME:
+                    case OWES_ME_MOST:
+                        // the other way around in comparison to the above
+                        if (balance.compareTo(BigDecimal.ZERO) < 0 && newBalance.compareTo(BigDecimal.ZERO) > 0) {
+                            lastSettleDate = transaction.getDateTime();
+                        }
+                        break;
+                }
+            }
+            balance = newBalance;
+        }
+        return lastSettleDate;
     }
 }

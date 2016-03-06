@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/widget_pref_config_title">
+        <ListPreference
+            android:defaultValue="OWES_ME_MOST"
+            android:entries="@array/widgetDataCategory"
+            android:entryValues="@array/widgetDataCategoryValue"
+            android:key="dataCategory"
+            android:summary="@string/widget_who_owes_most"
+            android:title="@string/widget_pref_debt_type_title"/>
+        <ListPreference
+            android:defaultValue="5"
+            android:entries="@array/widgetItemLimit"
+            android:entryValues="@array/widgetItemLimitValue"
+            android:key="itemLimit"
+            android:summary="5"
+            android:title="@string/widget_pref_debt_limit_title"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

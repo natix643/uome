@@ -65,6 +65,15 @@ public abstract class PersonDetailActivity extends UomeListActivity implements C
     private BigDecimal totalAmount = BigDecimal.ZERO;
 
     @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        long personId = intent.getLongExtra(Constants.PERSON_ID, -1);
+        if (person != null && person.getId() != personId) {
+            refreshActivityData(personId);
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -117,6 +126,10 @@ public abstract class PersonDetailActivity extends UomeListActivity implements C
         super.onResume();
 
         long personId = requireIntentExtra(Constants.PERSON_ID);
+        refreshActivityData(personId);
+    }
+
+    private void refreshActivityData(long personId) {
         person = personDao.getById(personId);
         refreshPerson();
         refreshTransactions();

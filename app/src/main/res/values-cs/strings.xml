@@ -101,6 +101,7 @@
     <string name="error_create_directory">Chyba při vytváření složky</string>
     <string name="error_backup_failed">Zálohování se nezdařilo</string>
     <string name="error_missing_backup_file">Tato složka neobsahuje záložní soubor</string>
+    <string name="error_widget_not_created">Widget se nepodařilo vytvořit</string>
 
     <!-- Notifications -->
 
@@ -133,7 +134,7 @@
     <string name="export_header_balance">Stav konta</string>
 
     <!-- Backup -->
-    
+
     <string name="backup_description_backup"><![CDATA[
         Při záloze budou všechna vaše současná data uložena do souboru <b>{0}</b>,
         který bude vytvořen ve vybrané složce.
@@ -211,6 +212,19 @@
     <string name="amount_no_debt">Žádný dluh</string>
     <string name="amount_received">@string/button_received</string>
     <string name="amount_gave">@string/button_gave</string>
+
+    <!-- Widget -->
+
+    <string name="widget_configuration_title">Nastavení widgetu</string>
+    <string name="widget_limit_all_debts">Všechny dluhy</string>
+    <string name="widget_no_debts">Žádné dluhy</string>
+    <string name="widget_pref_config_title">Nastavení</string>
+    <string name="widget_pref_debt_limit_title">Maximální počet položek, které se zobrazí</string>
+    <string name="widget_pref_debt_type_title">Typ dluhů</string>
+    <string name="widget_who_owes_longest_time">Kdo mi dluží nejdéle?</string>
+    <string name="widget_who_owes_most">Kdo mi dluží nejvíce?</string>
+    <string name="widget_whom_i_owe_longest_time">Komu dlužím nejdéle?</string>
+    <string name="widget_whom_i_owe_most">Komu dlužím nejvíce?</string>
 
     <!-- Misc -->
 

@@ -15,7 +15,7 @@ import static cz.pikadorama.uome.model.Transaction.Column.indexOf;
 public class TransactionDao extends Dao<Transaction> {
 
     public TransactionDao(Context context) {
-        super(new SQLiteHelper(context));
+        super(context);
     }
 
     public List<Transaction> getAllForGroup(Group group) {

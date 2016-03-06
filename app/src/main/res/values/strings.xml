@@ -103,6 +103,7 @@
     <string name="error_create_directory">Error while creating folder</string>
     <string name="error_backup_failed">Backup failed</string>
     <string name="error_missing_backup_file">This folder doesn\'t contain a backup file</string>
+    <string name="error_widget_not_created">The widget couldn\'t be created</string>
 
     <!-- Notifications -->
 
@@ -135,14 +136,14 @@
     <string name="export_header_balance">Balance</string>
 
     <!-- Backup -->
-    
+
     <string name="backup_description_backup"><![CDATA[
         During the backup, all of your current data will be saved into file <b>{0}</b>
-        that will be created in the selected directory. 
+        that will be created in the selected directory.
     ]]></string>
     <string name="backup_description_restore"><![CDATA[
         Data can be restored from the file <b>{0}</b> that was created by a previous backup.
-        The restoration process deletes all the current data and replaces them with data from the backup file!  
+        The restoration process deletes all the current data and replaces them with data from the backup file!
     ]]></string>
 
     <!-- About -->
@@ -215,6 +216,19 @@
     <string name="amount_no_debt">No debt</string>
     <string name="amount_received">@string/button_received</string>
     <string name="amount_gave">@string/button_gave</string>
+
+    <!-- Widget -->
+
+    <string name="widget_configuration_title">Widget configuration</string>
+    <string name="widget_no_debts">No debts</string>
+    <string name="widget_who_owes_most">Who owes me most?</string>
+    <string name="widget_who_owes_longest_time">Who owes me for the longest time?</string>
+    <string name="widget_whom_i_owe_most">Whom do I owe most?</string>
+    <string name="widget_whom_i_owe_longest_time">Whom do I owe for the longest time?</string>
+    <string name="widget_pref_config_title">Configuration</string>
+    <string name="widget_pref_debt_type_title">Type of debts</string>
+    <string name="widget_pref_debt_limit_title">Maximum number of items to show</string>
+    <string name="widget_limit_all_debts">All debts</string>
 
     <!-- Misc -->
 

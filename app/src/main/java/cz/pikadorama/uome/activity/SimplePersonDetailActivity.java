@@ -54,6 +54,12 @@ public class SimplePersonDetailActivity extends PersonDetailActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            // override the default behaviour when this activity
+            // was started from the widget
+            case android.R.id.home:
+                startActivity(StartupActivity.class);
+                finish();
+                return true;
             case R.id.menu_filter_all:
                 selectFilter(ALL);
                 return true;

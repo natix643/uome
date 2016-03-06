@@ -50,4 +50,31 @@
         <item name="60">60</item>
     </string-array>
 
+    <string-array name="widgetDataCategory">
+        <item name="OWES_ME_MOST">@string/widget_who_owes_most</item>
+        <item name="OWES_ME_LONGEST_TIME">@string/widget_who_owes_longest_time</item>
+        <item name="I_OWE_MOST">@string/widget_whom_i_owe_most</item>
+        <item name="I_OWE_LONGEST_TIME">@string/widget_whom_i_owe_longest_time</item>
+    </string-array>
+    <string-array name="widgetDataCategoryValue">
+        <item name="OWES_ME_MOST">OWES_ME_MOST</item>
+        <item name="OWES_ME_LONGEST_TIME">OWES_ME_LONGEST_TIME</item>
+        <item name="I_OWE_MOST">I_OWE_MOST</item>
+        <item name="I_OWE_LONGEST_TIME">I_OWE_LONGEST_TIME</item>
+    </string-array>
+
+    <string-array name="widgetItemLimit">
+        <item name="1">1</item>
+        <item name="2">2</item>
+        <item name="5">5</item>
+        <item name="10">10</item>
+        <item name="all">@string/widget_limit_all_debts</item>
+    </string-array>
+    <string-array name="widgetItemLimitValue">
+        <item name="1">1</item>
+        <item name="2">2</item>
+        <item name="5">5</item>
+        <item name="10">10</item>
+        <item name="all">1000</item>
+    </string-array>
 </resources>

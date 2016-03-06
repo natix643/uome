@@ -19,7 +19,7 @@
             app:navigationIcon="@drawable/ic_action_navigation_close"/>
 
         <TextView
-            android:id="@+id/current_directory"
+            android:id="@+id/currentDirectory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="16dp"

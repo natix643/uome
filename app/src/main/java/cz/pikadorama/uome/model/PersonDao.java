@@ -13,7 +13,7 @@ import static cz.pikadorama.uome.model.Person.Column.indexOf;
 public class PersonDao extends Dao<Person> {
 
     public PersonDao(Context context) {
-        super(new SQLiteHelper(context));
+        super(context);
     }
 
     public Person getByNameForGroup(String name, long groupId) {

@@ -6,7 +6,8 @@
 
     <fragment
         android:id="@+id/configurationFragment"
-        class="cz.pikadorama.uome.activity.SettingsActivity$SettingsFragment"
+        class="cz.pikadorama.uome.widget.config.WidgetConfigurationActivity$ConfigurationFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
 </FrameLayout>

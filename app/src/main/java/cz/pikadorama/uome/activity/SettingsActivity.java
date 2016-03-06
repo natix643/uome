@@ -24,11 +24,6 @@ import cz.pikadorama.uome.common.view.SnackbarHelper;
 public class SettingsActivity extends UomeActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     protected int getLayoutId() {
         return R.layout.settings;
     }
@@ -37,8 +32,6 @@ public class SettingsActivity extends UomeActivity {
 
         private static final int REQUEST_BACKUP = 0;
         private static final int REQUEST_EXPORT = 1;
-
-        private SharedPreferences preferences;
 
         private SwitchPreference allowNotificationsPref;
         private ListPreference debtAgePref;
@@ -62,8 +55,6 @@ public class SettingsActivity extends UomeActivity {
 
             addPreferencesFromResource(R.xml.preferences);
 
-            preferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
-
             allowNotificationsPref = (SwitchPreference) findPreference(Constants.PREF_ALLOW_NOTIFICATIONS);
             debtAgePref = (ListPreference) findPreference(Constants.PREF_DEBT_AGE);
         }
@@ -71,13 +62,13 @@ public class SettingsActivity extends UomeActivity {
         @Override
         public void onResume() {
             super.onResume();
-            preferences.registerOnSharedPreferenceChangeListener(preferenceListener);
+            getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(preferenceListener);
         }
 
         @Override
         public void onPause() {
             super.onPause();
-            preferences.unregisterOnSharedPreferenceChangeListener(preferenceListener);
+            getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(preferenceListener);
         }
 
         @Override

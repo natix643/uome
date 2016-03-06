@@ -24,4 +24,6 @@
     <!-- Material Red 500 -->
     <color name="snackbar_error">#F44336</color>
 
+    <!-- List background - light grey -->
+    <color name="list_background">#EEEEEE</color>
 </resources>

@@ -101,6 +101,7 @@
     <string name="error_create_directory">Ошибка при создании папки</string>
     <string name="error_backup_failed">Не удалось создать резервную копию</string>
     <string name="error_missing_backup_file">В этой папке не содержится файл резервной копии</string>
+    <string name="error_widget_not_created">виджет не удалось создать</string>
 
     <!-- Notifications -->
 
@@ -211,6 +212,19 @@
     <string name="amount_no_debt">Нет долги</string>
     <string name="amount_received">@string/button_received</string>
     <string name="amount_gave">@string/button_gave</string>
+
+    <!-- Widget -->
+
+    <string name="widget_configuration_title">Настройки виджета.</string>
+    <string name="widget_limit_all_debts">Все долги</string>
+    <string name="widget_no_debts">Нет долгов</string>
+    <string name="widget_pref_config_title">Настройки</string>
+    <string name="widget_pref_debt_limit_title">Максимальное количество предметов, которые появляются</string>
+    <string name="widget_pref_debt_type_title">Тип долга</string>
+    <string name="widget_who_owes_longest_time">Кто должен мне самый длинный?</string>
+    <string name="widget_who_owes_most">Кто должен мне больше всего?</string>
+    <string name="widget_whom_i_owe_longest_time">К кому я обязан самый длинный?</string>
+    <string name="widget_whom_i_owe_most">К кому я обязан больше всего?</string>
 
     <!-- Misc -->
 

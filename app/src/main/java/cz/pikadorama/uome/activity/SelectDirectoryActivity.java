@@ -21,7 +21,7 @@ public class SelectDirectoryActivity extends UomeActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        currentDirectoryText = requireView(R.id.current_directory);
+        currentDirectoryText = requireView(R.id.currentDirectory);
 
         if (savedInstanceState == null) {
             File directory = getDirectoryFromIntent();
