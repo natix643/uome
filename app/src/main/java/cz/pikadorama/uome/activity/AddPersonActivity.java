@@ -119,10 +119,15 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_search:
-                if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
+                if (ContextCompat.checkSelfPermission(
+                        this,
+                        Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
                     searchForContact();
                 } else {
-                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, SELECT_CONTACT);
+                    ActivityCompat.requestPermissions(
+                            this,
+                            new String[] { Manifest.permission.READ_CONTACTS },
+                            SELECT_CONTACT);
                 }
                 return true;
             case R.id.menu_save:
@@ -220,7 +225,7 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
         Cursor cursor = null;
         try {
             String whereClause = Email.CONTACT_ID + " = ?";
-            String[] whereArgs = {uri.getLastPathSegment()};
+            String[] whereArgs = { uri.getLastPathSegment() };
             cursor = getContentResolver().query(Email.CONTENT_URI, null, whereClause, whereArgs,
                     null);
 
@@ -248,7 +253,7 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
         try {
             String whereClause = Data.CONTACT_ID + " = ? and " + Data.MIMETYPE + " = '"
                     + Photo.CONTENT_ITEM_TYPE + "'";
-            String[] whereArgs = {uri.getLastPathSegment()};
+            String[] whereArgs = { uri.getLastPathSegment() };
             cursor = getContentResolver().query(Data.CONTENT_URI, null, whereClause, whereArgs,
                     null);
             if (cursor != null) {

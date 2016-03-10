@@ -22,15 +22,28 @@ public class TransactionData implements Parcelable {
     private Date dateTime;
 
     public static TransactionData from(Transaction transaction) {
-        return new TransactionData(transaction.getId(), transaction.getPersonId(),
-                transaction.getGroupId(), transaction.getValue(), transaction.isFinancial(),
-                transaction.getDirection(), transaction.getDescription(), transaction.getDateTime());
+        return new TransactionData(
+                transaction.getId(),
+                transaction.getPersonId(),
+                transaction.getGroupId(),
+                transaction.getValue(),
+                transaction.isFinancial(),
+                transaction.getDirection(),
+                transaction.getDescription(),
+                transaction.getDateTime());
     }
 
     public TransactionData() {}
 
-    public TransactionData(Long id, Long personId, Long groupId, String value,
-            Boolean financial, Direction direction, String description, Date dateTime) {
+    public TransactionData(
+            Long id,
+            Long personId,
+            Long groupId,
+            String value,
+            Boolean financial,
+            Direction direction,
+            String description,
+            Date dateTime) {
         this.id = id;
         this.personId = personId;
         this.groupId = groupId;

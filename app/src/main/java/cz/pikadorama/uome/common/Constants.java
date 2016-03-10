@@ -18,7 +18,6 @@ public class Constants {
     public static final String PREF_EXPORT = "export";
     public static final String PREF_ABOUT = "about";
 
-
     public static final int MISSING_EXTRA = -1;
 
     public static final String SELECTED_PERSON = "selectedPerson";

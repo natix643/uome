@@ -79,7 +79,9 @@ public class Fragments {
      * @return {@code activity} casted to {@code activityClass}
      * @throws ClassCastException if {@code activity} is not instance of {@code activityClass}
      */
-    public static <T extends BaseActivity> T requireActivityIsInstanceOf(Fragment fragment, Activity activity,
+    public static <T extends BaseActivity> T requireActivityIsInstanceOf(
+            Fragment fragment,
+            Activity activity,
             Class<T> activityClass) {
         if (!activityClass.isInstance(activity)) {
             throw new ClassCastException(

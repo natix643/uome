@@ -20,9 +20,9 @@ public abstract class Dao<E extends Entity> {
 
     private static final String[] ALL_COLUMNS = null;
 
-    private final Function<E, String> getIdString = new Function<E, String>() {
+    private static final Function<Entity, String> getIdString = new Function<Entity, String>() {
         @Override
-        public String apply(E entity) {
+        public String apply(Entity entity) {
             return entity.getId().toString();
         }
     };
@@ -39,11 +39,10 @@ public abstract class Dao<E extends Entity> {
 
     public E getById(long id) {
         String whereClause = getIdColumn() + " = ?";
-        String[] whereArgs = {Long.toString(id)};
+        String[] whereArgs = { Long.toString(id) };
         return getWhere(whereClause, whereArgs);
     }
 
-    @SuppressWarnings("resource")
     protected E getWhere(String whereClause, String[] whereArgs) {
         Cursor cursor = null;
         try {
@@ -65,7 +64,6 @@ public abstract class Dao<E extends Entity> {
         return getAllWhere(null, null, orderBy);
     }
 
-    @SuppressWarnings("resource")
     protected List<E> getAllWhere(String whereClause, String[] whereArgs, String orderBy) {
         Cursor cursor = null;
         try {
@@ -96,7 +94,7 @@ public abstract class Dao<E extends Entity> {
         try {
             ContentValues values = entityToContentValues(entity);
             String whereClause = getIdColumn() + " = ?";
-            String[] whereArgs = {entity.getId().toString()};
+            String[] whereArgs = { entity.getId().toString() };
 
             databaseHelper.getWritableDatabase().update(getTableName(), values, whereClause, whereArgs);
         } finally {
@@ -106,7 +104,7 @@ public abstract class Dao<E extends Entity> {
 
     public void delete(E entity) {
         String whereClause = getIdColumn() + " = ?";
-        String[] whereArgs = {entity.getId().toString()};
+        String[] whereArgs = { entity.getId().toString() };
         deleteWhere(whereClause, whereArgs);
     }
 

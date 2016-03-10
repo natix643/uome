@@ -13,7 +13,6 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.support.v13.app.FragmentCompat;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
 import cz.pikadorama.uome.R;
@@ -103,11 +102,16 @@ public class SettingsActivity extends UomeActivity {
         }
 
         private boolean writePermissionGranted() {
-            return ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+            return ContextCompat.checkSelfPermission(
+                    getActivity(),
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
         }
 
         private void requestWritePermission(int requestCode) {
-            FragmentCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, requestCode);
+            FragmentCompat.requestPermissions(
+                    this,
+                    new String[] { Manifest.permission.WRITE_EXTERNAL_STORAGE },
+                    requestCode);
         }
 
         private void startExportActivity() {
@@ -121,7 +125,7 @@ public class SettingsActivity extends UomeActivity {
         @Override
         public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                switch(requestCode) {
+                switch (requestCode) {
                     case REQUEST_BACKUP:
                         startBackupActivity();
                         break;

@@ -24,7 +24,7 @@ public class TransactionDao extends Dao<Transaction> {
 
     public List<Transaction> getAllForGroup(long groupId) {
         String where = Column.GROUP_ID + " = ?";
-        String[] whereArgs = {Long.toString(groupId)};
+        String[] whereArgs = { Long.toString(groupId) };
         return getAllWhereOrderedByDate(where, whereArgs);
     }
 
@@ -34,7 +34,7 @@ public class TransactionDao extends Dao<Transaction> {
 
     public List<Transaction> getAllForPerson(long personId) {
         String where = Column.PERSON_ID + " = ?";
-        String[] whereArgs = {Long.toString(personId)};
+        String[] whereArgs = { Long.toString(personId) };
         return getAllWhereOrderedByDate(where, whereArgs);
     }
 

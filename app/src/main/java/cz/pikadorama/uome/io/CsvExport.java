@@ -90,8 +90,8 @@ public class CsvExport {
         }
     }
 
-    private void exportGroupTransactions(List<Person> persons, List<Transaction> transactions,
-            CsvWriter out) throws IOException {
+    private void exportGroupTransactions(List<Person> persons, List<Transaction> transactions, CsvWriter out)
+            throws IOException {
         // header
         out.write(activity.getString(R.string.export_header_person));
         out.write(activity.getString(R.string.export_header_email));
@@ -114,8 +114,8 @@ public class CsvExport {
         }
     }
 
-    private void exportGroupSummary(List<Person> persons, List<Transaction> transactions,
-            CsvWriter out) throws IOException {
+    private void exportGroupSummary(List<Person> persons, List<Transaction> transactions, CsvWriter out)
+            throws IOException {
         // header
         out.write(activity.getString(R.string.export_header_person));
         out.write(activity.getString(R.string.export_header_balance));

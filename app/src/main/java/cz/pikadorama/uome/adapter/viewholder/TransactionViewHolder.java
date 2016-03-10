@@ -27,24 +27,22 @@ import static cz.pikadorama.uome.model.Transaction.Direction.WITHDRAWAL;
 
 public abstract class TransactionViewHolder implements ViewHolder<Transaction> {
 
-    public static final ViewHoldingListAdapter<Transaction> forSimpleDebts(Context context) {
+    public static ViewHoldingListAdapter<Transaction> forSimpleDebts(Context context) {
         return forSimpleDebts(context, new ArrayList<Transaction>());
     }
 
-    public static final ViewHoldingListAdapter<Transaction> forSimpleDebts(Context context,
-            List<Transaction> transactions) {
+    public static ViewHoldingListAdapter<Transaction> forSimpleDebts(Context context, List<Transaction> transactions) {
         return new ViewHoldingListAdapter<>(
                 transactions,
                 ViewInflator.viewInflatorFor(context, R.layout.item_simple_transaction),
                 new SimpleTransactionViewHolderFactory());
     }
 
-    public static final ViewHoldingListAdapter<Transaction> forGroupDebts(Context context) {
+    public static ViewHoldingListAdapter<Transaction> forGroupDebts(Context context) {
         return forGroupDebts(context, new ArrayList<Transaction>());
     }
 
-    public static final ViewHoldingListAdapter<Transaction> forGroupDebts(Context context,
-            List<Transaction> transactions) {
+    public static ViewHoldingListAdapter<Transaction> forGroupDebts(Context context, List<Transaction> transactions) {
         return new ViewHoldingListAdapter<>(
                 transactions,
                 ViewInflator.viewInflatorFor(context, R.layout.item_group_transaction),

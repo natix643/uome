@@ -130,12 +130,12 @@ public class Intents {
     }
 
 	/*
-	 * Misc.
+     * Misc.
 	 */
 
     public static Intent shareViaEmail(Balance balance, Context context) {
         EmailFormatter formatter = new EmailFormatter(context);
-        String[] address = {balance.getPerson().getEmail()};
+        String[] address = { balance.getPerson().getEmail() };
 
         return new Intent(Intent.ACTION_SENDTO)
                 .setData(Uri.parse("mailto:"))

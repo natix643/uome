@@ -19,7 +19,7 @@ public class GroupDao extends Dao<Group> {
 
     public Group getByName(String name) {
         String whereClause = Column.NAME + " = ?";
-        String[] whereArgs = {name};
+        String[] whereArgs = { name };
         return getWhere(whereClause, whereArgs);
     }
 
@@ -33,7 +33,7 @@ public class GroupDao extends Dao<Group> {
 
     public List<Group> getAllWithoutSimple() {
         String whereClause = Column.ID + " != ?";
-        String[] whereArgs = {Long.toString(Constants.SIMPLE_GROUP_ID)};
+        String[] whereArgs = { Long.toString(Constants.SIMPLE_GROUP_ID) };
         String orderBy = Column.NAME + " collate localized asc";
 
         return getAllWhere(whereClause, whereArgs, orderBy);

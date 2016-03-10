@@ -65,8 +65,14 @@ public class Transaction implements Entity {
     private String description;
     private Date dateTime;
 
-    public Transaction(long personId, long groupId, String value, boolean financial,
-            Direction direction, String description, Date dateTime) {
+    public Transaction(
+            long personId,
+            long groupId,
+            String value,
+            boolean financial,
+            Direction direction,
+            String description,
+            Date dateTime) {
         this.personId = personId;
         this.groupId = groupId;
         this.value = value;
@@ -76,8 +82,15 @@ public class Transaction implements Entity {
         this.dateTime = dateTime;
     }
 
-    public Transaction(Long id, long personId, long groupId, String value, boolean financial,
-            Direction direction, String description, Date dateTime) {
+    public Transaction(
+            Long id,
+            long personId,
+            long groupId,
+            String value,
+            boolean financial,
+            Direction direction,
+            String description,
+            Date dateTime) {
         this.id = id;
         this.personId = personId;
         this.groupId = groupId;

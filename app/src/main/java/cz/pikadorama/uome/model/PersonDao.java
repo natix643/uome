@@ -18,7 +18,7 @@ public class PersonDao extends Dao<Person> {
 
     public Person getByNameForGroup(String name, long groupId) {
         String whereClause = Column.NAME + " = ? and " + Column.GROUP_ID + " = ?";
-        String[] whereArgs = {name, Long.toString(groupId)};
+        String[] whereArgs = { name, Long.toString(groupId) };
         return getWhere(whereClause, whereArgs);
     }
 
@@ -28,7 +28,7 @@ public class PersonDao extends Dao<Person> {
 
     public List<Person> getAllForGroup(long groupId) {
         String whereClause = Column.GROUP_ID + " = ?";
-        String[] whereArgs = {Long.toString(groupId)};
+        String[] whereArgs = { Long.toString(groupId) };
         String orderBy = Column.NAME + " collate localized asc";
 
         return getAllWhere(whereClause, whereArgs, orderBy);
@@ -40,7 +40,7 @@ public class PersonDao extends Dao<Person> {
 
     public int deleteAllForGroup(long groupId) {
         String whereClause = Person.Column.GROUP_ID + " = ?";
-        String[] whereArgs = {Long.toString(groupId)};
+        String[] whereArgs = { Long.toString(groupId) };
         return deleteWhere(whereClause, whereArgs);
     }
 

@@ -52,7 +52,10 @@ public class NotificationScheduleReceiver extends BroadcastReceiver {
         }
     }
 
-    private void processFinancialTransactions(int debtAge, List<Transaction> transactionsToNotify, Person person,
+    private void processFinancialTransactions(
+            int debtAge,
+            List<Transaction> transactionsToNotify,
+            Person person,
             List<Transaction> financialTransactions) {
         Collections.reverse(financialTransactions);
         Date lastSettledDate = null;
@@ -91,7 +94,9 @@ public class NotificationScheduleReceiver extends BroadcastReceiver {
         }
     }
 
-    private void processNonfinancialTransactions(int debtAge, List<Transaction> transactionsToNotify,
+    private void processNonfinancialTransactions(
+            int debtAge,
+            List<Transaction> transactionsToNotify,
             List<Transaction> nonfinancialTransactions) {
         for (Transaction transaction : nonfinancialTransactions) {
             if (isOldEnoughToNotify(transaction.getDateTime(), debtAge)) {
