@@ -38,7 +38,6 @@ import cz.pikadorama.uome.common.pager.BasePagerAdapter;
 import cz.pikadorama.uome.common.pager.PagerActivity;
 import cz.pikadorama.uome.common.util.Intents;
 import cz.pikadorama.uome.common.util.ListViewUtil;
-import cz.pikadorama.uome.common.view.Animations;
 import cz.pikadorama.uome.common.view.SnackbarHelper;
 import cz.pikadorama.uome.fragment.OverviewFragment;
 import cz.pikadorama.uome.model.Group;
@@ -299,11 +298,11 @@ public abstract class OverviewActivity extends PagerActivity {
     }
 
     public void hideFloatingButton() {
-        Animations.collapse(addTransactionButton);
+        addTransactionButton.hide();
     }
 
     public void showFloatingButton() {
-        Animations.expand(addTransactionButton);
+        addTransactionButton.show();
     }
 
     @Override
