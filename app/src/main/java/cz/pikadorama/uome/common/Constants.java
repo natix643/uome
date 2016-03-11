@@ -16,7 +16,6 @@ public class Constants {
     public static final String PREF_LAST_OPENED_GROUP = "lastOpenedGroup";
     public static final String PREF_BACKUP = "backup";
     public static final String PREF_EXPORT = "export";
-    public static final String PREF_ABOUT = "about";
 
     public static final int MISSING_EXTRA = -1;
 
