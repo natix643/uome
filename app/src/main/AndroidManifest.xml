@@ -26,10 +26,10 @@
         </activity>
 
         <receiver
-            android:name=".service.NotificationScheduleReceiver"
+            android:name=".notification.NotificationScheduleReceiver"
             android:process=":notificationScheduler"/>
         <receiver
-            android:name=".service.BootReceiver"
+            android:name=".notification.BootReceiver"
             android:process=":bootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>

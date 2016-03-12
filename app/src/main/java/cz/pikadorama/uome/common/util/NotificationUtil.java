@@ -8,7 +8,7 @@ import android.content.Intent;
 import java.util.Calendar;
 
 import cz.pikadorama.uome.common.Constants;
-import cz.pikadorama.uome.service.NotificationScheduleReceiver;
+import cz.pikadorama.uome.notification.NotificationScheduleReceiver;
 
 public class NotificationUtil {
 

@@ -1,4 +1,4 @@
-package cz.pikadorama.uome.service;
+package cz.pikadorama.uome.notification;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

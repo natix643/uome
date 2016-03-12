@@ -1,4 +1,4 @@
-package cz.pikadorama.uome.service;
+package cz.pikadorama.uome.notification;
 
 import android.app.Notification;
 import android.app.NotificationManager;
