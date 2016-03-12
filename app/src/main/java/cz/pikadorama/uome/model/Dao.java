@@ -15,6 +15,8 @@ import java.util.Collections;
 import java.util.List;
 
 import cz.pikadorama.uome.common.util.Closeables;
+import cz.pikadorama.uome.event.EventBroker;
+import cz.pikadorama.uome.event.Topic;
 
 public abstract class Dao<E extends Entity> {
 
@@ -31,10 +33,6 @@ public abstract class Dao<E extends Entity> {
 
     protected Dao(SQLiteOpenHelper databaseHelper) {
         this.databaseHelper = databaseHelper;
-    }
-
-    protected SQLiteOpenHelper getDatabaseHelper() {
-        return databaseHelper;
     }
 
     public E getById(long id) {
@@ -84,7 +82,9 @@ public abstract class Dao<E extends Entity> {
     public long create(E entity) {
         try {
             ContentValues values = entityToContentValues(entity);
-            return databaseHelper.getWritableDatabase().insert(getTableName(), null, values);
+            long rowId = databaseHelper.getWritableDatabase().insert(getTableName(), null, values);
+            EventBroker.publish(Topic.DATABASE_UPDATED);
+            return rowId;
         } finally {
             databaseHelper.close();
         }
@@ -97,6 +97,7 @@ public abstract class Dao<E extends Entity> {
             String[] whereArgs = { entity.getId().toString() };
 
             databaseHelper.getWritableDatabase().update(getTableName(), values, whereClause, whereArgs);
+            EventBroker.publish(Topic.DATABASE_UPDATED);
         } finally {
             databaseHelper.close();
         }
@@ -128,7 +129,9 @@ public abstract class Dao<E extends Entity> {
 
     protected int deleteWhere(String whereClause, String[] whereArgs) {
         try {
-            return databaseHelper.getWritableDatabase().delete(getTableName(), whereClause, whereArgs);
+            int rowsDeleted = databaseHelper.getWritableDatabase().delete(getTableName(), whereClause, whereArgs);
+            EventBroker.publish(Topic.DATABASE_UPDATED);
+            return rowsDeleted;
         } finally {
             databaseHelper.close();
         }
