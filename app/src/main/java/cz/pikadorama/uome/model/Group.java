@@ -3,13 +3,16 @@ package cz.pikadorama.uome.model;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableList;
 
+import java.io.Serializable;
 import java.util.List;
 
 import cz.pikadorama.uome.common.Constants;
 
 import static cz.pikadorama.uome.model.Group.Column.*;
 
-public class Group implements Entity {
+public class Group implements Entity, Serializable {
+
+    public static final String KEY = Group.class.getName();
 
     static final String TABLE_NAME = "group_table";
 

@@ -24,7 +24,6 @@ import cz.pikadorama.uome.model.Group;
 import cz.pikadorama.uome.model.Person;
 import cz.pikadorama.uome.model.Transaction;
 import cz.pikadorama.uome.model.Transaction.Direction;
-import cz.pikadorama.uome.model.parcelable.ParcelableGroup;
 import cz.pikadorama.uome.model.parcelable.ParcelablePerson;
 import cz.pikadorama.uome.model.parcelable.TransactionData;
 
@@ -126,7 +125,7 @@ public class Intents {
     public static Intent editGroup(Activity activity, Group group) {
         return new Intent(activity, AddGroupActivity.class)
                 .putExtra(ActivityRequest.KEY, ActivityRequest.EDIT_GROUP)
-                .putExtra(Constants.SELECTED_GROUP, new ParcelableGroup(group));
+                .putExtra(Group.KEY, group);
     }
 
 	/*

@@ -21,7 +21,6 @@ public class Constants {
 
     public static final String SELECTED_PERSON = "selectedPerson";
     public static final String SELECTED_PERSONS = "selectedPersons";
-    public static final String SELECTED_GROUP = "selectedGroup";
     public static final String SELECTED_TRANSACTIONS = "selectedTransactions";
 
     public static final BigDecimal MINUS_ONE = new BigDecimal("-1");

@@ -14,16 +14,12 @@ import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.view.Views;
 import cz.pikadorama.uome.model.Group;
 import cz.pikadorama.uome.model.GroupDao;
-import cz.pikadorama.uome.model.parcelable.ParcelableGroup;
-
-import static com.google.common.base.Preconditions.checkNotNull;
 
 public class AddGroupActivity extends UomeActivity {
 
     private GroupDao groupDao;
 
     private Group editedGroup;
-    private int purpose;
 
     private EditText nameEditText;
     private TextInputLayout nameTextLayout;
@@ -33,12 +29,11 @@ public class AddGroupActivity extends UomeActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        groupDao = new GroupDao(getApplicationContext());
-
+        groupDao = new GroupDao(this);
         initViews();
 
-        readIntent();
         getSupportActionBar().setTitle(actionBarTitle());
+        readEditedGroup();
     }
 
     private void initViews() {
@@ -55,26 +50,27 @@ public class AddGroupActivity extends UomeActivity {
         return R.layout.add_group;
     }
 
-    private void readIntent() {
-        purpose = requireIntentExtra(ActivityRequest.KEY);
-        if (purpose == ActivityRequest.EDIT_GROUP) {
-            ParcelableGroup parcelableGroup = requireIntentExtra(Constants.SELECTED_GROUP);
-            editedGroup = checkNotNull(parcelableGroup.getGroup());
-
+    private void readEditedGroup() {
+        if (getRequest() == ActivityRequest.EDIT_GROUP) {
+            editedGroup = requireIntentExtra(Group.KEY);
             nameEditText.setText(editedGroup.getName());
             descriptionEditText.setText(editedGroup.getDescription());
         }
     }
 
     private int actionBarTitle() {
-        switch (purpose) {
+        switch (getRequest()) {
             case ActivityRequest.ADD_GROUP:
                 return R.string.title_add_group;
             case ActivityRequest.EDIT_GROUP:
                 return R.string.title_edit_group;
             default:
-                throw new IllegalStateException("Invalid purpose: " + purpose);
+                throw new IllegalStateException("Invalid request: " + getRequest());
         }
+    }
+
+    private int getRequest() {
+        return requireIntentExtra(ActivityRequest.KEY);
     }
 
     @Override
@@ -103,31 +99,34 @@ public class AddGroupActivity extends UomeActivity {
 
         String description = descriptionEditText.getText().toString().trim();
 
-        if (purpose == ActivityRequest.EDIT_GROUP) {
-            /* Edit an existing group */
-            Group group = groupDao.getByName(name);
-            if (group != null && !group.equals(editedGroup)) {
-                nameTextLayout.setError(getString(R.string.error_group_exists));
-                return;
+        switch (getRequest()) {
+            case ActivityRequest.EDIT_GROUP: {
+                Group group = groupDao.getByName(name);
+                if (group != null && !group.equals(editedGroup)) {
+                    nameTextLayout.setError(getString(R.string.error_group_exists));
+                    return;
+                }
+
+                editedGroup.setName(name);
+                editedGroup.setDescription(description);
+                groupDao.update(editedGroup);
+
+                setResult(RESULT_OK);
+                break;
             }
+            case ActivityRequest.ADD_GROUP: {
+                if (groupDao.getByName(name) != null) {
+                    nameTextLayout.setError(getString(R.string.error_group_exists));
+                    return;
+                }
 
-            editedGroup.setName(name);
-            editedGroup.setDescription(description);
-            groupDao.update(editedGroup);
+                Group group = new Group(name, description);
+                long groupId = groupDao.create(group);
 
-            setResult(RESULT_OK);
-        } else {
-            /* Create a new group */
-            if (groupDao.getByName(name) != null) {
-                nameTextLayout.setError(getString(R.string.error_group_exists));
-                return;
+                Intent intent = new Intent().putExtra(Constants.GROUP_ID, groupId);
+                setResult(RESULT_OK, intent);
+                break;
             }
-
-            Group group = new Group(name, description);
-            long groupId = groupDao.create(group);
-
-            Intent intent = new Intent().putExtra(Constants.GROUP_ID, groupId);
-            setResult(RESULT_OK, intent);
         }
 
         finish();
