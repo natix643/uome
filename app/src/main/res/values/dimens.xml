@@ -3,7 +3,8 @@
 
     <dimen name="text_size_list_primary">16sp</dimen>
     <dimen name="text_size_list_secondary">14sp</dimen>
-    
-    <dimen name="floating_button_margin">0dp</dimen>
+
+    <dimen name="fab_margin">0dp</dimen>
+    <dimen name="fab_list_bottom_padding">88dp</dimen>
 
 </resources>

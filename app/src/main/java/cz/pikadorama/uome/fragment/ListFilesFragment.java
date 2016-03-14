@@ -59,7 +59,7 @@ public class ListFilesFragment extends BaseListFragment implements CreateDirecto
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.list_avatars, container, false);
+        return inflater.inflate(R.layout.list_files, container, false);
     }
 
     @Override

@@ -84,7 +84,7 @@
         <item name="android:scaleType">center</item>
         <item name="backgroundTint">?attr/colorPrimary</item>
         <item name="rippleColor">#42FFFFFF</item>
-        <item name="android:layout_margin">@dimen/floating_button_margin</item>
+        <item name="android:layout_margin">@dimen/fab_margin</item>
     </style>
 
 </resources>

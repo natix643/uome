@@ -33,7 +33,8 @@
             style="@style/List"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:choiceMode="multipleChoiceModal"/>
+            android:choiceMode="multipleChoiceModal"
+            android:paddingBottom="@dimen/fab_list_bottom_padding"/>
 
         <TextView
             android:id="@android:id/empty"

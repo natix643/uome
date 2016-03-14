@@ -50,7 +50,7 @@ public abstract class ListTransactionsFragment extends OverviewFragment implemen
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.list, container, false);
+        return inflater.inflate(R.layout.list_transactions, container, false);
     }
 
     @Override
