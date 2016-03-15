@@ -17,7 +17,6 @@ import java.util.List;
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.activity.ListDebtorsActivity;
 import cz.pikadorama.uome.common.Constants;
-import cz.pikadorama.uome.common.util.Parcelables;
 import cz.pikadorama.uome.common.util.TransactionFilter;
 import cz.pikadorama.uome.model.Person;
 import cz.pikadorama.uome.model.PersonDao;
@@ -36,7 +35,7 @@ public class NotificationScheduleReceiver extends BroadcastReceiver {
         PersonDao personDao = new PersonDao(context);
         TransactionDao transactionDao = new TransactionDao(context);
 
-        List<Transaction> transactionsToNotify = new ArrayList<>();
+        ArrayList<Transaction> transactionsToNotify = new ArrayList<>();
 
         List<Person> persons = personDao.getAllForGroup(Constants.SIMPLE_GROUP_ID);
         for (Person person : persons) {
@@ -130,14 +129,12 @@ public class NotificationScheduleReceiver extends BroadcastReceiver {
         return date.getTime() < calendar.getTimeInMillis();
     }
 
-    private void createNotification(Context context, List<Transaction> transactionsToNotify) {
+    private void createNotification(Context context, ArrayList<Transaction> transactionsToNotify) {
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent intent = new Intent(context, ListDebtorsActivity.class)
-                .putParcelableArrayListExtra(
-                        Constants.SELECTED_TRANSACTIONS,
-                        Parcelables.fromTransactions(transactionsToNotify));
+                .putExtra(Transaction.KEY, transactionsToNotify);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification notification = new Notification.Builder(context)

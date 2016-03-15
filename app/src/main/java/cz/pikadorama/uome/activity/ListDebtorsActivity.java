@@ -7,11 +7,8 @@ import java.util.List;
 
 import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.adapter.viewholder.TransactionViewHolder;
-import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeListActivity;
-import cz.pikadorama.uome.common.util.Parcelables;
 import cz.pikadorama.uome.model.Transaction;
-import cz.pikadorama.uome.model.parcelable.ParcelableTransaction;
 
 public class ListDebtorsActivity extends UomeListActivity {
 
@@ -27,9 +24,7 @@ public class ListDebtorsActivity extends UomeListActivity {
     }
 
     private void readIntent() {
-        List<ParcelableTransaction> parcelableTransactions = requireIntentExtra(Constants.SELECTED_TRANSACTIONS);
-        List<Transaction> transactions = Parcelables.toTransactions(parcelableTransactions);
-
+        List<Transaction> transactions = requireIntentExtra(Transaction.KEY);
         setListAdapter(TransactionViewHolder.forSimpleDebts(this, transactions));
     }
 

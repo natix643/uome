@@ -2,12 +2,15 @@ package cz.pikadorama.uome.model;
 
 import com.google.common.collect.ImmutableList;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 import static cz.pikadorama.uome.model.Transaction.Column.*;
 
-public class Transaction implements Entity {
+public class Transaction implements Entity, Serializable {
+
+    public static final String KEY = Transaction.class.getName();
 
     static final String TABLE_NAME = "transaction_table";
     static final String TEMP_TABLE_NAME = "transaction_table_temp";
