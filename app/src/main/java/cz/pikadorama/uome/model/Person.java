@@ -3,11 +3,14 @@ package cz.pikadorama.uome.model;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableList;
 
+import java.io.Serializable;
 import java.util.List;
 
 import static cz.pikadorama.uome.model.Person.Column.*;
 
-public class Person implements Entity {
+public class Person implements Entity, Serializable {
+
+    public static final String KEY = Person.class.getName();
 
     static final String TABLE_NAME = "person_table";
     static final String TEMP_TABLE_NAME = "person_table_temp";

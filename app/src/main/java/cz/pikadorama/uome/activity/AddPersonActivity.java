@@ -32,9 +32,6 @@ import cz.pikadorama.uome.common.view.Views;
 import cz.pikadorama.uome.dialog.SelectEmailDialog;
 import cz.pikadorama.uome.model.Person;
 import cz.pikadorama.uome.model.PersonDao;
-import cz.pikadorama.uome.model.parcelable.ParcelablePerson;
-
-import static com.google.common.base.Preconditions.checkNotNull;
 
 public class AddPersonActivity extends UomeActivity implements SelectEmailDialog.Callback {
 
@@ -43,9 +40,7 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
     private PersonDao personDao;
 
     private Person editedPerson;
-
     private long groupId;
-    private int purpose;
 
     private EditText nameEditText;
     private TextInputLayout nameTextLayout;
@@ -59,15 +54,15 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        personDao = new PersonDao(getApplicationContext());
+        personDao = new PersonDao(this);
+        initViews();
+
+        getSupportActionBar().setTitle(actionBarTitle());
+        readEditedPerson();
 
         if (savedInstanceState != null) {
             imageUri = savedInstanceState.getParcelable(Constants.IMAGE_URI);
         }
-
-        initViews();
-        readIntent();
-        getSupportActionBar().setTitle(actionBarTitle());
     }
 
     @Override
@@ -85,12 +80,10 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
         descriptionEditText = requireView(R.id.descriptionEditText);
     }
 
-    private void readIntent() {
-        purpose = requireIntentExtra(ActivityRequest.KEY);
-        switch (purpose) {
+    private void readEditedPerson() {
+        switch (getRequest()) {
             case ActivityRequest.EDIT_PERSON: {
-                ParcelablePerson parcelablePerson = requireIntentExtra(Constants.SELECTED_PERSON);
-                editedPerson = checkNotNull(parcelablePerson.getPerson());
+                editedPerson = requireIntentExtra(Person.KEY);
 
                 nameEditText.setText(editedPerson.getName());
                 emailEditText.setText(editedPerson.getEmail());
@@ -105,7 +98,7 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
                 break;
             }
             default:
-                throw new IllegalStateException("Illegal purpose: " + purpose);
+                throw new IllegalStateException("Invalid request: " + getRequest());
         }
     }
 
@@ -162,28 +155,32 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
         String email = emailEditText.getText().toString().trim();
         String description = descriptionEditText.getText().toString().trim();
 
-		/* Edit an existing person */
-        if (purpose == ActivityRequest.EDIT_PERSON) {
-            Person person = personDao.getByNameForGroup(name, editedPerson.getGroupId());
-            if (person != null && !person.equals(editedPerson)) {
-                nameTextLayout.setError(getString(R.string.error_person_exists_in_group));
-                return;
+        switch (getRequest()) {
+            case ActivityRequest.EDIT_PERSON: {
+                Person person = personDao.getByNameForGroup(name, editedPerson.getGroupId());
+                if (person != null && !person.equals(editedPerson)) {
+                    nameTextLayout.setError(getString(R.string.error_person_exists_in_group));
+                    return;
+                }
+
+                editedPerson.setName(name);
+                editedPerson.setEmail(email);
+                editedPerson.setDescription(description);
+                editedPerson.setImageUri(imageUri == null ? "" : imageUri.toString());
+                personDao.update(editedPerson);
+                break;
             }
-            editedPerson.setName(name);
-            editedPerson.setEmail(email);
-            editedPerson.setDescription(description);
-            editedPerson.setImageUri(imageUri == null ? "" : imageUri.toString());
-            personDao.update(editedPerson);
-        }
-        /* Create a new person */
-        else {
-            if (personDao.getByNameForGroup(name, groupId) != null) {
-                nameTextLayout.setError(getString(R.string.error_person_exists_in_group));
-                return;
+            case ActivityRequest.ADD_PERSON: {
+                if (personDao.getByNameForGroup(name, groupId) != null) {
+                    nameTextLayout.setError(getString(R.string.error_person_exists_in_group));
+                    return;
+                }
+
+                Person person = new Person(
+                        groupId, name, email, (imageUri == null ? "" : imageUri.toString()), description);
+                personDao.create(person);
+                break;
             }
-            Person person = new Person(
-                    groupId, name, email, (imageUri == null ? "" : imageUri.toString()), description);
-            personDao.create(person);
         }
 
         setResult(RESULT_OK);
@@ -277,13 +274,13 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
     }
 
     private int actionBarTitle() {
-        switch (purpose) {
+        switch (getRequest()) {
             case ActivityRequest.ADD_PERSON:
                 return R.string.title_add_person;
             case ActivityRequest.EDIT_PERSON:
                 return R.string.title_edit_person;
             default:
-                throw new IllegalStateException("Invalid purpose:" + purpose);
+                throw new IllegalStateException("Invalid request:" + getRequest());
         }
     }
 
@@ -292,4 +289,9 @@ public class AddPersonActivity extends UomeActivity implements SelectEmailDialog
         super.onSaveInstanceState(outState);
         outState.putParcelable(Constants.IMAGE_URI, imageUri);
     }
+
+    private int getRequest() {
+        return requireIntentExtra(ActivityRequest.KEY);
+    }
+
 }
