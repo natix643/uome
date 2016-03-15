@@ -18,10 +18,8 @@ import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.adapter.viewholder.PersonMultichoiceViewHolder;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeListActivity;
-import cz.pikadorama.uome.common.util.Parcelables;
 import cz.pikadorama.uome.model.Person;
 import cz.pikadorama.uome.model.PersonDao;
-import cz.pikadorama.uome.model.parcelable.ParcelablePerson;
 
 public class ListPersonsMultichoiceActivity extends UomeListActivity {
 
@@ -52,9 +50,9 @@ public class ListPersonsMultichoiceActivity extends UomeListActivity {
     }
 
     private void loadSelection() {
-        List<ParcelablePerson> parcelables = getIntent().getParcelableArrayListExtra(Constants.SELECTED_PERSONS);
-        if (parcelables != null) {
-            Set<Person> selection = new HashSet<>(Parcelables.toPersons(parcelables));
+        List<Person> persons = (List<Person>) getIntent().getSerializableExtra(Person.KEY);
+        if (persons != null) {
+            Set<Person> selection = new HashSet<>(persons);
             ListView listView = getListView();
             for (int i = 0; i < listView.getCount(); i++) {
                 if (selection.contains(adapter.getItem(i))) {
@@ -109,8 +107,7 @@ public class ListPersonsMultichoiceActivity extends UomeListActivity {
     }
 
     private void selectionDone() {
-        Intent intent = new Intent();
-        intent.putParcelableArrayListExtra(Constants.SELECTED_PERSONS, getSelectedPersons());
+        Intent intent = new Intent().putExtra(Person.KEY, getSelectedPersons());
         setResult(RESULT_OK, intent);
         finish();
     }
@@ -121,13 +118,13 @@ public class ListPersonsMultichoiceActivity extends UomeListActivity {
         invalidateOptionsMenu();
     }
 
-    private ArrayList<ParcelablePerson> getSelectedPersons() {
-        ArrayList<ParcelablePerson> persons = new ArrayList<>();
+    private ArrayList<Person> getSelectedPersons() {
+        ArrayList<Person> persons = new ArrayList<>();
         ListView listView = getListView();
 
         for (int i = 0; i < listView.getCount(); i++) {
             if (listView.isItemChecked(i)) {
-                persons.add(new ParcelablePerson(adapter.getItem(i)));
+                persons.add(adapter.getItem(i));
             }
         }
         return persons;

@@ -27,7 +27,6 @@ import cz.pikadorama.uome.R;
 import cz.pikadorama.uome.common.Constants;
 import cz.pikadorama.uome.common.activity.UomeActivity;
 import cz.pikadorama.uome.common.format.MoneyFormatter;
-import cz.pikadorama.uome.common.util.Parcelables;
 import cz.pikadorama.uome.common.view.DateTimePicker;
 import cz.pikadorama.uome.common.view.Views;
 import cz.pikadorama.uome.model.Person;
@@ -35,7 +34,6 @@ import cz.pikadorama.uome.model.PersonDao;
 import cz.pikadorama.uome.model.Transaction;
 import cz.pikadorama.uome.model.Transaction.Direction;
 import cz.pikadorama.uome.model.TransactionDao;
-import cz.pikadorama.uome.model.parcelable.ParcelablePerson;
 import cz.pikadorama.uome.model.parcelable.TransactionData;
 
 import static com.google.common.base.Preconditions.*;
@@ -64,7 +62,7 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
     /**
      * invariant: can never be null, only empty
      */
-    private List<Person> selectedPersons = new ArrayList<>();
+    private ArrayList<Person> selectedPersons = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,8 +103,7 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
             public void onClick(View view) {
                 Intent intent = new Intent(self, ListPersonsMultichoiceActivity.class)
                         .putExtra(Constants.GROUP_ID, getGroupId())
-                        .putParcelableArrayListExtra(Constants.SELECTED_PERSONS,
-                                Parcelables.fromPersons(selectedPersons));
+                        .putExtra(Person.KEY, selectedPersons);
                 startActivityForResult(intent, REQUEST_SELECT_PERSONS);
             }
         });
@@ -146,7 +143,7 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putParcelableArrayList(Constants.SELECTED_PERSONS, Parcelables.fromPersons(selectedPersons));
+        outState.putSerializable(Person.KEY, selectedPersons);
         super.onSaveInstanceState(outState);
     }
 
@@ -154,9 +151,8 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        ArrayList<ParcelablePerson> parcelablePersons =
-                savedInstanceState.getParcelableArrayList(Constants.SELECTED_PERSONS);
-        selectPersons(Parcelables.toPersons(parcelablePersons));
+        ArrayList<Person> persons = (ArrayList<Person>) savedInstanceState.getSerializable(Person.KEY);
+        selectPersons(persons);
     }
 
     @Override
@@ -164,13 +160,12 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
         if (resultCode == RESULT_OK) {
             checkState(requestCode == REQUEST_SELECT_PERSONS, "Illegal request code: %s", requestCode);
 
-            ArrayList<ParcelablePerson> parcelablePersons =
-                    data.getExtras().getParcelableArrayList(Constants.SELECTED_PERSONS);
-            selectPersons(Parcelables.toPersons(parcelablePersons));
+            ArrayList<Person> persons = (ArrayList<Person>) data.getExtras().getSerializable(Person.KEY);
+            selectPersons(persons);
         }
     }
 
-    private void selectPersons(List<Person> newPersons) {
+    private void selectPersons(ArrayList<Person> newPersons) {
         checkNotNull(newPersons);
         if (!selectedPersons.equals(newPersons)) {
             selectedPersons = newPersons;

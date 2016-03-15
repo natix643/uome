@@ -19,7 +19,6 @@ public class Constants {
 
     public static final int MISSING_EXTRA = -1;
 
-    public static final String SELECTED_PERSONS = "selectedPersons";
     public static final String SELECTED_TRANSACTIONS = "selectedTransactions";
 
     public static final BigDecimal MINUS_ONE = new BigDecimal("-1");
