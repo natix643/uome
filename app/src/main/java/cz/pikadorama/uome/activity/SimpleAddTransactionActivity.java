@@ -133,7 +133,7 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
     }
 
     private void loadIntent() {
-        TransactionData data = getIntent().getParcelableExtra(TransactionData.TAG);
+        TransactionData data = requireIntentExtra(TransactionData.KEY);
 
         Long personId = data.getPersonId();
         if (personId != null) {
@@ -161,7 +161,7 @@ public class SimpleAddTransactionActivity extends UomeActivity implements DateTi
     }
 
     private long getEditedTransactionId() {
-        TransactionData data = getIntent().getParcelableExtra(TransactionData.TAG);
+        TransactionData data = requireIntentExtra(TransactionData.KEY);
         return data.getId();
     }
 

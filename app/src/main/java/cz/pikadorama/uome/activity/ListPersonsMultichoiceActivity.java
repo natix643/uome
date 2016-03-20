@@ -50,7 +50,7 @@ public class ListPersonsMultichoiceActivity extends UomeListActivity {
     }
 
     private void loadSelection() {
-        List<Person> persons = (List<Person>) getIntent().getSerializableExtra(Person.KEY);
+        List<Person> persons = getIntentExtra(Person.KEY);
         if (persons != null) {
             Set<Person> selection = new HashSet<>(persons);
             ListView listView = getListView();

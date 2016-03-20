@@ -113,12 +113,12 @@ public class GroupAddTransactionActivity extends UomeActivity implements DateTim
     }
 
     private long getGroupId() {
-        TransactionData data = requireIntentExtra(TransactionData.TAG);
+        TransactionData data = requireIntentExtra(TransactionData.KEY);
         return data.getGroupId();
     }
 
     private void loadIntent() {
-        TransactionData data = requireIntentExtra(TransactionData.TAG);
+        TransactionData data = requireIntentExtra(TransactionData.KEY);
 
         Long personId = data.getPersonId();
         if (personId != null) {

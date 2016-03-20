@@ -1,16 +1,14 @@
 package cz.pikadorama.uome.model.parcelable;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
+import java.io.Serializable;
 import java.util.Date;
 
 import cz.pikadorama.uome.model.Transaction;
 import cz.pikadorama.uome.model.Transaction.Direction;
 
-public class TransactionData implements Parcelable {
+public class TransactionData implements Serializable {
 
-    public static final String TAG = TransactionData.class.getSimpleName();
+    public static final String KEY = TransactionData.class.getName();
 
     private Long id;
     private Long personId;
@@ -35,7 +33,7 @@ public class TransactionData implements Parcelable {
 
     public TransactionData() {}
 
-    public TransactionData(
+    private TransactionData(
             Long id,
             Long personId,
             Long groupId,
@@ -52,36 +50,6 @@ public class TransactionData implements Parcelable {
         this.direction = direction;
         this.description = description;
         this.dateTime = dateTime;
-    }
-
-    private TransactionData(Parcel source) {
-        this.id = (Long) source.readValue(null);
-        this.personId = (Long) source.readValue(null);
-        this.groupId = (Long) source.readValue(null);
-        this.value = source.readString();
-        this.financial = (Boolean) source.readValue(null);
-        String directionString = source.readString();
-        this.direction = directionString != null ? Direction.valueOf(directionString) : null;
-        this.description = source.readString();
-        Long millis = (Long) source.readValue(null);
-        this.dateTime = millis != null ? new Date(millis) : null;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel destination, int flags) {
-        destination.writeValue(id);
-        destination.writeValue(personId);
-        destination.writeValue(groupId);
-        destination.writeString(value);
-        destination.writeValue(financial);
-        destination.writeString(direction != null ? direction.toString() : null);
-        destination.writeString(description);
-        destination.writeValue(dateTime != null ? dateTime.getTime() : null);
     }
 
     public Long getId() {
@@ -148,15 +116,4 @@ public class TransactionData implements Parcelable {
         this.dateTime = dateTime;
     }
 
-    public static final Creator<TransactionData> CREATOR = new Creator<TransactionData>() {
-        @Override
-        public TransactionData createFromParcel(Parcel source) {
-            return new TransactionData(source);
-        }
-
-        @Override
-        public TransactionData[] newArray(int size) {
-            return new TransactionData[size];
-        }
-    };
 }

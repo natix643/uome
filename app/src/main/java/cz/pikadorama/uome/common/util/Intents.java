@@ -57,7 +57,7 @@ public class Intents {
     private static Intent addPrefilledTransaction(Activity activity, TransactionData data) {
         return new Intent(activity, addActivityClass(data.getGroupId()))
                 .putExtra(ActivityRequest.KEY, ActivityRequest.ADD_TRANSACTION)
-                .putExtra(TransactionData.TAG, data);
+                .putExtra(TransactionData.KEY, data);
     }
 
     private static TransactionData addTransactionData(Long groupId, Long personId) {
@@ -112,7 +112,7 @@ public class Intents {
     public static Intent editTransaction(Activity activity, Transaction transaction) {
         return new Intent(activity, SimpleAddTransactionActivity.class)
                 .putExtra(ActivityRequest.KEY, ActivityRequest.EDIT_TRANSACTION)
-                .putExtra(TransactionData.TAG, TransactionData.from(transaction));
+                .putExtra(TransactionData.KEY, TransactionData.from(transaction));
     }
 
     public static Intent editPerson(Activity activity, Person person) {
