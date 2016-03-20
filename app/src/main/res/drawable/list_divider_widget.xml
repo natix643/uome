@@ -2,6 +2,6 @@
 <inset xmlns:android="http://schemas.android.com/apk/res/android">
     <shape>
         <solid android:color="#1F000000"/>
-        <size android:height="0.5dp"/>
+        <size android:height="1dp"/>
     </shape>
 </inset>
