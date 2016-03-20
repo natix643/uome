@@ -24,7 +24,7 @@ import cz.pikadorama.uome.model.Group;
 import cz.pikadorama.uome.model.Person;
 import cz.pikadorama.uome.model.Transaction;
 import cz.pikadorama.uome.model.Transaction.Direction;
-import cz.pikadorama.uome.model.parcelable.TransactionData;
+import cz.pikadorama.uome.model.TransactionData;
 
 public class Intents {
 

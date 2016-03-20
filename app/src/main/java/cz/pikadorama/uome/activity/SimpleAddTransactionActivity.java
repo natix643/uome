@@ -33,7 +33,7 @@ import cz.pikadorama.uome.model.PersonDao;
 import cz.pikadorama.uome.model.Transaction;
 import cz.pikadorama.uome.model.Transaction.Direction;
 import cz.pikadorama.uome.model.TransactionDao;
-import cz.pikadorama.uome.model.parcelable.TransactionData;
+import cz.pikadorama.uome.model.TransactionData;
 
 public class SimpleAddTransactionActivity extends UomeActivity implements DateTimePicker.Holder {
 

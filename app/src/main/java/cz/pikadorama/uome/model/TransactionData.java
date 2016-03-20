@@ -1,9 +1,8 @@
-package cz.pikadorama.uome.model.parcelable;
+package cz.pikadorama.uome.model;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import cz.pikadorama.uome.model.Transaction;
 import cz.pikadorama.uome.model.Transaction.Direction;
 
 public class TransactionData implements Serializable {
