@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" translatable="false">U.O.me</string>
+
+    <!-- Buttons, Menus etc. -->
+
+    <string name="delete">हटवा</string>
+    <string name="button_backup">बॅकअप</string>
+    <string name="button_restore">रिस्टोर</string>
+    <string name="button_export">निर्यात</string>
+    <string name="button_select_all">सर्व निवडा</string>
+    <string name="button_select_none">निवड काढा</string>
+    <string name="menu_add_transaction">व्यवहार जोडा</string>
+    <string name="menu_add_group">@string/title_add_group</string>
+    <string name="menu_add_person">@string/title_add_person</string>
+    <string name="menu_save">जतन करा</string>
+    <string name="menu_done">पूर्ण झाले</string>
+    <string name="menu_edit">बदल करा</string>
+    <string name="menu_edit_person">व्यक्तीमध्ये बदल करा</string>
+    <string name="menu_edit_group">गटमध्ये बदल करा</string>
+    <string name="menu_delete">हटवा</string>
+    <string name="menu_delete_person">व्यक्ती हटवा</string>
+    <string name="menu_delete_group">गट हटवा</string>
+    <string name="menu_select_all">सर्व निवडा</string>
+    <string name="menu_select_none">काहीही निवडा</string>
+    <string name="menu_import_contact">संपर्क आयात करा</string>
+    <string name="menu_settle_debt">कर्ज फेडा</string>
+    <string name="menu_settle_transaction">फेडा</string>
+    <string name="menu_send_email_with_debt">कर्जाबद्दल ई-मेल पाठवा</string>
+    <string name="menu_help">@string/title_help</string>
+    <string name="menu_create_directory">फोल्डर बनवा</string>
+    <string name="menu_settings">@string/title_settings</string>
+    <string name="menu_filter">फिल्टर</string>
+    <string name="menu_filter_all">सर्व</string>
+    <string name="menu_filter_financial">आर्थिक</string>
+    <string name="menu_filter_non_financial">गैर-आर्थिक</string>
+
+<!-- Empty list views -->
+
+    <string name="empty_list_transactions">कोणतेही व्यवहार नाहीत</string>
+    <string name="empty_list_people">कोणी ही नाही</string>
+
+<!-- Form hints, labels, buttons -->
+
+    <string name="hint_person_name">नाव *</string>
+    <string name="hint_email">ई-मेल</string>
+    <string name="hint_group_name">नाव *</string>
+    <string name="hint_description">माहिती</string>
+    <string name="label_amount">रक्कम</string>
+    <string name="hint_amount">रक्कम *</string>
+    <string name="hint_total_amount">एकूण रक्कम *</string>
+    <string name="label_borrowed_item">वस्तु</string>
+    <string name="hint_borrowed_item">उधारलेले वस्तु *</string>
+    <string name="button_withdrawal">काढणे</string>
+    <string name="button_deposit">जमा</string>
+    <string name="button_received">दिले ↑</string>
+    <string name="button_gave">मिळाले ↓</string>
+    <string name="label_person">व्यक्ती</string>
+    <string name="hint_select_person">व्यक्ती निवडा</string>
+    <string name="label_people">लोक</string>
+    <string name="hint_select_people">लोक निवडा *</string>
+    <string name="label_datetime">कधी</string>
+    <string name="label_export_directory">फोल्डर</string>
+    <string name="hint_select_directory">फोल्डर निवडा</string>
+    <string name="label_select_groups">गट निवडा</string>
+
+<!-- ActionBar titles -->
+
+    <string name="title_add_person">व्यक्ती जोडा</string>
+    <string name="title_add_group">गट जोडा</string>
+    <string name="title_add_transaction">व्यवहार जोडा</string>
+    <string name="title_edit_person">व्यक्तीमध्ये बदल करा</string>
+    <string name="title_edit_group">गटामध्ये बदल करा</string>
+    <string name="title_edit_transaction">व्यवहारात बदल करा</string>
+    <string name="title_unsettled_debts">न फेडलेले कर्ज</string>
+    <string name="title_help">मदत</string>
+    <string name="title_settings">सेटिंग्ज</string>
+    <string name="title_export">CSV मध्ये निर्यात करा</string>
+    <string name="title_select_directory">फोल्डर निवडा</string>
+    <string name="title_about">U.O.me बद्दल</string>
+    <string name="title_backup">बॅकअप</string>
+
+<!-- Tabs -->
+
+    <string name="tab_people">लोक</string>
+    <string name="tab_transactions">व्यवहार</string>
+
+<!-- Error messages -->
+
+    <string name="error">त्रुटी आढळले</string>
+    <string name="error_no_people">कमीतकमी एक व्यक्ती निवडा</string>
+    <string name="error_no_name">कमीतकमी एक नाव निर्दिष्ट करा</string>
+    <string name="error_no_amount">धण रक्कम निर्दिष्ट करा</string>
+    <string name="error_no_borrowed_item">आपल्याला उधारलेले वस्तु निर्दिष्ट करावे लागेल</string>
+    <string name="error_person_exists_in_group">या नावाचा व्यक्ती आधीच उपलब्ध आहे</string>
+    <string name="error_group_exists">या नावाचा गट आधीच उपलब्ध आहे</string>
+    <string name="error_export">निर्यात अयशस्वी. आपला एसडी कार्ड कनेक्ट केलेला असल्याचे सुनिश्चित करा.</string>
+    <string name="error_cannot_write_directory">या फोल्डरमध्ये जतन करणे शक्य नाही</string>
+    <string name="error_directory_exists">या नावाचे फोल्डर / फाइल आधीच उपलब्ध आहे</string>
+    <string name="error_create_directory">फोल्डर तयार करताना त्रुटी</string>
+    <string name="error_backup_failed">बॅकअप अयशस्वी झाले</string>
+    <string name="error_missing_backup_file">या फोल्डरमध्ये बॅकअप फाइल नाही</string>
+    <string name="error_widget_not_created">विजेट तयार होऊ शकत नाही</string>
+
+<!-- Notifications -->
+
+    <string name="notification_title">U.O.me - उधार संबंधी नोटिफिकेशन</string>
+    <string name="notification_content_title">आपले उधार फेडले गेलेले नाही</string>
+    <string name="notification_content_text">अधिक तपशीलासाठी येथे क्लिक करा</string>
+
+<!-- Preferences -->
+
+    <string name="pref_category_notifications">नोटीफिकेशन</string>
+    <string name="pref_allow_notifications">नोटिफिकेशनला परवानगी द्या</string>
+    <string name="pref_allow_notifications_note">आपल्याला काळा-काळात कर्जाबद्दल नियमितपणे सूचित केले जाईल</string>
+    <string name="pref_debt_age">कर्ज काळ</string>
+    <string name="pref_debt_age_note">नोटिफिकेशनांसाठी कर्ज किती जुने असावे ते ठरवा (कालांतराने नोटिफिकेशन येणार)</string>
+    <string name="pref_category_other">इतर</string>
+    <string name="pref_export">@string/title_export</string>
+    <string name="pref_backup">बॅकअप / रीस्टोर</string>
+    <string name="pref_about">@string/title_about</string>
+
+<!-- Export -->
+
+    <string name="export_success">डेटा यशस्वीरित्या निर्यात केला</string>
+    <string name="export_summary_suffix">सारांश</string>
+    <string name="export_header_person">व्यक्ती</string>
+    <string name="export_header_email">ई-मेल</string>
+    <string name="export_header_financial">आर्थिक</string>
+    <string name="export_header_value">मूल्य</string>
+    <string name="export_header_description">माहिती</string>
+    <string name="export_header_datetime">तारीख आणि वेळ</string>
+    <string name="export_header_balance">शिल्लक</string>
+
+<!-- Backup -->
+
+    <string name="backup_description_backup">बॅकअप दरम्यान, आपला सर्व सध्याचा डेटा <b>{0}</b> फाइलमध्ये जतन केला जाईल, जो निवडलेल्या फोल्डरमध्ये तयार केला जाईल.</string>
+    <string name="backup_description_restore"><![CDATA[मागील बॅकअपमधून तयार केलेल्या <b>{0}</b> फाइलमधून डेटा रिस्टोर केला जाणार. रिस्टोर प्रक्रिया सध्याच्या सर्व दाता हटवते आणि त्यांना बॅकअप फाईलच्या डेटासह बदलणार!]]></string>
+
+<!-- About -->
+
+    <string name="about_version" translatable="false">v. {0}</string>
+    <string name="about_copyright" translatable="false">© Pikadorama</string>
+    <string name="about_email"><a href="mailto:pikadorama@gmail.com">आमच्याशी संपर्क साधा</a></string>
+    <string name="about_libraries">मुक्त-स्त्रोत लायब्ररी</string>
+
+<!-- E-mail -->
+
+    <string name="email_subject">व्यवहारांची (कर्ज) यादी</string>
+    <string name="email_amount">रक्कम: {0}</string>
+    <string name="email_item">वस्तु: {0}</string>
+    <string name="email_description">माहिती: {0}</string>
+    <string name="email_datetime">वेळः {0}</string>
+    <string name="email_total">एकूण: {0}</string>
+    <string name="email_footer">हे ई-मेल u.o.me (https://play.google.com/stre/apps/details?id=cz.kn.uome) द्वारे तयार केले गेले आहे.</string>
+
+<!-- Toasts -->
+
+    <string name="toast_group_added">गट जोडला</string>
+    <string name="toast_group_updated">गट अपडेट करण्यात आला</string>
+    <string name="toast_group_deleted">गट हटविला गेला</string>
+    <string name="toast_person_added">व्यक्ती जोडली गेली</string>
+    <string name="toast_person_updated">व्यक्ती अपडेट केली गेली</string>
+    <string name="toast_person_deleted">व्यक्ती हटविली गेली</string>
+    <string name="toast_persons_deleted">लोक हटवले गेले</string>
+    <string name="toast_transaction_added">व्यवहार जोडला गेला</string>
+    <string name="toast_transaction_updated">व्यवहार अपडेट केले गेले</string>
+    <string name="toast_transactions_deleted">व्यवहार हटविण्यात आले</string>
+    <string name="toast_directory_created">फोल्डर तयार केले गेले</string>
+    <string name="toast_backup_successful">बॅकअप यशस्वी झाला</string>
+    <string name="toast_restore_successful">रिस्टोर यशस्वी झाले</string>
+
+<!-- Dialogs -->
+
+    <string name="dialog_delete_group_title">गट हटवा?</string>
+    <string name="dialog_delete_group_message">सर्व लोक आणि व्यवहारांसह गट हटविला जाईल</string>
+    <string name="dialog_delete_person_title">व्यक्ती हटवा?</string>
+    <string name="dialog_delete_person_message">सर्व व्यवहारांसह व्यक्ती हटविली जाईल</string>
+    <string name="dialog_delete_persons_title">निवडलेल्या लोकांना हटवा?</string>
+    <string name="dialog_delete_persons_message">लोक त्यांच्या सर्व व्यवहारांसह हटविले जातील</string>
+    <string name="dialog_delete_transactions_message">निवडलेल्या व्यवहार हटवा?</string>
+    <string name="dialog_select_email_title">ई-मेल पत्ता निवडा</string>
+    <string name="dialog_create_directory_title">फोल्डर तयार करा</string>
+    <string name="dialog_create_directory_hint">नाव</string>
+    <string name="dialog_restore_from_backup_title">डेटा रीस्टोर करा?</string>
+    <string name="dialog_restore_from_backup_message">सर्व वर्तमान डेटा बॅकअपमधल्या डेटासह रीस्टोर केला जाईल.</string>
+    <string name="dialog_restore_from_backup_button">रिस्टोर</string>
+    <string name="dialog_overwrite_backup_title">जुन्या बॅकअपवर अधिलिखित करा?</string>
+    <string name="dialog_overwrite_backup_message">या फोल्डरमध्ये आधीपासूनच जुने बॅकअप फाइल आहे ते पुन्हा लिहायचे की नाही?</string>
+    <string name="dialog_overwrite_backup_button">अधीलिखित</string>
+
+<!-- Simple debts -->
+
+    <string name="simple_debts_name">सोपे कर्ज</string>
+
+<!-- Content descriptions -->
+
+    <string name="content_description_avatar">व्यक्तीचे अवतार</string>
+    <string name="content_description_about_icon">U.O.me चिन्ह</string>
+    <string name="content_description_open_drawer">नेव्हिगेशन उघडा</string>
+    <string name="content_description_close_drawer">नेव्हिगेशन बंद करा</string>
+
+<!-- Amount direction labels -->
+
+    <string name="amount_you_owe">आपण देणार</string>
+    <string name="amount_you_lent">आपण दिले</string>
+    <string name="amount_no_debt">कोणतेही कर्ज नाही</string>
+    <string name="amount_received">@string/button_received</string>
+    <string name="amount_gave">@string/button_gave</string>
+
+<!-- Widget -->
+
+    <string name="widget_configuration_title">विजेट कॉन्फिगरेशन</string>
+    <string name="widget_no_debts">कोणतेही कर्ज नाही</string>
+    <string name="widget_who_owes_most">सर्वात जास्त कर्ज कोण घेतले आहे?</string>
+    <string name="widget_who_owes_longest_time">सर्वात लांब काळासाठी कोण कर्ज घेतले आहे?</string>
+    <string name="widget_whom_i_owe_most">मी सर्वात जास्त कोणाकडून कर्ज घेतले?</string>
+    <string name="widget_whom_i_owe_longest_time">मी कोणाकडून सर्वात लांब काळासाठी उधार घेतले आहे?</string>
+    <string name="widget_pref_config_title">कॉन्फिगरेशन</string>
+    <string name="widget_pref_debt_type_title">कर्जाचा प्रकार</string>
+    <string name="widget_pref_debt_limit_title">दर्शविण्यासाठी वस्तुची कमाल संख्या</string>
+    <string name="widget_limit_all_debts">सर्व कर्ज</string>
+
+<!-- Misc -->
+
+    <string name="yes">हो</string>
+    <string name="no">नाही</string>
+    <string name="close">बंद करा</string>
+    <string name="bottom_bar_total">एकूण</string>
+    <string name="withdrawal">काढणे</string>
+    <string name="deposit">ठेव</string>
+    <string name="debt_settlement">कर्जाची फेड</string>
+    <string name="permission_not_granted">आपण या कारवाईसाठी परवानगी रद्द केली आहे.</string>
+
+</resources>
