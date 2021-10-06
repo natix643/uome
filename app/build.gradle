@@ -1,13 +1,14 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdk 29
 
     defaultConfig {
         applicationId "cz.kns.uome"
-        minSdkVersion 15
-        targetSdkVersion 23
+        minSdk 15
+        targetSdk 29
 
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_7
@@ -30,13 +31,13 @@ ext {
 }
 
 dependencies {
-    compile "com.android.support:appcompat-v7:$supportLibVersion"
-    compile "com.android.support:support-v13:$supportLibVersion"
-    compile "com.android.support:design:$supportLibVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation "com.android.support:support-v13:$supportLibVersion"
+    implementation "com.android.support:design:$supportLibVersion"
 
-    compile 'com.google.guava:guava:18.0'
-    compile 'net.sourceforge.javacsv:javacsv:2.0'
-    compile 'com.mikhaellopez:circularimageview:3.0.0'
+    implementation 'com.google.guava:guava:18.0'
+    implementation 'net.sourceforge.javacsv:javacsv:2.0'
+    implementation 'com.mikhaellopez:circularimageview:3.0.0'
 
-    compile files('libs/android-viewholder-listviews-0.8-SNAPSHOT.jar')
+    implementation fileTree(dir: 'libs', include: '*.jar')
 }

@@ -16,3 +16,5 @@
 
 # leave ignored unless it contains something else than proxy settings
 gradle.properties
+/app/release/
+/.idea/
