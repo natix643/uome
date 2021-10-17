@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" translatable="false">U.O.me</string>
+
+    <!-- Buttons, Menus etc. -->
+
+    <string name="delete">मिटाएँ</string>
+
+    <string name="button_backup">बैकअप</string>
+    <string name="button_restore">रिस्टोर</string>
+    <string name="button_export">निर्यात</string>
+    <string name="button_select_all">सभी चुनें</string>
+    <string name="button_select_none">चयन हटाएँ</string>
+    <string name="menu_add_transaction">लेन-देन जोड़ें</string>
+    <string name="menu_add_group">@string/title_add_group</string>
+    <string name="menu_add_person">@string/title_add_person</string>
+    <string name="menu_save">सेव करें</string>
+    <string name="menu_done">पूर्ण हुआ</string>
+    <string name="menu_edit">बदलाव करें</string>
+    <string name="menu_edit_person">व्यक्ति में बदलाव करें</string>
+    <string name="menu_edit_group">समूह में बदलाव करें</string>
+    <string name="menu_delete">मिटाएँ</string>
+    <string name="menu_delete_person">व्यक्ति मिटाएँ</string>
+    <string name="menu_delete_group">समूह मिटाएँ</string>
+    <string name="menu_select_all">सभी चुनें</string>
+    <string name="menu_select_none">चयन हटाएँ</string>
+    <string name="menu_import_contact">संपर्क आयात करें</string>
+    <string name="menu_settle_debt">उधार चुकाएँ</string>
+    <string name="menu_settle_transaction">चुकाएँ</string>
+    <string name="menu_send_email_with_debt">उधार संबधी ई-मेल भेजें</string>
+    <string name="menu_help">@string/title_help</string>
+    <string name="menu_create_directory">फ़ोल्डर बनाएँ</string>
+    <string name="menu_settings">@string/title_settings</string>
+    <string name="menu_filter">फ़िल्टर</string>
+    <string name="menu_filter_all">सभी</string>
+    <string name="menu_filter_financial">आर्थिक</string>
+    <string name="menu_filter_non_financial">गैर-आर्थिक</string>
+
+<!-- Empty list views -->
+
+    <string name="empty_list_transactions">कोई लेन-देन नहीं</string>
+    <string name="empty_list_people">कोई भी नहीं</string>
+
+<!-- Form hints, labels, buttons -->
+
+    <string name="hint_person_name">नाम *</string>
+    <string name="hint_email">ई-मेल</string>
+    <string name="hint_group_name">नाम *</string>
+    <string name="hint_description">विवरण</string>
+    <string name="label_amount">राशि</string>
+    <string name="hint_amount">राशि *</string>
+    <string name="hint_total_amount">कुल राशि *</string>
+    <string name="label_borrowed_item">वस्तु</string>
+    <string name="hint_borrowed_item">उधार लिया गया वस्तु *</string>
+    <string name="button_withdrawal">निकासी</string>
+    <string name="button_deposit">जमा</string>
+    <string name="button_received">दिया हुआ ↑</string>
+    <string name="button_gave">प्राप्त हुआ ↓</string>
+    <string name="label_person">व्यक्ति</string>
+    <string name="hint_select_person">व्यक्ति चुनें</string>
+    <string name="label_people">व्यक्ति</string>
+    <string name="hint_select_people">लोग चुनें *</string>
+    <string name="label_datetime">कब</string>
+    <string name="label_export_directory">फ़ोल्डर</string>
+    <string name="hint_select_directory">फ़ोल्डर चुने</string>
+    <string name="label_select_groups">समूह्स चुनें</string>
+
+<!-- ActionBar titles -->
+
+    <string name="title_add_person">व्यक्ति जोड़ें</string>
+    <string name="title_add_group">समूह जोड़ें</string>
+    <string name="title_add_transaction">लेन-देन जोड़ें</string>
+    <string name="title_edit_person">व्यक्ति में बदलाव करें</string>
+    <string name="title_edit_group">समूह में बदलाव करें</string>
+    <string name="title_edit_transaction">लेन-देन में बदलाव करें</string>
+    <string name="title_unsettled_debts">बकाया उधार</string>
+    <string name="title_help">मदद</string>
+    <string name="title_settings">सेटिंग्स</string>
+    <string name="title_export">CSV फाईल में निर्यात करें</string>
+    <string name="title_select_directory">फ़ोल्डर चुने</string>
+    <string name="title_about">U.O.me के बारे में</string>
+    <string name="title_backup">बैकअप</string>
+
+<!-- Tabs -->
+
+    <string name="tab_people">व्यक्ति</string>
+    <string name="tab_transactions">लेन-देन</string>
+
+<!-- Error messages -->
+
+    <string name="error">कुछ गड़बड़ है</string>
+    <string name="error_no_people">कम से कम एक व्यक्ति चुनें</string>
+    <string name="error_no_name">आपको एक नाम उल्लिखित करना होगा</string>
+    <string name="error_no_amount">आपको धन राशि उल्लिखित करना होगा</string>
+    <string name="error_no_borrowed_item">आपको उधार लेने वाले वस्तु का उल्लेख करना होगा</string>
+    <string name="error_person_exists_in_group">इस नाम का व्यक्ति पहले से ही मौजूद है</string>
+    <string name="error_group_exists">इस नाम का समूह पहले से ही मौजूद है</string>
+    <string name="error_export">निर्यात असफल रहा। यकीन करें की आपका मेमोरी कार्ड ठीक से जुड़ा हुआ हैं।</string>
+    <string name="error_cannot_write_directory">इस फ़ोल्डर के अंदर प्रविष्टि मुमकिन नहीं</string>
+    <string name="error_directory_exists">इस नाम का फाईल/फ़ोल्डर पहले से ही मौजूद हैं</string>
+    <string name="error_create_directory">फ़ोल्डर बनाते समय गलती पाई गई</string>
+    <string name="error_backup_failed">बैकअप असफल रहा</string>
+    <string name="error_missing_backup_file">इस फ़ोल्डर में बैकअप फाईल मौजूद नहीं हैं</string>
+    <string name="error_widget_not_created">विजेट नहीं बनाया जा सकता</string>
+
+<!-- Notifications -->
+
+    <string name="notification_title">U.O.me - उधार नोटिफिकेशन</string>
+    <string name="notification_content_title">आपके बकाया उधार पूर्ण नहीं हैं</string>
+    <string name="notification_content_text">अधिक जानकारी के लिए यहाँ क्लिक करें</string>
+
+<!-- Preferences -->
+
+    <string name="pref_category_notifications">नोटिफिकेशन</string>
+    <string name="pref_allow_notifications">नोटिफिकेशनो को मंज़ूर करे</string>
+    <string name="pref_allow_notifications_note">आपको समय-समय पर बकाया उधारों के बारे में सूचित किया जाएगा</string>
+    <string name="pref_debt_age">उधार काल</string>
+    <string name="pref_debt_age_note">तय करें की नोटिफिकेशन के लिए  उधार कितना पुराना हों (कालावधि के बाद, नोटिफिकेशन दिखेंगे)</string>
+    <string name="pref_category_other">अन्य</string>
+    <string name="pref_export">@string/title_export</string>
+    <string name="pref_backup">बैकअप / रिस्टोर</string>
+    <string name="pref_about">@string/title_about</string>
+
+<!-- Export -->
+
+    <string name="export_success">डेटा सफलतापूर्वक निर्यात किया गया</string>
+    <string name="export_summary_suffix">सारांश</string>
+    <string name="export_header_person">व्यक्ति</string>
+    <string name="export_header_email">ई-मेल</string>
+    <string name="export_header_financial">आर्थिक</string>
+    <string name="export_header_value">क़ीमत</string>
+    <string name="export_header_description">विवरण</string>
+    <string name="export_header_datetime">तारीख और समय</string>
+    <string name="export_header_balance">बकाया</string>
+
+<!-- Backup -->
+
+    <string name="backup_description_backup">बैकअप के दौरान, आपका सभी वर्तमान डेटा <b>{0}</b> फ़ाइल में सहेजा जाएगा, जिसे चयनित फ़ोल्डर में बनाया जाएगा।</string>
+    <string name="backup_description_restore"><![CDATA[डेटा को <b>{0}</b> फ़ाइल में से रिस्टोर किया जा सकता है जिसे पिछले बैकअप द्वारा बनाया गया था।  रिस्टोर प्रक्रिया सभी मौजूदा डेटा को हटा देगा और उन्हें बैकअप फ़ाइल के डेटा से बदल देगा!]]></string>
+
+<!-- About -->
+
+    <string name="about_version" translatable="false">v. {0}</string>
+    <string name="about_copyright" translatable="false">© Pikadorama</string>
+    <string name="about_email"><a href="mailto:pikadorama@gmail.com">हमसे संपर्क करें</a></string>
+    <string name="about_libraries">मुक्त-स्त्रोत लाइब्ररीज़</string>
+
+<!-- E-mail -->
+
+    <string name="email_subject">(उधार) लेन-देन सूची</string>
+    <string name="email_amount">राशि: {0}</string>
+    <string name="email_item">वस्तु: {0}</string>
+    <string name="email_description">विवरण: {0}</string>
+    <string name="email_datetime">समय: {0}</string>
+    <string name="email_total">कुल: {0}</string>
+    <string name="email_footer">यह ई-मेल U.O.me (https://play.google.com/store/apps/details?id=cz.kns.uome) द्वारा तैयार किया गया है।</string>
+
+<!-- Toasts -->
+
+    <string name="toast_group_added">समूह जोड़ा गया</string>
+    <string name="toast_group_updated">समूह अपडेट किया गया</string>
+    <string name="toast_group_deleted">समूह मिटाया गया</string>
+    <string name="toast_person_added">व्यक्ति जोड़ा गया</string>
+    <string name="toast_person_updated">व्यक्ति अपडेट किया गया</string>
+    <string name="toast_person_deleted">व्यक्ति मिटाया गया</string>
+    <string name="toast_persons_deleted">लोग मिटाए गए</string>
+    <string name="toast_transaction_added">लेन-देन जोड़ा गया</string>
+    <string name="toast_transaction_updated">लेन-देन अपडेट किया गया</string>
+    <string name="toast_transactions_deleted">लेन-देन मिटाएं गए</string>
+    <string name="toast_directory_created">फ़ोल्डर बनाया गया</string>
+    <string name="toast_backup_successful">बैकअप सफल रहा</string>
+    <string name="toast_restore_successful">रिस्टोर सफल रहा</string>
+
+<!-- Dialogs -->
+
+    <string name="dialog_delete_group_title">समूह मिटाना हैं?</string>
+    <string name="dialog_delete_group_message">सभी लोगों और लेन-देन वाले समूह को मिटा दिया जाएगा।</string>
+    <string name="dialog_delete_person_title">व्यक्ति मिटाना हैं?</string>
+    <string name="dialog_delete_person_message">व्यक्ति को उसके सभी लेन-देन के साथ मिटा दिया जाएगा।</string>
+    <string name="dialog_delete_persons_title">चुना गया व्यक्ति मिटाना हैं?</string>
+    <string name="dialog_delete_persons_message">सभी लोगों और लेन-देन को मिटा दिया जाएगा।</string>
+    <string name="dialog_delete_transactions_message">चुना हुआ लेन-देन मिटाना हैं?</string>
+    <string name="dialog_select_email_title">ई-मेल पता चुनें</string>
+    <string name="dialog_create_directory_title">फ़ोल्डर बनाएँ</string>
+    <string name="dialog_create_directory_hint">नाम</string>
+    <string name="dialog_restore_from_backup_title">डेटा रिस्टोर करें?</string>
+    <string name="dialog_restore_from_backup_message">सभी मौजूदा डेटा को बैकअप के डेटा से बदल दिया जाएगा।</string>
+    <string name="dialog_restore_from_backup_button">रिस्टोर</string>
+    <string name="dialog_overwrite_backup_title">पुराने बैकअप को हटाकर नया बैकअप करें?</string>
+    <string name="dialog_overwrite_backup_message">इस फ़ोल्डर में पहले से पुराना बैकअप फाईल मौजूद हैं। नया बैकअप करें?</string>
+    <string name="dialog_overwrite_backup_button">नया बैकअप करें</string>
+
+<!-- Simple debts -->
+
+    <string name="simple_debts_name">सामान्य उधार</string>
+
+<!-- Content descriptions -->
+
+    <string name="content_description_avatar">व्यक्ति का अवतार</string>
+    <string name="content_description_about_icon">U.O.me आइकन</string>
+    <string name="content_description_open_drawer">नेविगेशन ओपन करें</string>
+    <string name="content_description_close_drawer">नेविगेशन बंद करें</string>
+
+<!-- Amount direction labels -->
+
+    <string name="amount_you_owe">आप पर उधार</string>
+    <string name="amount_you_lent">आपने उधार दिया</string>
+    <string name="amount_no_debt">कोई उधार नहीं</string>
+    <string name="amount_received">@string/button_received</string>
+    <string name="amount_gave">@string/button_gave</string>
+
+<!-- Widget -->
+
+    <string name="widget_configuration_title">विजेट सेटिंग</string>
+    <string name="widget_no_debts">कोई उधार नहीं</string>
+    <string name="widget_who_owes_most">किसने मुझसे सबसे ज़्यादा उधार लिया है?</string>
+    <string name="widget_who_owes_longest_time">किसने मुझसे सबसे ज़्यादा लंबे समय के लिए उधार लिया है?</string>
+    <string name="widget_whom_i_owe_most">मैंने किनसे सबसे ज़्यादा उधार लिया हैं?</string>
+    <string name="widget_whom_i_owe_longest_time">मैंने किनसे सबसे ज़्यादा लंबे समय के लिए उधार लिया है?</string>
+    <string name="widget_pref_config_title">सेटिंग</string>
+    <string name="widget_pref_debt_type_title">उधार का प्रकार</string>
+    <string name="widget_pref_debt_limit_title">दिखाने के लिए आइटम की अधिकतम संख्या</string>
+    <string name="widget_limit_all_debts">सभी उधार</string>
+
+<!-- Misc -->
+
+    <string name="yes">हाँ</string>
+    <string name="no">नहीं</string>
+    <string name="close">बंद करें</string>
+    <string name="bottom_bar_total">कुल</string>
+    <string name="withdrawal">निकास</string>
+    <string name="deposit">जमा</string>
+    <string name="debt_settlement">उधार चुकाएँ</string>
+    <string name="permission_not_granted">आपने इस कार्रवाई की अनुमति रद्द कर दी है।</string>
+
+</resources>
